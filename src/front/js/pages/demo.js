@@ -4,6 +4,7 @@ import { Sidebar } from "../component/Sidebar.jsx";
 import { RequestInformation } from "../component/requestedInfo.jsx";
 
 import { Context } from "../store/appContext";
+import { SignUp } from "../component/SignUp.jsx";
 
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
@@ -16,6 +17,7 @@ export const Demo = () => {
 				</div>
 				<div className="col-9">
 					<RequestInformation />
+					<SignUp />
 				</div>
 			</div>
 		</div>

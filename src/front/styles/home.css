@@ -10,7 +10,7 @@ body{
     background-color: rgb(247, 247, 247);
 }
 
-/* FORMULARIO DE REGISTRO */
+/* FORMULARIO DE REGISTRO  Y LOGIN */
 
 .main-row{
     width: 60%;
@@ -73,4 +73,13 @@ body{
     color: white;
     text-shadow: 0 0 15px blue;
 }   
+
+
+.main-row-login{
+    width: 40%;
+}
+
+
+
+
     

@@ -5,7 +5,7 @@ import { RequestInformation } from "../component/requestedInfo.jsx";
 
 import { Context } from "../store/appContext";
 import { SignUp } from "../component/SignUp.jsx";
-
+import { Login } from "../component/login.jsx";
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
 
@@ -17,7 +17,7 @@ export const Demo = () => {
 				</div>
 				<div className="col-9 mt-5">
 					{/* <RequestInformation /> */}
-					<SignUp />
+					<Login />
 				</div>
 			</div>
 		</div>

@@ -5,7 +5,44 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
-
+body{
+    background-color: rgb(247, 247, 247);
+}
 
 /* FORMULARIO DE REGISTRO */
 
+.main-row{
+    width: 60%;
+}
+.SingUp-form{
+    background-color: #a563cc0c;
+    border-radius: 25px;
+    width: 50%;
+}
+
+.ico{
+    font-size: 40px;
+}
+.ico-exit{
+    font-size: 25px;
+}
+.exit:hover{
+    background-color: #B8D0EB;
+}
+.newUser{
+    margin-left: 10px;
+}
+.newUser h2{
+    margin-bottom: 1px;
+}
+.formSignUp{
+    margin: 20px;
+}
+
+.button{
+    width: 50%;
+    background-color: #B8D0EB
+}
+.button:hover{
+    background-color: #B298DC;
+}

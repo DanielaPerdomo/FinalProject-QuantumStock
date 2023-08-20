@@ -13,10 +13,10 @@ export const Demo = () => {
 		<div className="container-fluid">
 			<div className="row">
 				<div className="col-3">
-					<Sidebar />
+					{/* <Sidebar /> */}
 				</div>
-				<div className="col-9">
-					<RequestInformation />
+				<div className="col-9 mt-5">
+					{/* <RequestInformation /> */}
 					<SignUp />
 				</div>
 			</div>

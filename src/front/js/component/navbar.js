@@ -22,11 +22,15 @@ export const Navbar = () => {
 						</Link>
 						</li>
 					</ul>
-						<Link to="/">
-							<button class="btn btn-outline-primary text-primary-emphasis m-2" type="submit">Registrarse</button>
-						</Link>
 						<Link to="/demo">
-							<button class="btn btn-outline-primary text-primary-emphasis m-2" type="submit">Iniciar Sesión</button>
+							<button class="btn btn-outline-primary text-primary-emphasis m-2" type="submit">
+								Iniciar Sesión <i class="fa-solid fa-user"></i>
+							</button>
+						</Link>
+						<Link to="/">
+							<button class="btn btn-outline-primary text-primary-emphasis m-2" type="submit">
+								Registrarse <i class="fa-solid fa-right-to-bracket"></i>
+							</button>
 						</Link>
 				</div>
 			</div>

@@ -25,16 +25,20 @@ def handle_singup():
     email = body.get("email")
     company_name = body.get("company_name")
     rol_company = body.get("rol_company")
-    password_hash = body.get("password_hash")
-    salt = body.get("salt")
+    password = body.get("password")
 
-    if name is None or email is None or company_name is None or rol_company is None or password_hash is None or salt is None:
+    if name is None or email is None or company_name is None or rol_company is None or password is None:
         return jsonify({
-            "message": "Name, email, company_name, rol_company, password_hash and salt are required"
+            "message": "Name, email, company_name, rol_company, password are required"
         }), 400
     
-    new_user = User(name, email, company_name, rol_company, password_hash, salt)
-
+    new_user = User()
+    new_user.name = name
+    new_user.email = email
+    new_user.company_name = company_name
+    new_user.rol_company = rol_company
+    new_user.password = password
+    
     try:
         db.session.add(new_user)
         db.session.commit()

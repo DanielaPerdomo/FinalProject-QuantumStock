@@ -9,8 +9,6 @@ export const Footer = () => (
 			<span><i class="facebook fa-brands fa-facebook"></i></span>
 			<span><i class="linkedin fa-brands fa-linkedin-in"></i></span>
 			
-			Made with <i className="fa fa-heart text-danger" /> by{" "}
-			<a href="http://www.4geeksacademy.com">4Geeks Academy</a>
 		</div>
 	</footer>
 );

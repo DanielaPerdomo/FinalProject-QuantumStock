@@ -7,10 +7,13 @@
 */
 
 body{
-    background-color: rgb(247, 247, 247);
+    background-image: url(https://cdn.pixabay.com/photo/2018/04/21/00/42/hexagon-3337447_1280.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
 }
 
-/* FORMULARIO DE REGISTRO  Y LOGIN */
+/* FORMULARIO DE REGISTRO */
 
 .main-row{
     width: 60%;
@@ -20,7 +23,6 @@ body{
     border-radius: 25px;
     width: 50%;
 }
-
 .ico{
     font-size: 40px;
 }
@@ -50,36 +52,33 @@ body{
 
 /* FOOTER */
 .instagram{
-    margin: 2px;
+    margin: 5px;
     font-size: 5vh;
     color: white;
     text-shadow: 0 0 20px rgb(255, 136, 0), 0 0 15px rgb(255, 136, 0), 0 0 20px  rgb(111, 0, 255), 0 0 15px rgb(111, 0, 255);
 }  
 .xtwitter{
-    margin: 2px;
+    margin: 5px;
     font-size: 5vh;
     color: white;
     text-shadow: 0 0 15px white;
 }   
 .twitter{
-    margin: 2px;
+    margin: 5px;
     font-size: 5vh;
     color: white;
     text-shadow: 0 0 15px rgb(0, 102, 255);
 } 
 .facebook{
-    margin: 2px;
+    margin: 5px;
     font-size: 5vh;
     color: white;
     text-shadow: 0 0 15px blue;
 }   
-
-
-.main-row-login{
-    width: 40%;
+.linkedin{
+    margin: 5px;
+    font-size: 5vh;
+    color: white;
+    text-shadow: 0 0 20px white;
 }
-
-
-
-
     

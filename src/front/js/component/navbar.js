@@ -18,7 +18,7 @@ export const Navbar = () => {
 						</button>
 					</Link>
 					{/* <Link to="/demo"> */}
-					<button type="button" className="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Iniciar Sesión <i className="fa-solid fa-user"></i></button>
+					<button type="button" className="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" >Iniciar Sesión <i className="fa-solid fa-user"></i></button>
             <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div className="modal-dialog">
 						  <Login/>

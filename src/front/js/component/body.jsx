@@ -8,6 +8,7 @@ export const Body = () => {
                 <p>La fórmula de éxito para tu inventario está aquí</p>
             </div>
             <div className="rightside">
+                <p>Aqui deberia ir una imagen cool</p>
 
             </div>
         </div>

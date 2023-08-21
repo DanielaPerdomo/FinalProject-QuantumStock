@@ -9,7 +9,7 @@ export const Navbar = () => {
 			  <Link to="/">
 					<span className="navbar-brand mb-0 h1 text-light">
 						<i className="fa-solid fa-boxes-packing"></i><br/>
-						<strong> QuantumStorage </strong>
+						<strong> QuantumStock</strong>
 					</span>
 				</Link>
     			<div className="position-relative" id="navbarSupportedContent">

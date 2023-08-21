@@ -11,7 +11,7 @@ export const Home = () => {
 	return (
 		<div className="text-center">
 			<Navbar />
-			<Body />
+			  <Body />
 			<Footer />
 		</div>
 	);

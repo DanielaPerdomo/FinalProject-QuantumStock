@@ -17,7 +17,7 @@ export const Demo = () => {
 				</div>
 				<div className="col-9 mt-5">
 					{/* <RequestInformation /> */}
-					{/* <Login /> */}
+					<Login /> 
 				</div>
 			</div>
 		</div>

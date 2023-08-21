@@ -2,7 +2,7 @@ import React from "react";
 
 export const Body = () => {
     return(
-        <div className="container">
+        <div className="container vh-100 w-100 m-0 p-0">
             <div className="leftside">
                 <h1>¡Controla, supervisa y prospera!</h1>
                 <p>La fórmula de éxito para tu inventario está aquí</p>

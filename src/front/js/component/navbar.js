@@ -47,7 +47,7 @@ export const Navbar = () => {
                     </div>
                     <div className="row mt-3">
                       <div className="col position-relative">
-                        <label for="validationTooltip05" className="form-label">Cotraseña</label>
+                        <label for="validationTooltip05" className="form-label">Contraseña</label>
                         <input type="password" className="form-control" id="validationTooltip05"  required />
                       </div>
                     </div>
@@ -81,7 +81,7 @@ export const Navbar = () => {
           {/* </Link>  */}
 					<Link to="/">
 						<button class="btn btn-outline-success text-light m-2" type="submit">
-							Registrarse 
+							Registrarse  
 							<i class="fa-solid fa-right-to-bracket"></i>
 						</button> 
 					</Link> 

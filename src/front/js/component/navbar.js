@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { Login } from "./login.jsx";
 
-export const Navbar = () => {
+
+export const Navbar = ({onLoginClick}) => {
+
 	return (
 		<nav className="navbar navbar-expand-lg">
   			<div className="container-fluid">
@@ -17,13 +19,7 @@ export const Navbar = () => {
 						<button type="button" className="btn btn-outline-light border border-0 m-2" href="#">Nosotros
 						</button>
 					</Link>
-					{/* <Link to="/demo"> */}
-					<button type="button" className="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Iniciar Sesión <i className="fa-solid fa-user"></i></button>
-            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div className="modal-dialog">
-						  <Login/>
-            </div>
-            </div>
+						<button onClick={onLoginClick} type="button" className="btn btn-primary m-2">Iniciar Sesión <i className="fa-solid fa-user"></i></button>
             
           {/* </Link>  */}
 					<Link to="/">

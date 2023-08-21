@@ -5,15 +5,20 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+body, html{
+    height: 100%;
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
 
 body{
     background-image: url(https://cdn.pixabay.com/photo/2018/04/21/00/42/hexagon-3337447_1280.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    display: grid;
-    min-height: 100vh;
-    grid-template-rows: auto 1fr auto;
-    
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
 }
 
 /* FORMULARIO DE REGISTRO */

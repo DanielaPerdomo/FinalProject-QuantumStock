@@ -1,52 +1,68 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			message: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			
+
+
+			
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
+			
+			creat_user: async () => {
 
-			getMessage: async () => {
-				try{
-					// fetching data from the backend
-					const resp = await fetch(process.env.BACKEND_URL + "/api/hello")
-					const data = await resp.json()
-					setStore({ message: data.message })
-					// don't forget to return something, that is how the async resolves
-					return data;
-				}catch(error){
-					console.log("Error loading message from backend", error)
+				try {
+					const response = await fetch(process.env.BACKEND_URL+"/api/singup",{
+					method:"POST",
+					body:JSON.stringify({
+						
+					}),
+					headers:{
+						"content-type":"Aplication/json"
+
+					}
+
+					})
+
+					const body = await response.json()
+					const token =body.token
+					
+					localStorage.setItem("token",token)
+				} catch (error){
+					console.log(error)
+
 				}
+					
+
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
+			create_token: async () => {
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+				try {
+					const response = await fetch(process.env.BACKEND_URL +"/api/login",{
+					method:"POST",
+					body:JSON.stringify({
+						"email":"hola",
+						"password":"hola"
+					}),
+					headers:{
+						"content-type":"Aplication/json"
+					}
 
-				//reset the global store
-				setStore({ demo: demo });
+					})
+
+					const body = await response.json()
+					const token =body.token
+					
+					localStorage.setItem("token",token)
+				} catch (error){
+					console.log(error)
+
+				}
+
 			}
+			//get_app async ()=>{
+			
+
+		
 		}
 	};
 };

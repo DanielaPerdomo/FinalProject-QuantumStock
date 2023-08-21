@@ -4,6 +4,9 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
+from flask_jwt_extended import create_access_token,jwt_required,get_jwt_identity
+from werkzeug.security import generate_password_hash,check_password_hash
+import bcrypt
 
 api = Blueprint('api', __name__)
 
@@ -26,6 +29,8 @@ def handle_singup():
     company_name = body.get("company_name")
     rol_company = body.get("rol_company")
     password = body.get("password")
+    salt=str(bcrypt.gensalt(14))
+    password_hash=generate_password_hash(password + salt)
 
     if name is None or email is None or company_name is None or rol_company is None or password is None:
         return jsonify({
@@ -38,6 +43,9 @@ def handle_singup():
     new_user.company_name = company_name
     new_user.rol_company = rol_company
     new_user.password = password
+    new_user.password_hash = password_hash
+    new_user.salt=salt
+    
     
     try:
         db.session.add(new_user)
@@ -51,3 +59,42 @@ def handle_singup():
     return jsonify({}), 201
 
     
+@api.route("/login", methods=["POST"])
+def login():
+    user_data=request.json
+    if user_data.get("email") is None or user_data.get("password") is None:
+        return jsonify(
+            {
+                "message":"email an password required"
+            }
+        ),400
+    email=user_data.get("email")
+    password = user_data.get("password")
+    user = User.query.filter_by(email=email).one_or_none()
+
+    if user is None:
+        return jsonify({
+            "message":"credenciales invalidas"
+        }),400
+   
+    password_is_valid= check_password_hash(user.password_hash,password + user.salt)
+    
+    if not password_is_valid:
+         return jsonify({
+            "message":"credenciales invalidas"
+        }),400
+    
+    access_token = create_access_token(identity=user.id)
+ 
+    return jsonify({
+
+        "token":access_token
+    }),201
+
+
+@api.route("/private", methods=["GET"])
+@jwt_required()
+def get_user():
+    user_id = get_jwt_identity()
+    user = User.query.get(user_id)
+    return jsonify(user.serialize()),200   

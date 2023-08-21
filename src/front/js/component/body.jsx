@@ -9,7 +9,6 @@ export const Body = () => {
             </div>
             <div className="rightside">
                 <p>Aqui deberia ir una imagen cool</p>
-
             </div>
         </div>
     );

@@ -1,6 +1,7 @@
 import React from "react";
+import { Login } from "./login.jsx";
 
-export const Body = () => {
+export const Body = ({showLoginForm}) => {
     return(
         <div className="container-fluid vh-100 w-100 m-0 p-0">
             <div className="leftside">
@@ -10,6 +11,7 @@ export const Body = () => {
             <div className="rightside">
                 <p>Aqui deberia ir una imagen cool</p>
             </div>
+            {showLoginForm && <Login />}
         </div>
     );
 };

@@ -23,7 +23,8 @@ export const Navbar = () => {
 					</Link>
 					<Link to="/">
 						<button class="btn btn-outline-success text-light m-2" type="submit">
-							Registrarse <i class="fa-solid fa-right-to-bracket"></i>
+							Registrarse 
+							<i class="fa-solid fa-right-to-bracket"></i>
 						</button>
 					</Link>
 				</div>

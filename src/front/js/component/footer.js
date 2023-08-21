@@ -8,7 +8,6 @@ export const Footer = () => (
 			<span><i class="twitter fa-brands fa-twitter"></i></span>
 			<span><i class="facebook fa-brands fa-facebook"></i></span>
 			<span><i class="linkedin fa-brands fa-linkedin-in"></i></span>
-			
 		</div>
 	</footer>
 );

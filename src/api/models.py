@@ -9,8 +9,8 @@ class User(db.Model):
     company_name = db.Column(db.String(250), unique=False, nullable=False)
     rol_company = db.Column(db.String(250), unique=False, nullable=False)
     password = db.Column(db.String(250), unique=False, nullable=False)
-    """  password_hash = db.Column(db.String(800), unique=False, nullable=False)
-    salt = db.Column(db.String(800), unique=False, nullable=False) """
+    password_hash = db.Column(db.String(800), unique=False, nullable=False)
+    salt = db.Column(db.String(800), unique=False, nullable=False) 
 
     def __repr__(self):
         return f'<User {self.email}>'

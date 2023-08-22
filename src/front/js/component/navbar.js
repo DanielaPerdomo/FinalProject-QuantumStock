@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { Login } from "./login.jsx";
 
 
-export const Navbar = ({onLoginClick}) => {
+export const Navbar = ({onLoginClick}) => {     
 
 	return (
-		<nav className="navbar navbar-expand-lg">    
+		<nav className="navbar navbar-expand-lg">         
   			<div className="container-fluid">
 			  <Link to="/">
-					<span className="navbar-brand mb-0 h1 text-light">
-						<i className="fa-solid fa-boxes-packing"></i><br/>    
+					<span className="navbar-brand mb-0 h1 text-light">     
+						<i className="fa-solid fa-boxes-packing"></i><br/>           
 						<strong> QuantumStock</strong>
 					</span>
 				</Link>

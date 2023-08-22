@@ -9,9 +9,25 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	const [showLoginForm, setShowLoginForm] = useState(false);
+	const [showSignUp, setShowSignUp] = useState(false)
 
+	/* LOGIN */
 	const handleLoginClick = () =>{
 		setShowLoginForm(!showLoginForm);
+	};
+
+	const handleCloseForm = () =>{
+		setShowLoginForm(!showLoginForm);
+	}
+	
+	/* SIGNUP */
+
+	const handleSignUpClick = () => {
+		setShowSignUp(!showSignUp);
+	};
+
+	const handleCloseFormSingUp = () => {
+		setShowSignUp(!showSignUp);
 	};
 
 
@@ -19,12 +35,17 @@ export const Home = () => {
 		<div className="text-center container vh-100 m-0 p-0">
 			<div className="row">
 				<div className="col-12">
-					<Navbar onLoginClick={handleLoginClick}/>
+					<Navbar onLoginClick={handleLoginClick} onSignUpClick={handleSignUpClick} />
 				</div>
 			</div>	
 			<div className="row">
 				<div className="col-12">
-			 		 <Body showLoginForm={showLoginForm}/>
+			 		 <Body 
+					 showLoginForm={showLoginForm} 
+					 onClose={handleCloseForm}
+					 showSignUp={showSignUp}
+					 onCloseSignUp={handleCloseFormSingUp}
+					 />
 				</div>
 			</div>	
 			<div className="row">

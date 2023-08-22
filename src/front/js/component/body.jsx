@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Login } from "./login.jsx";
+import { SignUp } from "./SignUp.jsx";
 import "../../styles/body.css"
 
-export const Body = ({showLoginForm}) => {
+export const Body = ({showLoginForm, showSignUp, onClose, onCloseSignUp}) => {
+
     return(
         <div className="bodycontainer">
             <div className="leftside">
@@ -12,7 +14,8 @@ export const Body = ({showLoginForm}) => {
             <div className="rightside">
                 <p>Aqui deberia ir una imagen cool</p>
             </div>
-            {showLoginForm && <Login />}
+            {showLoginForm && <Login onCloseForm={onClose} />}
+            {showSignUp && <SignUp onCloseSignUpForm={onCloseSignUp}/> }
         </div>
     );
 };

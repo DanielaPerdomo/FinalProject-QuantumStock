@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { Login } from "./login.jsx";
 
 
-export const Navbar = ({onLoginClick}) => {     
+
+export const Navbar = ({onLoginClick, onSignUpClick}) => {     
 
 	return (
 		<nav className="navbar navbar-expand-lg">         
@@ -20,10 +20,9 @@ export const Navbar = ({onLoginClick}) => {
 						</button>
 					</Link>
 						<button onClick={onLoginClick} type="button" className="btn btn-primary m-2">Iniciar Sesión <i className="fa-solid fa-user"></i></button>
-            
-          {/* </Link>  */}
+          
 					<Link to="/">
-						<button className="btn btn-outline-success text-light m-2" type="submit">
+						<button onClick={onSignUpClick} className="btn btn-outline-success text-light m-2" type="submit">
 							Registrarse  
 							<i className="fa-solid fa-right-to-bracket"></i>
 						</button> 

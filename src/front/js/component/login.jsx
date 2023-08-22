@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/logIn.css"
 
 
-export const Login = () => {
+export const Login = ({onCloseForm}) => {
     return (
       <div className="form-logIn">
         <div className="container">
@@ -18,7 +18,7 @@ export const Login = () => {
                     </div>
                   </div>
                   <div className="col-2 text-end">
-                    <button type="button" className="btn exit"><i className="fa-solid fa-arrow-right-from-bracket ico-exit"></i></button>
+                    <button onClick={onCloseForm} type="button" className="btn exit"><i className="fa-solid fa-arrow-right-from-bracket ico-exit"></i></button>
                   </div>
                 </div>
                 <div className="row mt-3">

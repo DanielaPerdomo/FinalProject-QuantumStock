@@ -1,6 +1,6 @@
 import React from "react";
 import { Login } from "./login.jsx";
-import "../../styles/bodyHome.css"
+import "../../styles/body.css"
 
 export const Body = ({showLoginForm}) => {
     return(

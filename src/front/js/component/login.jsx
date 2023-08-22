@@ -5,7 +5,7 @@ import "../../styles/logIn.css"
 export const Login = ({onCloseForm}) => {
     return (
       <div className="form-logIn">
-        <div className="container">
+        <div className="container for-2">
           <div className="row main-row-login">
             <div className="col SingUp-form">
               <form action="#" className="formSignUp needs-validation" noValidate>

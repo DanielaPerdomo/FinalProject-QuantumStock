@@ -8,7 +8,7 @@ import "../../styles/navbar.css";
 export const Navbar = ({onLoginClick, onSignUpClick}) => {     
 
 	return (
-		<nav className="navbar navbar-expand-lg">         
+		<nav className="navbar navbar-expand-lg prueba">         
   			<div className="container-fluid">
 			  <Link to="/">
 					<span className="navbar-brand mb-0 h1 text-light">     

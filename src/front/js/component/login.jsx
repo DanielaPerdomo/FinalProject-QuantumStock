@@ -13,7 +13,7 @@ export const Login = ({onCloseForm}) => {
                   <div className="col-10 d-flex gap-2">
                     <div><i className="fa-solid fa-users fa-bounce ico"></i></div>
                     <div className="newUser">
-                      <h2 className="fs-4">Iniciar seccion</h2>
+                      <h2 className="fs-4">Iniciar sesion</h2>
                       <p className="font-monospace text-center">QuantumStock</p>
                     </div>
                   </div>
@@ -32,7 +32,7 @@ export const Login = ({onCloseForm}) => {
                 </div>
                 <div className="row mt-3">
                   <div className="col position-relative">
-                    <label for="validationTooltip05" className="form-label">Cotraseña</label>
+                    <label for="validationTooltip05" className="form-label">Contraseña</label>
                     <input type="password" className="form-control" id="validationTooltip05"  required />
                   </div>
                 </div>

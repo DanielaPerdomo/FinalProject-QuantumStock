@@ -1,0 +1,35 @@
+.footer{
+    text-align: center; 
+    bottom: 0;
+    width: 100%;
+}
+.instagram{
+    margin: 10px;
+    font-size: 5vh;
+    color: white;
+    text-shadow: 0 0 20px white, 0 0 20px white;
+}  
+.xtwitter{
+    margin: 10px;
+    font-size: 5vh;
+    color: white;
+    text-shadow: 0 0 20px white, 0 0 20px white;
+}   
+.twitter{
+    margin: 10px;
+    font-size: 5vh;
+    color: white;
+    text-shadow: 0 0 20px white, 0 0 20px white;
+} 
+.facebook{
+    margin: 10px;
+    font-size: 5vh;
+    color: white;
+    text-shadow: 0 0 20px white, 0 0 20px white;
+}   
+.linkedin{
+    margin: 10px;
+    font-size: 5vh;
+    color: white;
+    text-shadow: 0 0 20px white, 0 0 20px white;
+}

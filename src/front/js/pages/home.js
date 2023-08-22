@@ -16,19 +16,19 @@ export const Home = () => {
 
 
 	return (
-		<div className="text-center container-fluid vh-100 w-100 m-0 p-0">
+		<div className="text-center container vh-100 m-0 p-0">
 			<div className="row">
-				<div className="col">
+				<div className="col-12">
 					<Navbar onLoginClick={handleLoginClick}/>
 				</div>
 			</div>	
 			<div className="row">
-				<div className="col">
+				<div className="col-12">
 			 		 <Body showLoginForm={showLoginForm}/>
 				</div>
 			</div>	
 			<div className="row">
-				<div className="col">
+				<div className="col-12">
 
 					<Footer />
 				</div>

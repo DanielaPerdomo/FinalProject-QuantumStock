@@ -5,6 +5,10 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+#app{
+    display: flex;
+    justify-content: center;
+}
 body, html{
     height: 100%;
     display: grid;
@@ -21,42 +25,6 @@ body{
     height: 100%;
 }
 
-/* FORMULARIO DE REGISTRO */
-
-.main-row{
-    width: 60%;
-}
-.SingUp-form{
-    background-color: #ffffff79;
-    border-radius: 25px;
-    width: 50%;
-}
-.ico{
-    font-size: 40px;
-}
-.ico-exit{
-    font-size: 25px;
-}
-.exit:hover{
-    background-color: #B8D0EB;
-}
-.newUser{
-    margin-left: 10px;
-}
-.newUser h2{
-    margin-bottom: 1px;
-}
-.formSignUp{
-    margin: 20px;
-}
-
-.button{
-    width: 50%;
-    background-color: #B8D0EB
-}
-.button:hover{
-    background-color: #B298DC;
-}
 
 /* FOOTER */
 .instagram{
@@ -90,19 +58,20 @@ body{
     text-shadow: 0 0 20px white, 0 0 20px white;
 }
 .footer{
-    text-align: center;
-    position: absolute;
+    text-align: center; 
+    
     bottom: 0;
     width: 100%;
 }
 /* BODY */
-.container{
+.bodycontainer{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-family: 'Figtree', sans-serif;
     margin-top: 30px;
-    padding: auto;
+    
+    width: 100%;
 }
 .leftside{
     color: white;

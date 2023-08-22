@@ -23,7 +23,7 @@ export const Login = ({onCloseForm}) => {
                 </div>
                 <div className="row mt-3">
                   <div className="col position-relative">
-                    <label for="validationTooltip04" className="form-label">Correo Electronico</label>
+                    <label htmlFor="validationTooltip04" className="form-label">Correo Electronico</label>
                     <input type="email" className="form-control" id="validationTooltip04" placeholder="enzo-ferrari@gmail.com" required />
                     <div className="valid-tooltip">
                       Looks good!
@@ -32,7 +32,7 @@ export const Login = ({onCloseForm}) => {
                 </div>
                 <div className="row mt-3">
                   <div className="col position-relative">
-                    <label for="validationTooltip05" className="form-label">Contraseña</label>
+                    <label htmlFor="validationTooltip05" className="form-label">Contraseña</label>
                     <input type="password" className="form-control" id="validationTooltip05"  required />
                   </div>
                 </div>
@@ -40,7 +40,7 @@ export const Login = ({onCloseForm}) => {
                   <div className="col">
                     <div className="form-check">
                     <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-                    <label className="form-check-label" for="flexCheckChecked">
+                    <label className="form-check-label" htmlFor="flexCheckChecked">
                       Recuerda mis datos
                     </label>
                     </div>

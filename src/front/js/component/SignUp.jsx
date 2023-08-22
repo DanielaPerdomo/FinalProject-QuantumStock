@@ -22,7 +22,7 @@ export const SignUp = ({onCloseSignUpForm}) => {
                 </div>
                 <div className="row">
                   <div className="col">
-                      <label for="nameCompany" className="form-label">Nombre de la empresa </label>
+                      <label htmlFor="nameCompany" className="form-label">Nombre de la empresa </label>
                       <input type="text" className="form-control" id="nameCompany" placeholder="Ferrari" required />
                       <div className="valid-tooltip">
                         Looks good!
@@ -31,9 +31,9 @@ export const SignUp = ({onCloseSignUpForm}) => {
                 </div>
                 <div className="row mt-3">
                   <div className="col">
-                      <label for="rolCompany" className="form-label">Rol de la empresa</label>
-                      <select className="form-select" id="rolCompany" required>
-                        <option selected disabled Value="">Selecciona un Rol</option>
+                      <label htmlFor="rolCompany" className="form-label">Rol de la empresa</label>
+                      <select defaultValue="" className="form-select" id="rolCompany" required>
+                        <option disabled value="">Selecciona un Rol</option>
                         <option value="Automovilismo">Automovilismo</option>
                         <option value="Farmacia">Farmacia</option>
                         <option value="Electrodomesticos">Electrodomesticos</option>
@@ -46,7 +46,7 @@ export const SignUp = ({onCloseSignUpForm}) => {
                 </div>
                 <div className="row mt-3">
                   <div className="col position-relative">
-                    <label for="userName" className="form-label">Nombre Completo</label>
+                    <label htmlFor="userName" className="form-label">Nombre Completo</label>
                     <input type="text" className="form-control" id="userName" placeholder="Enzo Ferrari" required />
                     <div className="valid-tooltip">
                       Looks good!
@@ -55,7 +55,7 @@ export const SignUp = ({onCloseSignUpForm}) => {
                 </div>
                 <div className="row">
                   <div className="col position-relative">
-                    <label for="validationTooltip04" className="form-label">Correo Electronico</label>
+                    <label htmlFor="validationTooltip04" className="form-label">Correo Electronico</label>
                     <input type="email" className="form-control" id="validationTooltip04" placeholder="enzo-ferrari@gmail.com" required />
                     <div className="valid-tooltip">
                       Looks good!
@@ -64,11 +64,11 @@ export const SignUp = ({onCloseSignUpForm}) => {
                 </div>
                 <div className="row mt-3">
                   <div className="col-6 position-relative">
-                    <label for="validationTooltip05" className="form-label">Cotraseña</label>
+                    <label htmlFor="validationTooltip05" className="form-label">Cotraseña</label>
                     <input type="password" className="form-control" id="validationTooltip05"  required />
                   </div>
                   <div className="col-6 position-relative">
-                    <label for="validationTooltip06" className="form-label">Confirmar Cotraseña</label>
+                    <label htmlFor="validationTooltip06" className="form-label">Confirmar Cotraseña</label>
                     <input type="password" className="form-control" id="validationTooltip06"  required />
                   </div>
                 </div>

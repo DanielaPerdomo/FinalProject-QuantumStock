@@ -16,7 +16,7 @@ export const Home = () => {
 
 
 	return (
-		<div className="text-center container vh-100 m-0 p-0">
+		<div className="loginContainer vh-100 m-0 p-0">
 			<div className="row">
 				<div className="col-12">
 					<Navbar onLoginClick={handleLoginClick}/>

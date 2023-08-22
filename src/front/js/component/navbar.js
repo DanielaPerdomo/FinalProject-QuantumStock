@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { Login } from "./login.jsx";
+import "../../styles/navbar.css";
 
 
 export const Navbar = ({onLoginClick}) => {     

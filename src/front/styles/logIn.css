@@ -1,0 +1,53 @@
+.form-logIn{
+    background-color: #23232325;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+}
+.form-logIn>.container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+/* FORMULARIO DE REGISTRO */
+
+.main-row-login{
+    max-width: 350px;
+}
+.SingUp-form{
+    background-color: #ffffff79;
+    border-radius: 25px;
+    width: 50%;
+}
+.ico{
+    font-size: 40px;
+}
+.ico-exit{
+    font-size: 25px;
+}
+.exit:hover{
+    background-color: #B8D0EB;
+}
+.newUser{
+    margin-left: 10px;
+}
+.newUser h2{
+    margin-bottom: 1px;
+}
+.formSignUp{
+    margin: 20px;
+}
+
+.button{
+    width: 50%;
+    background-color: #B8D0EB
+}
+.button:hover{
+    background-color: #B298DC;
+}

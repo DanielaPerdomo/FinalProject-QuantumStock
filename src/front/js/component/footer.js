@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 export const Footer = () => (
-	<footer className="footer mt-auto py-3 text-center">
+	<footer className="footer mt-auto text-center">
 		<div>
 			<span><i class="instagram fa-brands fa-instagram"></i></span>
 			<span><i class="xtwitter fa-brands fa-x-twitter"></i></span>

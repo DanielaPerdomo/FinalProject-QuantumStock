@@ -16,8 +16,8 @@ export const Demo = () => {
 					{/* <Sidebar /> */}
 				</div>
 				<div className="col-9 mt-5">
-					{/* <RequestInformation /> */}
-					<Login /> 
+					 {/* <RequestInformation />  */}
+					{/* <Login />  */}
 				</div>
 			</div>
 		</div>

@@ -3,7 +3,7 @@ import { Login } from "./login.jsx";
 import { SignUp } from "./SignUp.jsx";
 import "../../styles/body.css"
 
-export const Body = ({showLoginForm, showSignUp, onClose, onCloseSignUp}) => {
+export const Body = ({showLoginForm, showSignUp, onClose, onCloseSignUp, OnChageClick}) => {
 
     return(
         <div className="bodycontainer">
@@ -14,7 +14,7 @@ export const Body = ({showLoginForm, showSignUp, onClose, onCloseSignUp}) => {
             <div className="rightside">
                 <p>Aqui deberia ir una imagen cool</p>
             </div>
-            {showLoginForm && <Login onCloseForm={onClose} />}
+            {showLoginForm && <Login onCloseForm={onClose} onChangeClick={OnChageClick}/>}
             {showSignUp && <SignUp onCloseSignUpForm={onCloseSignUp}/> }
         </div>
     );

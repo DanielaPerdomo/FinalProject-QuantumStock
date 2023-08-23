@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/logIn.css"
 
 
-export const Login = ({onCloseForm}) => {
+export const Login = ({onCloseForm, onChangeClick}) => {
     return (
       <div className="form-logIn">
         <div className="container for-2">
@@ -53,7 +53,7 @@ export const Login = ({onCloseForm}) => {
                 </div>
                 <div className="row mt-3">
                   <div className="col d-flex justify-content-center">
-                      <button className="btn button" type="submit">Registrarse</button>
+                      <button onClick={onChangeClick} className="btn button">Registrarse</button>
                   </div>
                 </div>
               </form>

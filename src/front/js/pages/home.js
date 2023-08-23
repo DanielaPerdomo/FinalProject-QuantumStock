@@ -30,6 +30,15 @@ export const Home = () => {
 		setShowSignUp(!showSignUp);
 	};
 
+	/* CAMBIAR DE REGISTRO A SIGNUP */
+
+	const handleChage = () => {
+		handleCloseForm();
+		setShowSignUp(true)
+	}
+
+
+
 
 	return (
 		<div className="loginContainer vh-100 m-0 p-0">
@@ -45,6 +54,7 @@ export const Home = () => {
 					 onClose={handleCloseForm}
 					 showSignUp={showSignUp}
 					 onCloseSignUp={handleCloseFormSingUp}
+					 OnChageClick={handleChage}
 					 />
 				</div>
 			</div>	

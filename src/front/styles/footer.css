@@ -8,36 +8,12 @@
     position: fixed;
 
 }
-.instagram{
+.icon{
     margin: 10px;
     font-size: 5vh;
     color: white;
-    /* text-shadow: 0 0 20px white, 0 0 20px white; */
 }  
-.xtwitter{
-    margin: 10px;
-    font-size: 5vh;
-    color: white;
-    /* text-shadow: 0 0 20px white, 0 0 20px white; */
-}   
-.twitter{
-    margin: 10px;
-    font-size: 5vh;
-    color: white;
-    /* text-shadow: 0 0 20px white, 0 0 20px white; */
-} 
-.facebook{
-    margin: 10px;
-    font-size: 5vh;
-    color: white;
-    /* text-shadow: 0 0 20px white, 0 0 20px white; */
-}   
-.linkedin{
-    margin: 10px;
-    font-size: 5vh;
-    color: white;
-    /* text-shadow: 0 0 20px white, 0 0 20px white; */
-}
-.fa-brands:hover{
+
+.icon:hover{
     text-shadow: 0 0 20px white, 0 0 20px white;
 }

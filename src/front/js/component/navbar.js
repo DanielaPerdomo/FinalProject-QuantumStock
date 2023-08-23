@@ -10,8 +10,7 @@ export const Navbar = ({onLoginClick, onSignUpClick}) => {
 		<nav className="navbar navbar-expand-lg headerHome">         
   			<div className="container-fluid">
 			  <Link to="/">
-					<span className="navbar-brand mb-0 h1 text-light">     
-						<i className="fa-solid fa-boxes-packing"></i><br/>           
+					<span className="navbar-brand mb-0 h1 text-light">          
 						<strong> QuantumStock</strong>
 					</span>
 				</Link>

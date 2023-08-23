@@ -12,7 +12,6 @@ p{
 }
 
 .bodycontainer{
-    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -38,4 +37,7 @@ p{
 .homeImage{
     max-width: 75%;
     height: auto;
+    opacity: 85%;
+    border-radius: 60px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }

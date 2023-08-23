@@ -1,8 +1,12 @@
 .footerHome{
     text-align: center; 
+    align-items: end;
     bottom: 0;
+    margin: 0;
     width: 100%;
     height: 10vh;
+    position: fixed;
+
 }
 .instagram{
     margin: 10px;

@@ -9,6 +9,9 @@ import { Login } from "../component/login.jsx";
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
 
+
+
+
 	return (
 		<div className="container-fluid">
 			<div className="row">

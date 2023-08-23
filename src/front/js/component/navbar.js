@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Login } from "./login.jsx";
 import "../../styles/navbar.css";
 
 
@@ -33,14 +32,3 @@ export const Navbar = ({onLoginClick, onSignUpClick}) => {
 		</nav>
 	);
 };
-
-
-
-{/* <button className="btn btn-outline-info text-light m-2" type="submit">
-							Iniciar Sesión <i className="fa-solid fa-user"></i>
-						</button> */}
-
-{/* <button className="btn btn-outline-success text-light m-2" type="submit">
-							Registrarse 
-							<i className="fa-solid fa-right-to-bracket"></i>
-						</button> */}

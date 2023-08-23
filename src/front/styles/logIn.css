@@ -46,6 +46,7 @@
 
 .button{
     width: 50%;
+    border-radius: 28px;
     background-color: #B8D0EB
 }
 .button:hover{

@@ -41,7 +41,7 @@ export const Home = () => {
 
 
 	return (
-		<div className="loginContainer vh-100 m-0 p-0">
+		<div className="Container vh-100 m-0 p-0">
 			<div className="row">
 				<div className="col">
 					<Navbar onLoginClick={handleLoginClick} onSignUpClick={handleSignUpClick} />

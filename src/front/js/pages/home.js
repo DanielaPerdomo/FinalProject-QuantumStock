@@ -34,12 +34,12 @@ export const Home = () => {
 	return (
 		<div className="loginContainer vh-100 m-0 p-0">
 			<div className="row">
-				<div className="col-12">
+				<div className="col">
 					<Navbar onLoginClick={handleLoginClick} onSignUpClick={handleSignUpClick} />
 				</div>
 			</div>	
 			<div className="row">
-				<div className="col-12">
+				<div className="col">
 			 		 <Body 
 					 showLoginForm={showLoginForm} 
 					 onClose={handleCloseForm}
@@ -49,12 +49,10 @@ export const Home = () => {
 				</div>
 			</div>	
 			<div className="row">
-				<div className="footerHome col-12">
+				<div className="footerHome col">
 					<Footer />
 				</div>
 			</div>
-				
-			
 		</div>
 	);
 };

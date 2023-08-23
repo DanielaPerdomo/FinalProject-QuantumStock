@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../../styles/footer.css"
 
 export const Footer = () => (
-	<footer className="footer mt-auto text-center">
+	<footer className="footerHome">
 		<div>
 			<span><i className="instagram fa-brands fa-instagram"></i></span>
 			<span><i className="xtwitter fa-brands fa-x-twitter"></i></span>

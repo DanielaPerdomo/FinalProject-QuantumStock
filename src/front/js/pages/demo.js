@@ -9,6 +9,9 @@ import { Login } from "../component/login.jsx";
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
 
+
+
+
 	return (
 		<div className="container-fluid">
 			<div className="row">
@@ -17,7 +20,7 @@ export const Demo = () => {
 				</div>
 				<div className="col-9 mt-5">
 					{/* <RequestInformation /> */}
-					<Login /> 
+					{/* <Login />  */}
 				</div>
 			</div>
 		</div>

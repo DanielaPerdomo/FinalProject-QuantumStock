@@ -49,8 +49,7 @@ export const Home = () => {
 				</div>
 			</div>	
 			<div className="row">
-				<div className="col-12">
-
+				<div className="footerHome col-12">
 					<Footer />
 				</div>
 			</div>

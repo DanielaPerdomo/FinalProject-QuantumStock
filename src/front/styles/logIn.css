@@ -47,9 +47,17 @@
 .button{
     width: 50%;
     border-radius: 28px;
-    background-color: #B8D0EB
+    background-color: #B8D0EB;
+    border: none;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
+.button{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.726), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
 .button:hover{
     background-color: #B298DC;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.445),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 

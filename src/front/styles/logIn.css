@@ -18,38 +18,46 @@
 /* FORMULARIO DE REGISTRO */
 
 .main-row-login{
-    max-width: 350px;
+    max-width: 21.875rem;
 }
 .SingUp-form{
     background-color: #ffffff79;
-    border-radius: 25px;
-    width: 50%;
+    border-radius: 1.563rem;
+    width: 40%;
 }
 .ico{
-    font-size: 40px;
+    font-size: 2.5rem;
 }
 .ico-exit{
-    font-size: 25px;
+    font-size: 1.563rem;
 }
 .exit:hover{
     background-color: #B8D0EB;
 }
 .newUser{
-    margin-left: 10px;
+    margin-left: 0.625rem;
 }
 .newUser h2{
-    margin-bottom: 1px;
+    margin-bottom: 0.063rem;
 }
 .formSignUp{
-    margin: 20px;
+    margin: 1.25rem;
 }
 
 .button{
     width: 50%;
-    border-radius: 28px;
-    background-color: #B8D0EB
+    border-radius: 1.75rem;
+    background-color: #B8D0EB;
+    border: none;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
+.button{
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.726), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
 .button:hover{
     background-color: #B298DC;
+    box-shadow: 0 0.75rem 1rem 0 rgba(0, 0, 0, 0.445),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 

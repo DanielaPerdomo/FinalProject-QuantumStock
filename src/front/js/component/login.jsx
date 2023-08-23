@@ -65,16 +65,6 @@ export const Login = ({onCloseForm, onChangeClick}) => {
                   </div>
                 </div>
                 <div className="row mt-3">
-                  <div className="col">
-                    <div className="form-check">
-                    <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-                    <label className="form-check-label" htmlFor="flexCheckChecked">
-                      Recuerda mis datos
-                    </label>
-                    </div>
-                  </div>
-                </div>
-                <div className="row mt-3">
                   <div className="col d-flex justify-content-center">
                       <button className="btn button" type="submit">Iniciar</button>
                   </div>

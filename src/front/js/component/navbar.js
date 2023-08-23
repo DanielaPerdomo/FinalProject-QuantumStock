@@ -21,12 +21,11 @@ export const Navbar = ({onLoginClick, onSignUpClick}) => {
 						<button type="button" className="btn btn-outline-light border border-0 m-2" href="#">Nosotros
 						</button>
 					</Link>
-						<button onClick={onLoginClick} type="button" className="btn btn-primary m-2">Iniciar Sesión <i className="fa-solid fa-user"></i></button>
+						<button onClick={onLoginClick} type="button" className="btn btn-primary m-2">Iniciar Sesión&ensp;<i className="fa-solid fa-user"></i></button>
           
 					<Link to="/">
 						<button onClick={onSignUpClick} className="btn btn-outline-success text-light m-2" type="submit">
-							Registrarse  
-							<i className="fa-solid fa-right-to-bracket"></i>
+							Registrarse&ensp;<i className="fa-solid fa-right-to-bracket"></i>
 						</button> 
 					</Link> 
 				</div>

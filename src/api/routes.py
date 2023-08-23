@@ -50,7 +50,10 @@ def handle_singup():
     try:
         db.session.add(new_user)
         db.session.commit()
+    
     except Exception as error:
+        print({"message": "an internal error occurred",
+            "error": error.args})
         db.session.rollback()
         return jsonify({
             "message": "an internal error occurred",
@@ -92,7 +95,7 @@ def login():
     }),201
 
 
-@api.route("/private", methods=["GET"])
+@api.route("/demo", methods=["GET"])
 @jwt_required()
 def get_user():
     user_id = get_jwt_identity()

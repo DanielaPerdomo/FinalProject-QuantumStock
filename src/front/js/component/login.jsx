@@ -1,14 +1,36 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "../../styles/logIn.css"
-
+ import { Context } from "../store/appContext";
+import { useNavigate } from "react-router-dom";
 
 export const Login = ({onCloseForm, onChangeClick}) => {
-    return (
+   
+  const { actions, store } = useContext(Context)
+	const navigate = useNavigate()
+
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+
+	const loginIn = async (event) => {
+		event.preventDefault()
+		actions.create_token(event, email, password)
+		
+		
+
+		let isLogged = await actions.create_token(event, email, password)
+		console.log(isLogged)
+
+		if (isLogged == true) {
+				navigate("/demo")
+			
+		}
+  }
+  return (
       <div className="form-logIn">
         <div className="container for-2">
           <div className="row main-row-login">
             <div className="col SingUp-form">
-              <form action="#" className="formSignUp needs-validation" noValidate>
+              <form  onSubmit={loginIn} action="#" className="formSignUp needs-validation" noValidate>
                 <div className="row">
                   <div className="col-10 d-flex gap-2">
                     <div><i className="fa-solid fa-users fa-bounce ico"></i></div>
@@ -24,7 +46,10 @@ export const Login = ({onCloseForm, onChangeClick}) => {
                 <div className="row mt-3">
                   <div className="col position-relative">
                     <label htmlFor="validationTooltip04" className="form-label">Correo Electronico</label>
-                    <input type="email" className="form-control" id="validationTooltip04" placeholder="enzo-ferrari@gmail.com" required />
+                    <input type="email" className="form-control" id="validationTooltip04" placeholder="enzo-ferrari@gmail.com" required 
+                     value={email}
+                     onChange={e => setEmail(e.target.value)}
+                    />
                     <div className="valid-tooltip">
                       Looks good!
                     </div>
@@ -33,7 +58,10 @@ export const Login = ({onCloseForm, onChangeClick}) => {
                 <div className="row mt-3">
                   <div className="col position-relative">
                     <label htmlFor="validationTooltip05" className="form-label">Contraseña</label>
-                    <input type="password" className="form-control" id="validationTooltip05"  required />
+                    <input type="password" className="form-control" id="validationTooltip05"  required 
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    />
                   </div>
                 </div>
                 <div className="row mt-3">

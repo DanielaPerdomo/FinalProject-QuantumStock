@@ -7,11 +7,22 @@ export const SignUp = ({onCloseSignUpForm}) => {
   const [company_name, setCompany_name] = useState("");
   const [rol_company, setRol_company] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmpassword] = useState("");
   
+
+ 
   async function creat_user(event) {
+
+
 		event.preventDefault()
 		console.log(email, "Email", password, "Password");
-		try {
+		if (password!= confirmpassword) {
+      
+      
+      return alert ("malo")
+
+  } 
+    try {
 			const opts = {
 				method: "POST",
 				headers: {
@@ -25,6 +36,7 @@ export const SignUp = ({onCloseSignUpForm}) => {
           rol_company:rol_company
 				})
 			};
+      
 			const resp = await fetch(process.env.BACKEND_URL + "api/signup", opts);
 
 
@@ -35,6 +47,9 @@ export const SignUp = ({onCloseSignUpForm}) => {
 			console.error("There was an Error!!!", error);
 		};
 	};
+  
+
+
 
   return (
       <div className="form-logIn">
@@ -122,7 +137,8 @@ export const SignUp = ({onCloseSignUpForm}) => {
                   <div className="col-6 position-relative">
                     <label htmlFor="validationTooltip06" className="form-label">Confirmar Cotraseña</label>
                     <input type="password" className="form-control" id="validationTooltip06"  required 
-                    
+                    value={confirmpassword}
+                    onChange={e => setConfirmpassword(e.target.value)}
                     />
                   </div>
                 </div>

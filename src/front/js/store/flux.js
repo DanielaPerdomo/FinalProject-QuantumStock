@@ -71,6 +71,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const body = await response.json()
 					console.log(body)
 					setStore({token:body.token})
+					localStorage.setItem("token",body.token)
 					console.log("esto es token",store.token)
 					
 						return true
@@ -114,6 +115,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					
 				}
 			
+
+			 },
+
+			 setToken:  (token)=> {
+
+				setStore({token})
+
+
 
 			 }
 

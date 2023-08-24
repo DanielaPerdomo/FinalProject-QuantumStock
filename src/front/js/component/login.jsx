@@ -24,7 +24,8 @@ export const Login = ({onCloseForm, onChangeClick}) => {
 				navigate("/demo")
 			
 		}
-  }
+  
+}
   return (
       <div className="form-logIn">
         <div className="container for-2">

@@ -20,9 +20,9 @@ export const SignUp = ({onCloseSignUpForm, onChageClicLoginForm}) => {
 		if (password!= confirmpassword) {
       
       
-      return alert ("malo")
+      return alert ("la contraseñas no coinciden !")
 
-  } 
+  } else {
     try {
 			const opts = {
 				method: "POST",
@@ -42,11 +42,14 @@ export const SignUp = ({onCloseSignUpForm, onChageClicLoginForm}) => {
 
 
 			if (resp.ok) return await resp.json();
-			else alert("There has been some error");
+			else  return alert("Usuario ya creado");
 
 		} catch (error) {
 			console.error("There was an Error!!!", error);
 		};
+
+    return alert ("Registro exitoso")
+  } 
 	};
   
 

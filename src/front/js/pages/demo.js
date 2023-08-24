@@ -22,9 +22,10 @@ export const Demo = () => {
 	}, [])
 
 	return (
-		<div className="container-fluid">
+		<div className="container-fluid m-0 p-0">
 			<div className="row">
 				<div className="col-3">
+
 					 <Sidebar /> 
 				</div>
 				<div className="col-9 mt-5">

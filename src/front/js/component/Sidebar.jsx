@@ -12,7 +12,7 @@ export const Sidebar = () => {
                         <h3 className="title">QuantumStok</h3>
                         <div className="log">
                             <figure className="photo-profile">
-                                <img src={rigoImageUrl} alt="Rigo-bb" />
+                                
                             </figure>
                             <div className="personal-information">
                                 <h6 className="name">Nombre de usuario</h6>

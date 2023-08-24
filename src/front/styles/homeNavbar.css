@@ -5,3 +5,6 @@
 .buttonNav{
     border-radius: 28px;
 }
+.button.navbar-toggler{
+    color: white;
+}

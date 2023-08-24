@@ -15,7 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 
-
+			token: undefined,
+			info: ""
 
 		},
 		actions: {

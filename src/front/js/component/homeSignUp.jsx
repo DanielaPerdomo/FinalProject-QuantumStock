@@ -1,7 +1,8 @@
 import React , { useContext, useState }from "react";
 
 
-export const SignUp = ({onCloseSignUpForm}) => {
+export const SignUp = ({onCloseSignUpForm, onChageClicLoginForm}) => {
+  
   const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
   const [company_name, setCompany_name] = useState("");
@@ -56,7 +57,7 @@ export const SignUp = ({onCloseSignUpForm}) => {
         <div className="container">
           <div className="row main-row">
             <div className="col SingUp-form">
-              <form  onSubmit={creat_user} action="#" className="formSignUp needs-validation" noValidate>
+              <form  onSubmit={creat_user} action="#" className="formSignUp needs-validation">
                 <div className="row">
                   <div className="col-10 d-flex gap-2">
                     <div><i className="fa-solid fa-user-plus fa-bounce ico"></i></div>
@@ -86,7 +87,7 @@ export const SignUp = ({onCloseSignUpForm}) => {
                 <div className="row mt-3">
                   <div className="col">
                       <label htmlFor="rolCompany" className="form-label">Rol de la empresa</label>
-                      <select defaultValue="" className="form-select" id="rolCompany" required
+                      <select className="form-select" id="rolCompany" required
                            value={rol_company}
                            onChange={e => setRol_company(e.target.value)}
                       >
@@ -144,7 +145,7 @@ export const SignUp = ({onCloseSignUpForm}) => {
                 </div>
                 <div className="row mt-3">
                   <div className="col d-flex justify-content-center">
-                      <button className="btn button" type="submit">Guardar</button>
+                      <button type="submit"  /* onClick={onChageClicLoginForm} */  className="btn button" >Guardar</button>
 
                   </div>
                 </div>

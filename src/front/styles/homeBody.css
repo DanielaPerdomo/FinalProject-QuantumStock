@@ -35,9 +35,9 @@ p{
     align-items: center;
 }
 .homeImage{
-    max-width: 75%;
+    max-width: 65%;
     height: auto;
-    opacity: 85%;
-    border-radius: 60px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    opacity: 80%;
+    border-radius: 220px;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.534);
 }

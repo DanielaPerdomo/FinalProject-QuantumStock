@@ -4,7 +4,7 @@ import { SignUp } from "./SignUp.jsx";
 import "../../styles/body.css";
 import homeImageUrl from "../../img/HomeTechnology.jpg";
 
-export const Body = ({showLoginForm, showSignUp, onClose, onCloseSignUp, OnChageClick}) => {
+export const Body = ({showLoginForm, showSignUp, onClose, onCloseSignUp, OnChageClick, OnChageClickLogin}) => {
 
     return(
         <div className="bodycontainer container">
@@ -16,7 +16,7 @@ export const Body = ({showLoginForm, showSignUp, onClose, onCloseSignUp, OnChage
                 <img className="homeImage" src={homeImageUrl} />
             </div>
             {showLoginForm && <Login onCloseForm={onClose} onChangeClick={OnChageClick}/>}
-            {showSignUp && <SignUp onCloseSignUpForm={onCloseSignUp}/> }
+            {showSignUp && <SignUp onCloseSignUpForm={onCloseSignUp} onChageClicLoginForm={OnChageClickLogin} /> }
         </div>
     );
 };

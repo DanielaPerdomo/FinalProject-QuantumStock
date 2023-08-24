@@ -37,6 +37,11 @@ export const Home = () => {
 		setShowSignUp(true)
 	}
 
+	const handleChageLogin = () =>{
+		handleCloseFormSingUp();
+		setShowLoginForm(true)
+	}
+
 
 	return (
 		<div className="Container vh-100 m-0 p-0">
@@ -53,6 +58,7 @@ export const Home = () => {
 					 showSignUp={showSignUp}
 					 onCloseSignUp={handleCloseFormSingUp}
 					 OnChageClick={handleChage}
+					 OnChageClickLogin={handleChageLogin}
 					 />
 				</div>
 			</div>	

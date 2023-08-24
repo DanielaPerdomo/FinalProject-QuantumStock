@@ -51,7 +51,7 @@ export const Home = () => {
 				</div>
 			</div>	
 			<div className="row">
-				<div className="col">
+				<div className="col mt-5">
 			 		 <Body 
 					 showLoginForm={showLoginForm} 
 					 onClose={handleCloseForm}

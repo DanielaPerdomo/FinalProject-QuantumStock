@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../../styles/footer.css"
 
 export const Footer = () => (
-	<footer className="footerHome">
+	<footer className="footerHome container">
 		<div>
 			<span><i className="icon fa-brands fa-instagram"></i></span>
 			<span><i className="icon fa-brands fa-x-twitter"></i></span>

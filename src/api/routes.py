@@ -74,7 +74,7 @@ def login():
     email=user_data.get("email")
     password = user_data.get("password")
     user = User.query.filter_by(email=email).one_or_none()
-
+    print(user)
     if user is None:
         return jsonify({
             "message":"credenciales invalidas"

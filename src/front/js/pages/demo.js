@@ -1,16 +1,25 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Sidebar } from "../component/Sidebar.jsx";
 import { RequestInformation } from "../component/requestedInfo.jsx";
 
 import { Context } from "../store/appContext";
 import { SignUp } from "../component/SignUp.jsx";
 import { Login } from "../component/login.jsx";
+
+
+
+
+
 export const Demo = () => {
+	const navigate = useNavigate();
 	const { store, actions } = useContext(Context);
 
-
-
+	useEffect(() =>{
+		if(store.token == undefined){
+			navigate("/")
+		}
+	}, [])
 
 	return (
 		<div className="container-fluid">

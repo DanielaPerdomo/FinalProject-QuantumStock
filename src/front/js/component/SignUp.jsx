@@ -2,6 +2,7 @@ import React , { useContext, useState }from "react";
 
 
 export const SignUp = ({onCloseSignUpForm, onChageClicLoginForm}) => {
+  
   const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
   const [company_name, setCompany_name] = useState("");

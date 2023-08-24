@@ -4,10 +4,54 @@ import "../../styles/homeNavbar.css";
 
 
 
-export const Navbar = ({onLoginClick, onSignUpClick}) => {     
+export const Navbar = ({ onLoginClick, onSignUpClick }) => {
 
-	return (
-		<nav className="navbar navbar-expand-lg headerHome">         
+  return (
+    <nav className="navbar navbar-expand-lg ">
+      <div className="container-fluid">
+        
+        <span className="navbar-brand mb-0 h1 text-light">          
+					<strong> QuantumStock</strong>
+				</span>
+
+        <button className="navbar-toggler bs-navbar-color-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse position-relative" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <Link to="/aboutUs">
+                <button type="button" className="btn btn-sm btn-outline-light border border-0 m-2 buttonNav" href="#">
+                  Nosotros
+                </button>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <button onClick={onLoginClick} type="button" className="btn  btn-sm btn-info text-light  m-2 buttonNav">
+                Iniciar Sesión&ensp;
+                <i className="fa-solid fa-user"></i>
+              </button>
+            </li>
+
+            <li className="nav-item">
+              <Link to="/">
+                <button onClick={onSignUpClick} className="btn  btn-sm btn-outline-info text-light m-2 buttonNav" type="submit">
+                  Registrarse&ensp;
+                  <i className="fa-solid fa-right-to-bracket"></i>
+                </button>
+              </Link>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+
+  );
+};
+
+// Navbar que funciona
+{/* <nav className="navbar navbar-expand-lg headerHome">         
   			<div className="container-fluid">
 				
 			  
@@ -29,6 +73,4 @@ export const Navbar = ({onLoginClick, onSignUpClick}) => {
 					</Link> 
 				</div>
 			</div>
-		</nav>
-	);
-};
+		</nav> */}

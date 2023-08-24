@@ -1,7 +1,7 @@
 import React, { useContext, useState} from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
-import { Navbar } from "../component/navbar";
+import { Navbar } from "../component/homeNavbar.jsx";
 import { Footer } from "../component/footer";
 import { Body } from "../component/body.jsx";
 

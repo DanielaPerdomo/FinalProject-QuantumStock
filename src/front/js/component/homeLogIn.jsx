@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import "../../styles/logIn.css"
+import "../../styles/homeForm.css"
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 

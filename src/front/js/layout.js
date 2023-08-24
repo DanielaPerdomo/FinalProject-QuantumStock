@@ -9,7 +9,7 @@ import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/homeNavbar.jsx";
-import { Footer } from "./component/footer";
+import { Footer } from "./component/homeFooter.jsx";
 
 //create your first component
 const Layout = () => {

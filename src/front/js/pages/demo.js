@@ -4,8 +4,8 @@ import { Sidebar } from "../component/Sidebar.jsx";
 import { RequestInformation } from "../component/requestedInfo.jsx";
 
 import { Context } from "../store/appContext";
-import { SignUp } from "../component/SignUp.jsx";
-import { Login } from "../component/login.jsx";
+import { SignUp } from "../component/homeSignUp.jsx";
+import { Login } from "../component/homeLogIn.jsx";
 
 
 

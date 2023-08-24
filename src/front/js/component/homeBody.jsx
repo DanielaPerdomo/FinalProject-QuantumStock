@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Login } from "./login.jsx";
-import { SignUp } from "./SignUp.jsx";
-import "../../styles/body.css";
+import { Login } from "./homeLogIn.jsx";
+import { SignUp } from "./homeSignUp.jsx";
+import "../../styles/homeBody.css";
 import homeImageUrl from "../../img/HomeTechnology.jpg";
 
 export const Body = ({ showLoginForm, showSignUp, onClose, onCloseSignUp, OnChageClick, OnChageClickLogin }) => {

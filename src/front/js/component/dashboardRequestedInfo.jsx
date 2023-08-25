@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Search } from "./Search.jsx";
+import "../../styles/dashboardPage.css";
 
 export const RequestInformation = () => {
     return(
@@ -8,19 +7,9 @@ export const RequestInformation = () => {
         <div className="container information mt-3">
             <div className="info-top">
             <div className="row">
-                <div className="col-7">
-                    <p>Saludo de bienvenida,</p>
-                    <h6>Nombre del usuario</h6>
-                </div>
-                <div className="col-3">
-                    <Search />
-                </div>
-                <div className="col-2">
-                    <div className="d-flex">
-                    <p>[Notificacion]</p>
-                    <p>[perfil]</p>
-                    </div>
-                </div>
+                
+                
+                
             </div>
             </div>
             <div className="info-mid">

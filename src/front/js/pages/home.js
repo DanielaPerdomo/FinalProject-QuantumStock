@@ -2,8 +2,8 @@ import React, { useContext, useState} from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import { Navbar } from "../component/homeNavbar.jsx";
-import { Footer } from "../component/footer";
-import { Body } from "../component/body.jsx";
+import { Footer } from "../component/homeFooter.jsx";
+import { Body } from "../component/homeBody.jsx";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);

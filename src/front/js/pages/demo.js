@@ -4,11 +4,8 @@ import { Sidebar } from "../component/Sidebar.jsx";
 import { RequestInformation } from "../component/requestedInfo.jsx";
 
 import { Context } from "../store/appContext";
-import { SignUp } from "../component/SignUp.jsx";
-import { Login } from "../component/login.jsx";
-
-
-
+import { SignUp } from "../component/homeSignUp.jsx";
+import { Login } from "../component/homeLogIn.jsx";
 
 
 export const Demo = () => {
@@ -16,15 +13,17 @@ export const Demo = () => {
 	const { store, actions } = useContext(Context);
 
 	useEffect(() =>{
-		if(store.token == undefined){
-			navigate("/")
-		}
+		if(store.token != undefined){
+			
+			actions.get_app()
+		} //else navigate("/")
 	}, [])
 
 	return (
-		<div className="container-fluid">
+		<div className="container-fluid m-0 p-0">
 			<div className="row">
 				<div className="col-3">
+
 					 <Sidebar /> 
 				</div>
 				<div className="col-9 mt-5">

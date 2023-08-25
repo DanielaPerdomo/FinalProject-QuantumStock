@@ -5,7 +5,7 @@ import rigoImageUrl from "../../img/rigo-baby.jpg";
 
 export const Sidebar = () => {
     return(
-        <div className="Sidebar vh-100 bg-light">
+        <div className="Sidebar vh-100 bg-light  m-0 p-0">
             <div className="row">
                 <div className="col">
                     <div className="Sidebar-top">

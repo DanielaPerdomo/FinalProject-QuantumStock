@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import "../../styles/logIn.css"
+import "../../styles/homeForm.css"
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 
@@ -18,7 +18,7 @@ export const Login = ({ onCloseForm, onChangeClick }) => {
 
 
     let isLogged = await actions.create_token(event, email, password)
-    console.log(isLogged)
+    console.log("esto es in looge ",isLogged)
 
     if (isLogged == true) {
       navigate("/demo")

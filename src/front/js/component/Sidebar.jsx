@@ -6,7 +6,7 @@ import rigoImageUrl from "../../img/rigo-baby.jpg";
 
 export const Sidebar = () => {
     return (
-        <div className="container Sidebar bg-light vh-100">
+        <div className="container Sidebar vh-100">
             <div className="row">
                 <div className="col vh-100 d-flex align-items-start flex-column">
                     <div className="Sidebar-header p-2 mt-4">

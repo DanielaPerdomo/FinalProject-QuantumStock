@@ -2,6 +2,8 @@
     width: 80%;
     border-radius: 5px;
     margin-left: 3px;
+    background-color: #140152;
+    color: white;
 }
 .Sidebar-options{
     padding: 10px;
@@ -9,5 +11,6 @@
 }
 .Sidebar-options:hover{
     background-color: rgb(222, 201, 255);
+    color: black;
     cursor: pointer;
 }

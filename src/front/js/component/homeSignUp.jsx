@@ -9,6 +9,19 @@ export const SignUp = ({ onCloseSignUpForm, onChageClicLoginForm }) => {
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
 
+  /* ESTA FUNCION HACE RESET A LOS CAMPOS DEL FORMULARIO */
+
+  const resetForm = () => {
+    setName("");
+    setEmail("");
+    setCompany_name("");
+    setRol_company("");
+    setPassword("");
+    setConfirmpassword("");
+  };
+
+  /* ESTA FUNCION CREA UN NUEVO USUARIO SIEMPRE Y CUANDO NO EXISTA */
+
   async function creat_user(event) {
     event.preventDefault();
 
@@ -35,6 +48,7 @@ export const SignUp = ({ onCloseSignUpForm, onChageClicLoginForm }) => {
       const resp = await fetch(process.env.BACKEND_URL + "api/signup", opts);
 
       if (resp.ok) {
+        resetForm();
         toast.success('Registro exitoso')
         return await resp.json();
 
@@ -46,7 +60,6 @@ export const SignUp = ({ onCloseSignUpForm, onChageClicLoginForm }) => {
       console.error("There was an Error!!!", error);
     };
     /* return alert("Registro exitoso") */
-
 
   };
 

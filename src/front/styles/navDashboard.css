@@ -1,0 +1,23 @@
+.nav{
+
+    max-width: 15%;
+    height: auto;
+    
+     border-radius: 20%; 
+    
+}
+ .nav-icon{
+    padding:1%;
+    border-radius:5%;
+} 
+.nav-icon:hover{
+    background-color: rgb(222, 201, 255);
+    cursor: pointer;
+}
+
+
+.boton{
+    border-radius: 0%; 
+
+
+}

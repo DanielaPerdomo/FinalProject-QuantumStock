@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../../styles/sidebar.css";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 
 
 export const Sidebar = () => {
+    const { actions, store } = useContext(Context);
+    const navigate = useNavigate();
+
+    const handleLogOut = () => {
+        actions.logOut();
+        navigate("/")
+    }
     return (
         <div className="container Sidebar vh-100">
             <div className="row">
@@ -31,8 +40,8 @@ export const Sidebar = () => {
                     </div>
 
                     <div className="Sidebar-footer mb-5 p-2">
-                        <div className="Sidebar-options fs-6"><i class="fa-solid fa-gears"></i><span className="m-3">Configuraciones</span></div>
-                        <div className="Sidebar-options fs-6"><i class="fa-solid fa-right-from-bracket"></i><span className="m-3">Cerrar session</span></div>
+                        <div className="Sidebar-options fs-6"><i className="fa-solid fa-gears"></i><span className="m-3">Configuraciones</span></div>
+                        <div className="Sidebar-options fs-6"><button type="button" className="Sidebar-button" onClick={handleLogOut}><i className="fa-solid fa-right-from-bracket"></i><span className="m-3">Cerrar session</span></button></div>
                     </div>
                 </div>
             </div>

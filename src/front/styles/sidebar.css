@@ -14,3 +14,12 @@
     color: black;
     cursor: pointer;
 }
+.Sidebar-button{
+    border: none;
+    background: none;
+    color: white;
+}
+
+.Sidebar-button:hover{
+    color: black;
+}

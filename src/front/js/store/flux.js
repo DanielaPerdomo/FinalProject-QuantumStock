@@ -15,7 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 
-			token: localStorage.getItem("token") ?? null,     
+			token: localStorage.getItem("token") ?? null,
 			info: ""
 
 		},
@@ -26,18 +26,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getMessage: async () => {
-				try{
+				try {
 					// fetching data from the backend
 					const resp = await fetch(process.env.BACKEND_URL + "/api/hello")
 					const data = await resp.json()
 					setStore({ message: data.message })
 					// don't forget to return something, that is how the async resolves
 					return data;
-				}catch(error){
+				} catch (error) {
 					console.log("Error loading message from backend", error)
 				}
 			},
-			changeColor: (index, color) => {    
+			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
 
@@ -51,33 +51,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
-			
-			create_token: async ( event,email,password) => {
+
+			create_token: async (event, email, password) => {
 				const store = getStore()
 				event.preventDefault()
 				try {
-					const response = await fetch(process.env.BACKEND_URL +"api/login",{
-					method:"POST",
-					body:JSON.stringify({
-						"email":email,
-						"password": password 
-					}),
-					headers:{
-						"content-type":"Application/json"
-					}
+					const response = await fetch(process.env.BACKEND_URL + "api/login", {
+						method: "POST",
+						body: JSON.stringify({
+							"email": email,
+							"password": password
+						}),
+						headers: {
+							"content-type": "Application/json"
+						}
 
 					})
 
-					 if (response.ok){
-					const body = await response.json()
-					/* console.log(body) */
-					setStore({token:body.token})
-					localStorage.setItem("token",body.token)
-					/* console.log("esto es token",store.token) */
-					
+					if (response.ok) {
+						const body = await response.json()
+						/* console.log(body) */
+						setStore({ token: body.token })
+						localStorage.setItem("token", body.token)
+						/* console.log("esto es token",store.token) */
+
 						return true
-				}
-				} catch (error){
+					}
+				} catch (error) {
 
 					console.log(error)
 
@@ -86,49 +86,46 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
-			 get_app: async ()=> {
-				
-			const store = getStore();
+			get_app: async () => {
+
+				const store = getStore();
 				try {
-					const response = await fetch(process.env.BACKEND_URL +"api/demo",{
-					method:"GET",
-					
-					headers:{
-						Authorization: ` Bearer ${store.token}`,
-					}
+					const response = await fetch(process.env.BACKEND_URL + "api/demo", {
+						method: "GET",
+
+						headers: {
+							Authorization: ` Bearer ${store.token}`,
+						}
 
 					})
 					if (response.ok) {
-						
+
 						const body = await response.json()
-						
+
 						/* console.log(body) */
-					    setStore({info:body})
-						
-						return true			
+						setStore({ info: body })
+
+						return true
 					}
 					/* console.log("esto es store.info",store.info) */
-							
-				} catch (error){
-					
+
+				} catch (error) {
+
 					console.log(error)
-					
 				}
-			
+			},
 
-			 },
+			setToken: (token) => {
 
-			 setToken:  (token)=> {
+				setStore({ token })
+			},
 
-				setStore({token})
-
-
-
-			 }
-
-
-
+			logOut: () => {
+				localStorage.removeItem("token");
+				setStore({ token: null })
+			}
 		}
+
 	};
 };
 

@@ -17,14 +17,12 @@ export const Navbardashboard = () => {
             <nav class="navbar navbar-expand-lg bg-dark navbar-dark " width="150px">
                 
                     <div className="container-fluid m-0 p-0">
-                     <div className="row d-flex flex-row m-0 p-0">
+                     <div className="row d-flex flex-row m-0 p-0 ">
                      <div className="col-4 d-flex align-items-start m-0 p-0">
                         <img className="nav mx-2 " src={ homeImageUrl} />
 
                         <a class="navbar-brand" href="#">QuantumStock</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class=""></span>
-                        </button>
+                        
 
                        
                         </div>

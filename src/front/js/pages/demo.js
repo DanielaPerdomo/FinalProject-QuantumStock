@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Sidebar } from "../component/Sidebar.jsx";
-import { RequestInformation } from "../component/requestedInfo.jsx";
+import { RequestInformation } from "../component/dashboardRequestedInfo.jsx";
 import { Navbardashboard} from "../component/Navbardashboard.jsx"
 import { Context } from "../store/appContext";
 

@@ -1,4 +1,5 @@
 import React from "react";
+import "../../styles/sidebar.css";
 import { Link } from "react-router-dom";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 
@@ -7,10 +8,10 @@ export const Sidebar = () => {
     return (
         <div className="container Sidebar bg-light vh-100">
             <div className="row">
-                <div className="col vh-100 d-flex align-items-start flex-column mb-3">
-                    <div className="Sidebar-header p-2">
+                <div className="col vh-100 d-flex align-items-start flex-column">
+                    <div className="Sidebar-header p-2 mt-4">
                         <div className="name-company">
-                            <h3>Nombre de la empresa</h3>
+                            <h4>Nombre de la empresa</h4>
                         </div>
                         <div className="user d-flex">
                             <figure>
@@ -20,18 +21,18 @@ export const Sidebar = () => {
                         </div>
                     </div>
 
-                    <div className="Sidebar-body mb-auto p-2">
-                        <div><i className="fa-solid fa-house"></i> Home</div>
-                        <div><i className="fa-solid fa-warehouse"></i>Almacen</div>
-                        <div><i className="fa-brands fa-product-hunt"></i>Productos</div>
-                        <div><i className="fa-solid fa-person-circle-check"></i>Clientes</div>
-                        <div><i className="fa-solid fa-people-carry-box"></i>Proveedores</div>
-                        <div><i className="fa-regular fa-folder-open"></i>Reportes</div>
+                    <div className="Sidebar-body mb-auto mt-4 p-2">
+                        <div className="Sidebar-options fs-6"><i className="fa-solid fa-house"></i><span className="m-3">Home</span></div>
+                        <div className="Sidebar-options fs-6"><i className="fa-solid fa-warehouse"></i><span className="m-3">Almacen</span></div>
+                        <div className="Sidebar-options fs-6"><i className="fa-brands fa-product-hunt"></i><span className="m-3">Productos</span></div>
+                        <div className="Sidebar-options fs-6"><i className="fa-solid fa-person-circle-check"></i><span className="m-3">Clientes</span></div>
+                        <div className="Sidebar-options fs-6"><i className="fa-solid fa-people-carry-box"></i><span className="m-3">Proveedores</span></div>
+                        <div className="Sidebar-options fs-6"><i className="fa-regular fa-folder-open"></i><span className="m-3">Reportes</span></div>
                     </div>
 
                     <div className="Sidebar-footer mb-5 p-2">
-                        <div><i class="fa-solid fa-gears"></i>Configuraciones</div>
-                        <div><i class="fa-solid fa-right-from-bracket"></i>Cerrar session</div>
+                        <div className="Sidebar-options fs-6"><i class="fa-solid fa-gears"></i><span className="m-3">Configuraciones</span></div>
+                        <div className="Sidebar-options fs-6"><i class="fa-solid fa-right-from-bracket"></i><span className="m-3">Cerrar session</span></div>
                     </div>
                 </div>
             </div>

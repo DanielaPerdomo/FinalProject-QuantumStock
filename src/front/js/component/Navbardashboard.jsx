@@ -17,7 +17,7 @@ export const Navbardashboard = () => {
             <nav className="navbar navbar-expand-lg bg-dark navbar-dark " width="150px">
                 
                     <div className="container-fluid m-0 p-0">
-                     <div className="row d-flex flex-row m-0 p-0">
+                     <div className="row d-flex flex-row m-0 p-0 ">
                      <div className="col-4 d-flex align-items-start m-0 p-0">
                         <img className="nav mx-2 " src={ homeImageUrl} />
 

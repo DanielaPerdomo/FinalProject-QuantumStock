@@ -13,7 +13,7 @@ export const Search = () =>{
                 
 
                 type="text"
-                className="form-control"
+                className="form-control rounded"
                 placeholder="Buscar..."
                 />
                 

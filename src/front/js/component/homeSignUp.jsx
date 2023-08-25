@@ -1,90 +1,44 @@
 import React, { useContext, useState } from "react";
-import { Toaster, toast } from 'sonner'
 
 export const SignUp = ({ onCloseSignUpForm, onChageClicLoginForm }) => {
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [company_name, setCompany_name] = useState("");
   const [rol_company, setRol_company] = useState("");
   const [password, setPassword] = useState("");
-<<<<<<< HEAD:src/front/js/component/SignUp.jsx
-
-  async function creat_user(event) {
-    event.preventDefault()
-    console.log(email, "Email", password, "Password");
-    try {
-      const opts = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          password: password,
-          company_name: company_name,
-          rol_company: rol_company
-        })
-      };
-      const resp = await fetch(process.env.BACKEND_URL + "api/signup", opts);
-
-
-      if (resp.ok) return await resp.json();
-      else alert("There has been some error");
-
-    } catch (error) {
-      console.error("There was an Error!!!", error);
-    };
-  };
-=======
   const [confirmpassword, setConfirmpassword] = useState("");
-  
 
- 
   async function creat_user(event) {
+    event.preventDefault();
 
+    if (password != confirmpassword) {
+      return alert("la contraseñas no coinciden !")
+    } else {
 
-		event.preventDefault()
-		console.log(email, "Email", password, "Password");
-		if (password!= confirmpassword) {
-      
-      
-      return alert ("la contraseñas no coinciden !")
+      try {
+        const opts = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            password: password,
+            company_name: company_name,
+            rol_company: rol_company
+          })
+        };
 
-  } else {
-    try {
-			const opts = {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-          name:name,
-					email: email,
-					password: password,
-          company_name:company_name,
-          rol_company:rol_company
-				})
-			};
-      
-			const resp = await fetch(process.env.BACKEND_URL + "api/signup", opts);
-
-
-			if (resp.ok) return await resp.json();
-			else  return alert("Usuario ya creado");
-
-		} catch (error) {
-			console.error("There was an Error!!!", error);
-		};
-
-    return alert ("Registro exitoso")
-  } 
-	};
-  
-
-
->>>>>>> 4712b80257f0ef6e308a4a325f658754520fb5e6:src/front/js/component/homeSignUp.jsx
+        const resp = await fetch(process.env.BACKEND_URL + "api/signup", opts);
+        if (resp.ok) return await resp.json();
+        else return alert("Usuario ya creado");
+      } catch (error) {
+        console.error("There was an Error!!!", error);
+      };
+      return alert("Registro exitoso")
+    }
+  };
 
   return (
     <div className="form-logIn">
@@ -110,8 +64,6 @@ export const SignUp = ({ onCloseSignUpForm, onChageClicLoginForm }) => {
                   <input type="text" className="form-control" id="nameCompany" placeholder="Ferrari" required
                     value={company_name}
                     onChange={e => setCompany_name(e.target.value)}
-
-
                   />
                   <div className="valid-tooltip">
                     Looks good!
@@ -130,7 +82,6 @@ export const SignUp = ({ onCloseSignUpForm, onChageClicLoginForm }) => {
                     <option value="Farmacia">Farmacia</option>
                     <option value="Electrodomesticos">Electrodomesticos</option>
                     <option value="Tecnoligia">Tecnologia</option>
-
                   </select>
                   <div className="invalid-tooltip">
                     Please select a valid state.
@@ -167,32 +118,19 @@ export const SignUp = ({ onCloseSignUpForm, onChageClicLoginForm }) => {
                   <input type="password" className="form-control" id="validationTooltip05" required
                     value={password}
                     onChange={e => setPassword(e.target.value)}
-<<<<<<< HEAD:src/front/js/component/SignUp.jsx
                   />
-=======
-                    />
-                  </div>
-                  <div className="col-6 position-relative">
-                    <label htmlFor="validationTooltip06" className="form-label">Confirmar Cotraseña</label>
-                    <input type="password" className="form-control" id="validationTooltip06"  required 
-                    value={confirmpassword}
-                    onChange={e => setConfirmpassword(e.target.value)}
-                    />
-                  </div>
->>>>>>> 4712b80257f0ef6e308a4a325f658754520fb5e6:src/front/js/component/homeSignUp.jsx
                 </div>
                 <div className="col-6 position-relative">
                   <label htmlFor="validationTooltip06" className="form-label">Confirmar Cotraseña</label>
                   <input type="password" className="form-control" id="validationTooltip06" required
-
+                    value={confirmpassword}
+                    onChange={e => setConfirmpassword(e.target.value)}
                   />
                 </div>
               </div>
               <div className="row mt-3">
                 <div className="col d-flex justify-content-center">
-                  <Toaster position="top-right" richColors />
-                  <button type="submit" onClick={() => toast.success('Se registro exitosamente')} className="btn button" >Guardar</button>
-
+                  <button type="submit"  /* onClick={onChageClicLoginForm} */ className="btn button" >Guardar</button>
                 </div>
               </div>
             </form>
@@ -200,6 +138,5 @@ export const SignUp = ({ onCloseSignUpForm, onChageClicLoginForm }) => {
         </div>
       </div>
     </div>
-
   );
 };

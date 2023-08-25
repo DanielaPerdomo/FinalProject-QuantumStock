@@ -56,6 +56,7 @@ export const SignUp = ({ onCloseSignUpForm, onChageClicLoginForm }) => {
           /* return alert("Usuario ya creado"); */ return toast.error("El usuario ya existe")
       }
 
+
     } catch (error) {
       console.error("There was an Error!!!", error);
     };

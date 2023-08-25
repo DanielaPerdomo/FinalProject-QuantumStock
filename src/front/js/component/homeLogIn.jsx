@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import "../../styles/homeForm.css"
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
+import { Toaster, toast } from 'sonner'
 
 export const Login = ({ onCloseForm, onChangeClick }) => {
 
@@ -11,22 +12,24 @@ export const Login = ({ onCloseForm, onChangeClick }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
+
   const loginIn = async (event) => {
     event.preventDefault()
     actions.create_token(event, email, password)
 
 
-
     let isLogged = await actions.create_token(event, email, password)
-    console.log("esto es in looge ",isLogged)
 
     if (isLogged == true) {
       navigate("/demo")
-
     }
+
+    return toast.error("Los datos ingresados no son correctos")
   }
   return (
     <div className="form-logIn">
+      <Toaster position="top-right" richColors />
       <div className="container for-2">
         <div className="row main-row-login">
           <div className="col SingUp-form">

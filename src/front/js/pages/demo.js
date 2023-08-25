@@ -8,17 +8,15 @@ import { SignUp } from "../component/homeSignUp.jsx";
 import { Login } from "../component/homeLogIn.jsx";
 
 
-
-
-
 export const Demo = () => {
 	const navigate = useNavigate();
 	const { store, actions } = useContext(Context);
 
 	useEffect(() =>{
-		if(store.token == undefined){
-			navigate("/")
-		}
+		if(store.token != undefined){
+			
+			actions.get_app()
+		} //else navigate("/")
 	}, [])
 
 	return (

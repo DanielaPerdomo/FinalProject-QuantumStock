@@ -18,7 +18,7 @@ export const Login = ({ onCloseForm, onChangeClick }) => {
 
 
     let isLogged = await actions.create_token(event, email, password)
-    console.log(isLogged)
+    console.log("esto es in looge ",isLogged)
 
     if (isLogged == true) {
       navigate("/demo")

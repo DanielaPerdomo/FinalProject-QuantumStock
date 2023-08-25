@@ -29,7 +29,7 @@ export const Navbardashboard = () => {
                        
                         </div>
                         <div className="col-3 mt-2  ">
-                        <div className=""  >Bienvenido estimad@</div>
+                        <div className="text-light">Bienvenido estimad@</div>
                         </div>
                         <div className="col-5 m-0 p-0 d-flex justify-content-evenly ">
                         

@@ -7,11 +7,11 @@
     
 }
  .nav-icon{
-    padding:1%;
+    
     border-radius:5%;
 } 
 .nav-icon:hover{
-    background-color: rgb(222, 201, 255);
+   
     cursor: pointer;
 }
 

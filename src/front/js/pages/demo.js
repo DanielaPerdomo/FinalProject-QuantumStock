@@ -23,7 +23,7 @@ export const Demo = () => {
 		<div className="container-fluid m-0 p-0">
 			<div className="row">
 			  
-				<div className="col-3">
+				<div className="col-3 m-0 p-0">
 				
 					 <Sidebar />    
 				</div>

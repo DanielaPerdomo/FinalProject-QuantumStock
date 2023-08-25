@@ -2,6 +2,12 @@ import React from "react";
 import "../../styles/navDashboard.css";
 import { Link } from "react-router-dom";
 import logo from "../../img/Logo.jpg";
+import { Search } from "./Search.jsx";
+//import {Search} from "Search.jsx"
+
+
+
+
 export const Navbardashboard = () => {
 
     return (
@@ -17,32 +23,19 @@ export const Navbardashboard = () => {
 
                         <a class="navbar-brand" href="#">QuantumStock</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+                            <span class=""></span>
                         </button>
 
-                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <ul className="navbar-nav  m-0 p-0">
-                                <li className="nav-item">
-                                    <a className="nav-link active" aria-current="page" href="#">algo</a>
-                                </li>
-                                <li className="nav-item active">
-                                    <a className="nav-link active" aria-current="page" href="#">algo</a>
-                                </li>
-
-                            </ul>
-                        </div>
+                       
                         </div>
                         <div className="col-3 mt-2  ">
                         <div className=""  >Bienvenido estimad@</div>
                         </div>
                         <div className="col-5 m-0 p-0 d-flex justify-content-evenly ">
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Introducir busqueda rapida" aria-label="Search" />
-                            <button class="btn btn-dark boton rounded " type="submit">Busqueda</button>
-                        </form>
-
-                        <div className=" nav-icon fs-4 mt-1"><i className="fa-solid fa-gears"></i><span className="m"></span></div>
-                        <div className=" nav-icon fs-4 mt-1"><i className="fa-solid fa-right-from-bracket"></i><span className="m"></span></div>
+                        
+                          <Search/>
+                        <div className=" nav-icon fs-4 mx-2 p-0"><i class="fa-regular fa-user"></i><span className="m"></span></div>
+                        <div className=" nav-icon fs-4 mx-2 p-0"><i className="fa-solid fa-right-from-bracket"></i><span className="m"></span></div>
                         
                     </div>
                   </div>

@@ -4,53 +4,34 @@ import rigoImageUrl from "../../img/rigo-baby.jpg";
 
 
 export const Sidebar = () => {
-    return(
-        <div className="Sidebar vh-100 bg-light  m-0 p-0">
+    return (
+        <div className="container Sidebar bg-light vh-100">
             <div className="row">
-                <div className="col">
-                    <div className="Sidebar-top">
-                        <h3 className="title">QuantumStok</h3>
-                        <div className="log">
-                            <figure className="photo-profile">
-                                
+                <div className="col vh-100 d-flex align-items-start flex-column mb-3">
+                    <div className="Sidebar-header p-2">
+                        <div className="name-company">
+                            <h3>Nombre de la empresa</h3>
+                        </div>
+                        <div className="user d-flex">
+                            <figure>
+                                <img src="#" alt="Foto de perfil" />
                             </figure>
-                            <div className="personal-information">
-                                <h6 className="name">Nombre de usuario</h6>
-                            </div>
+                            <span>[Nombre de usuario]</span>
                         </div>
                     </div>
-                    <div className="Sidebar-mid">
-                        <ul className="nav flex-column">
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">DashBoard</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Almacen</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Productos</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Proveedor</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Clientes</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Reportes</a>
-                            </li>
-                            {/* Agrega más opciones de menú según sea necesario */}
-                        </ul>
+
+                    <div className="Sidebar-body mb-auto p-2">
+                        <div><i className="fa-solid fa-house"></i> Home</div>
+                        <div><i className="fa-solid fa-warehouse"></i>Almacen</div>
+                        <div><i className="fa-brands fa-product-hunt"></i>Productos</div>
+                        <div><i className="fa-solid fa-person-circle-check"></i>Clientes</div>
+                        <div><i className="fa-solid fa-people-carry-box"></i>Proveedores</div>
+                        <div><i className="fa-regular fa-folder-open"></i>Reportes</div>
                     </div>
-                    <div className="Sidebar-below bg-dark">
-                    <ul className="nav flex-column">
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Configuraciones</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Cerrar Session</a>
-                        </li>
-                    </ul>
+
+                    <div className="Sidebar-footer mb-5 p-2">
+                        <div><i class="fa-solid fa-gears"></i>Configuraciones</div>
+                        <div><i class="fa-solid fa-right-from-bracket"></i>Cerrar session</div>
                     </div>
                 </div>
             </div>

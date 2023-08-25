@@ -15,7 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 
-			token: undefined,
+			token: localStorage.getItem("token") ?? null,     
 			info: ""
 
 		},

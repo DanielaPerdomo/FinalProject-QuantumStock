@@ -13,10 +13,10 @@ export const Demo = () => {
 	const { store, actions } = useContext(Context);
 
 	useEffect(() =>{
-		if(store.token != undefined){
+		if(store.token == undefined){   
+			navigate("/")
 			
-			actions.get_app()
-		} //else navigate("/")
+		} 
 	}, [])
 
 	return (
@@ -24,9 +24,9 @@ export const Demo = () => {
 			<div className="row">
 				<div className="col-3">
 
-					 <Sidebar /> 
+					 <Sidebar />    
 				</div>
-				<div className="col-9 mt-5">
+				<div className="col-9 mt-5">     
 					<RequestInformation /> 
 					{/* <Login />  */}
 				</div>

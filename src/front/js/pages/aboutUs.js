@@ -1,6 +1,6 @@
 import React, { useContext, useState} from "react";
 import { Context } from "../store/appContext";
-import "../../styles/home.css";
+import "../../styles/aboutUs.css";
 import { Navbar } from "../component/homeNavbar.jsx";
 import { Footer } from "../component/homeFooter.jsx";
 import { Body } from "../component/homeBody.jsx";

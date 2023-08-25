@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Toaster, toast } from 'sonner'
 
 export const SignUp = ({ onCloseSignUpForm, onChageClicLoginForm }) => {
   const [name, setName] = useState("");
@@ -12,36 +13,46 @@ export const SignUp = ({ onCloseSignUpForm, onChageClicLoginForm }) => {
     event.preventDefault();
 
     if (password != confirmpassword) {
-      return alert("la contraseñas no coinciden !")
-    } else {
-
-      try {
-        const opts = {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: name,
-            email: email,
-            password: password,
-            company_name: company_name,
-            rol_company: rol_company
-          })
-        };
-
-        const resp = await fetch(process.env.BACKEND_URL + "api/signup", opts);
-        if (resp.ok) return await resp.json();
-        else return alert("Usuario ya creado");
-      } catch (error) {
-        console.error("There was an Error!!!", error);
-      };
-      return alert("Registro exitoso")
+      /* return alert("la contraseñas no coinciden !") */
+      return toast.error("La contraseña debe coincidir.")
     }
+
+    try {
+      const opts = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          password: password,
+          company_name: company_name,
+          rol_company: rol_company
+        })
+      };
+
+      const resp = await fetch(process.env.BACKEND_URL + "api/signup", opts);
+
+      if (resp.ok) {
+        toast.success('Registro exitoso')
+        return await resp.json();
+
+      } else {
+          /* return alert("Usuario ya creado"); */ return toast.error("El usuario ya existe")
+      }
+
+    } catch (error) {
+      console.error("There was an Error!!!", error);
+    };
+    /* return alert("Registro exitoso") */
+
+
   };
 
   return (
     <div className="form-logIn">
+      <Toaster position="top-right" richColors />
       <div className="container">
         <div className="row main-row">
           <div className="col SingUp-form">

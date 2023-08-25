@@ -27,7 +27,7 @@ export const Demo = () => {
 				
 					 <Sidebar />    
 				</div>
-				<div className="col-9 ">   
+				<div className="col-9 p-0">   
 				    <Navbardashboard/>  
 					<RequestInformation /> 
 					{/* <Login />  */}

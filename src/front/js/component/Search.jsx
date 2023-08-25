@@ -7,7 +7,7 @@ export const Search = () =>{
         <div className="container">
             <div className="input-group mb-3">
              <div className="input-group-append nav-icon mt-2 me-2">
-                <i class="fa-solid fa-magnifying-glass "></i>
+                <i class="fa-solid fa-magnifying-glass text-light"></i>
                 </div>
                 <input
                 

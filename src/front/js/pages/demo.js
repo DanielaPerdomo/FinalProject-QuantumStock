@@ -18,17 +18,17 @@ export const Demo = () => {
 	}, [])
 
 	return (
-		<div className="information container-fluid">
+		<div className="container-fluid information">
 			<div className="row">
 
 				<div className="col-2 p-0">
-
 					<Sidebar />
 				</div>
 				<div className="col-10 m-0 p-0">
-					<Navbardashboard />
-					<RequestInformation />
-
+					<div className="container">
+						<Navbardashboard />
+						<RequestInformation />
+					</div>
 				</div>
 			</div>
 		</div>

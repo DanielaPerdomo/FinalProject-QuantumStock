@@ -5,8 +5,8 @@ export const RequestInformation = () => {
     return (
 
         <>
-        {/* TABLA DE MOSTRAR PRODUCTOS CARGADOE EN EL INVENTARIO */}
-            <table class="table table-responsive m-1">
+            {/* TABLA DE MOSTRAR PRODUCTOS CARGADOE EN EL INVENTARIO */}
+            <table class="table table-responsive m-1 mt-5">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -41,7 +41,7 @@ export const RequestInformation = () => {
                 <button type="button" class="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
                     <i class="fa-regular fa-square-plus"></i>
                 </button>
-                
+
 
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -54,7 +54,7 @@ export const RequestInformation = () => {
                                 <form>
                                     <div class="mb-3">
                                         <label for="recipient-name" class="col-form-label">Recipient:</label>
-                                        <input type="text" class="form-control" id="recipient-name"/>
+                                        <input type="text" class="form-control" id="recipient-name" />
                                     </div>
                                     <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Message:</label>

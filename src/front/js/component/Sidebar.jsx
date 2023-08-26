@@ -20,9 +20,9 @@ export const Sidebar = () => {
                 <div className="col vh-100 d-flex align-items-start flex-column">
                     <div className="Sidebar-header p-2 mt-4">
                         <div className="name-company">
-                            <h4>Nombre de la empresa</h4>
+                            <h5>Nombre de la empresa</h5>
                         </div>
-                        <div className="user d-flex">
+                        <div className="user d-flex mt-3">
                             <figure>
                                 <img src="#" alt="Foto de perfil" />
                             </figure>

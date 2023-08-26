@@ -1,5 +1,6 @@
 .Sidebar{
     width: 100%;
+    /* min-width:250px; */
     border-radius: 5px;
     margin-left: 3px;
     background-color: #140152;

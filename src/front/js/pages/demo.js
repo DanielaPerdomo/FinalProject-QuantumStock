@@ -21,12 +21,13 @@ export const Demo = () => {
 		<div className="information container-fluid">
 			<div className="row">
 
-				<div className="col-2 p-0">
+				<div className=" p-0 col-lg-3 col-4">
 
 					<Sidebar />
 				</div>
-				<div className="col-10 m-0 p-0">
+				<div className=" m-0 p-0 col-lg-9 col-8">
 					<Navbardashboard />
+
 					<RequestInformation />
 
 				</div>

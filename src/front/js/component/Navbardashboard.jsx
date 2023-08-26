@@ -1,15 +1,16 @@
-import React from "react";
+import React, {useContext} from "react";
 import "../../styles/navDashboard.css";
-import { Link } from "react-router-dom";
-import logo from "../../img/Logo.jpg";
 import { Search } from "./Search.jsx";
 import homeImageUrl from "../../img/HomeTechnology.jpg";
-
-
-
-
+import { useNavigate } from "react-router-dom";
+import { Context } from "../store/appContext";
 export const Navbardashboard = () => {
-
+    const { actions, store } = useContext(Context);
+    const navigate = useNavigate();
+    const handleLogOut = () => {
+        actions.logOut();
+        navigate("/")
+    }
     return (
 
         <div className=" m-0 p-0" >
@@ -35,7 +36,7 @@ export const Navbardashboard = () => {
                         
                           <Search/>
                         <div className=" nav-icon fs-4 mx-2 p-0"><i className="fa-regular fa-user text-light"></i><span className="m"></span></div>
-                        <div className=" nav-icon fs-4 mx-2 p-0"><i className="fa-solid fa-right-from-bracket text-light"></i><span className="m"></span></div>
+                        <div className=" nav-icon fs-4 mx-2 p-0" onClick={handleLogOut}><i className="fa-solid fa-right-from-bracket text-light "></i><span className="m"></span></div>
                         
                     </div>
                   </div>

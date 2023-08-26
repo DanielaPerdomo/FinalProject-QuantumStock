@@ -6,7 +6,7 @@ export const RequestInformation = () => {
 
         <>
             {/* TABLA DE MOSTRAR PRODUCTOS CARGADOE EN EL INVENTARIO */}
-            <table className="table table-responsive m-1 mt-5">
+            <table className="tableProducts table table-responsive table-hover m-1 mt-5">
                 <thead>
                     <tr>
                         <th scope="col">#</th>

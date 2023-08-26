@@ -18,7 +18,7 @@ export const Demo = () => {
 	}, [])
 
 	return (
-		<div className="information container-fluid">
+		<div className="container-fluid information">
 			<div className="row">
 
 				<div className=" p-0 col-lg-3 col-4">

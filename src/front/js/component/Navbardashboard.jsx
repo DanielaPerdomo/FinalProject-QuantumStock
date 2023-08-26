@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import "../../styles/navDashboard.css";
 import { Search } from "./Search.jsx";
 import homeImageUrl from "../../img/HomeTechnology.jpg";
@@ -29,11 +29,12 @@ export const Navbardashboard = () => {
                             <div className="text-dark">Bienvenido estimad@</div>
                         </div>
                         <div className="col-5 m-0 p-0 d-flex justify-content-evenly ">
-                        
-                          <Search/>
-                        <div className=" nav-icon fs-4 mx-2 p-0"><i className="fa-regular fa-user text-light"></i><span className="m"></span></div>
-                        <div className=" nav-icon fs-4 mx-2 p-0" onClick={handleLogOut}><i className="fa-solid fa-right-from-bracket text-light "></i><span className="m"></span></div>
-                        
+
+                            <Search />
+                            <div className=" nav-icon fs-4 mx-2 p-0"><i className="fa-regular fa-user "></i><span className="m"></span></div>
+                            <div className=" nav-icon fs-4 mx-2 p-0" onClick={handleLogOut}><i className="fa-solid fa-right-from-bracket  "></i><span className="m"></span></div>
+
+                        </div>
                     </div>
                 </div>
             </nav>

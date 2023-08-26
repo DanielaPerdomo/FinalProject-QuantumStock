@@ -22,7 +22,7 @@ export const Login = ({ onCloseForm, onChangeClick }) => {
     let isLogged = await actions.create_token(event, email, password)
 
     if (isLogged == true) {
-      navigate("/demo")
+      navigate("/Dashboard")
     }
 
     return toast.error("Los datos ingresados no son correctos")

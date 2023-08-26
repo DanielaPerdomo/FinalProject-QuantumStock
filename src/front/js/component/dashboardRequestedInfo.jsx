@@ -57,7 +57,7 @@ export const RequestInformation = () => {
                                         <input type="text" className="form-control" id="recipient-name" />
                                     </div>
                                     <div className="mb-3">
-                                        <label for="message-text" className="col-form-label">Message:</label>
+                                        <label htmlFor="message-text" className="col-form-label">Message:</label>
                                         <textarea className="form-control" id="message-text"></textarea>
                                     </div>
                                 </form>

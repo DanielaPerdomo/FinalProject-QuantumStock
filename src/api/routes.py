@@ -132,7 +132,9 @@ def create_almacen():
 
 
 @api.route("/product", methods=["POST"]) 
+
 def create_product():
+
 
     body = request.json
     product_name = body.get("product_name")
@@ -163,3 +165,4 @@ def create_product():
             "error": error.args
         }), 500
     return jsonify({}), 201
+

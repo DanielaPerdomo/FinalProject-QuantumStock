@@ -4,10 +4,11 @@ import { Context } from "../store/appContext.js";
 export const Almacen = () => {
 
 const {store,action} =useContext(Context)
-console.log(store.stock);
+
 
     const [address, setAddress] = useState("");
     const [rif, setRif] = useState("");
+    
     
     const resetForm = () => {
         setAddress("");

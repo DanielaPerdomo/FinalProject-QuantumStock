@@ -17,7 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			token: localStorage.getItem("token") ?? null,
 			info: "",
-			almacen:{}
+			almacen:""
 
 		},
 		actions: {
@@ -126,11 +126,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ token: null })
 			},
 
-			get_stock: async () => {
+			getStock: async () => {
                 const store=getStore()
 				
 				try {
-					const response = await fetch(process.env.BACKEND_URL + "/user/store", {
+					const response = await fetch(process.env.BACKEND_URL + "api/user/store", {
 						method: "GET",
 
 					

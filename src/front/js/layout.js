@@ -32,6 +32,7 @@ console.log("esto es store",store)
                     <Routes>
                         <Route element={<Home />} path="/" />
                         <Route element={<Dashboard />} path="/Dashboard" />
+                        
                         <Route element={<Single />} path="/single/:theid" />
                                              
                         <Route element={<h1>Not found!</h1>} />

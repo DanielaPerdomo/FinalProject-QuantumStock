@@ -52,6 +52,17 @@ class Stock(db.Model):
 
     product = db.relationship("Product", back_populates="stock")
 
+    def __repr__(self):
+        return f'<Stock {self.address}>'
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "address": self.address,
+            "rif": self.rif,
+             "id_user": self.user_id
+        }
+
 
 
 class Product(db.Model):
@@ -74,5 +85,19 @@ class Product(db.Model):
     stock_id = db.Column(ForeignKey("stock.id"))
     stock = db.relationship("Stock", back_populates="product")
 
+    def __repr__(self):
+        return f'<Product {self.product_name}>'
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "stock_id": self.stock_id,
+            "product_name": self.product_name,
+            "description": self.description,
+            "item": self.item,
+            "price": self.price,
+            "admission_date": self.admission_date
+        }
 
     

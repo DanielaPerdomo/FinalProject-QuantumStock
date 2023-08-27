@@ -23,6 +23,8 @@ def handle_hello():
     return jsonify(response_body), 200
 
 
+# ENDPOINT PARA CREEAR USUARIOS
+
 @api.route('/signup', methods=['POST'])
 def handle_singup():
     body = request.json
@@ -64,6 +66,8 @@ def handle_singup():
     return jsonify({}), 201
 
     
+# ENDPOINT PARA CREAR TOKEN Y LOGUER AL USUARIO
+
 @api.route("/login", methods=["POST"])
 def login():
     user_data=request.json
@@ -96,6 +100,7 @@ def login():
         "token":access_token
     }),201
 
+# RUTA PROTEGIDA POR JWT
 
 @api.route("/Dashboard", methods=["GET"])
 @jwt_required()
@@ -103,6 +108,8 @@ def get_user():
     user_id = get_jwt_identity()
     user = User.query.get(user_id)
     return jsonify(user.serialize()),200  
+
+# ENDPOINT PARA CREAR UN NUEVO ALMACEN
 
 @api.route("/stock", methods=["POST"]) 
 def create_almacen():
@@ -130,6 +137,7 @@ def create_almacen():
     return jsonify({}), 201
 
 
+# ENDPOINT PARA CREAR UN NUEVO PRODUCTO
 
 @api.route("/product", methods=["POST"]) 
 def create_product():
@@ -163,3 +171,29 @@ def create_product():
             "error": error.args
         }), 500
     return jsonify({}), 201
+
+
+# ENDPOINT PARA OBTENER INFORMACION DE PRODUCTOS
+
+@api.route("/list/of/product", methods=["GET"])
+def handle_get_product():
+
+    product = Product.query.all()
+    list_of_product = list(map(
+        lambda products: products.serialize(), product
+    ))
+
+    return jsonify(list_of_product), 200
+
+
+# ENDPOINT PARA OBTENER INFORMACION DEL ALMACEN
+
+@api.route("/user/store", methods=['GET'])
+def handle_get_store():
+
+    store = Stock.query.all()
+    list_store = list(map(
+        lambda stores: stores.serialize(), store
+    ))
+
+    return jsonify(list_store), 200

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Sidebar } from "../component/Sidebar.jsx";
 import { RequestInformation } from "../component/dashboardRequestedInfo.jsx";
+import { Product } from "../component/products.jsx";
 import { Navbardashboard } from "../component/Navbardashboard.jsx"
 import { Context } from "../store/appContext.js";
 import { Almacen } from "./Almacen.js";
@@ -59,8 +60,8 @@ export const Dashboard = ( ) => {
 				      {    }
 					<Navbardashboard />
 					
-                    {showAlmacen && <Almacen/>}
-					{ showProduct && <RequestInformation /> }
+                    {showAlmacen && <Almacen />}
+					{showProduct && <Product /> }
 
 
 				</div>

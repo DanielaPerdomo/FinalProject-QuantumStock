@@ -107,16 +107,14 @@ def get_user():
 @api.route("/stock", methods=["POST"]) 
 def create_almacen():
     body = request.json
-    company_name = body.get("company_name")
     address = body.get("address")
     rif = body.get("rif")
-    if company_name is None or address is None or rif is None:
+    if address is None or rif is None:
         return jsonify({
             "message": "All information are required"
         }), 400
     
     stock = Stock(
-        company_name = company_name,
         address = address,
         rif = rif
     )
@@ -135,12 +133,14 @@ def create_almacen():
 
 @api.route("/product", methods=["POST"]) 
 def create_product():
+
     body = request.json
     product_name = body.get("product_name")
     description = body.get("description")
     item = body.get("item")
     price = body.get("price")
     admission_date = body.get("admission_date")
+    
     if product_name is None or description is None or item is None or  price is None or admission_date is None:
         return jsonify({
             "message": "All information are required"

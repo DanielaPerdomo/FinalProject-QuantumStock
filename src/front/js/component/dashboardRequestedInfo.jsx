@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/dashboardPage.css";
 
 export const RequestInformation = () => {
@@ -9,10 +9,13 @@ export const RequestInformation = () => {
             <table className="tableProducts table table-responsive table-hover m-1 mt-5">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Fecha de Ingreso</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody className="table-group-divider">
@@ -21,17 +24,6 @@ export const RequestInformation = () => {
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
                     </tr>
                 </tbody>
             </table>

@@ -5,13 +5,16 @@ export const Product = () => {
     return (
 
         <>
+            {/* <div>
+                <h1 className=" text-dark "><i className="fa-brands fa-product-hunt"/><span className="m-3">Productos</span></h1>
+            </div> */}
             {/* TABLA DE MOSTRAR PRODUCTOS CARGADOE EN EL INVENTARIO */}
             <table className="tableProducts table table-responsive table-hover m-1 mt-5">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Descripcion</th>
+                        <th scope="col">Descripción</th>
                         <th scope="col">Stock</th>
                         <th scope="col">Precio</th>
                         <th scope="col">Fecha de Ingreso</th>
@@ -39,18 +42,17 @@ export const Product = () => {
                 </tbody>
             </table>
 
-            {/* FORMULARIO PARA AGREGAR PRODUCTOS */}
+            {/* MODAL PARA AGREGAR PRODUCTOS */}
             <div>
                 <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
                     <i className="fa-regular fa-square-plus"></i>
                 </button>
 
-
                 <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h1 className="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                                <h1 className="modal-title fs-5" id="exampleModalLabel">Datos de Producto</h1>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">

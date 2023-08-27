@@ -125,6 +125,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ token: null })
 			}
 		}
+	
 
 	};
 };

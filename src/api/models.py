@@ -1,4 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import ForeignKey
+
 
 db = SQLAlchemy()
 
@@ -12,11 +14,14 @@ class User(db.Model):
     password = db.Column(db.String(250), unique=False, nullable=False)
     password_hash = db.Column(db.String(800), unique=False, nullable=False)
     salt = db.Column(db.String(800), unique=False, nullable=False)
-    # Relacion con stock 
-    Stock = db.relationship("Stock", back_populates="user")
-    # Relacion con Product
-    Product = db.relationship("Product", back_populates="user")
 
+    # Relacion con Stock
+
+    stock = db.relationship("Stock", back_populates="user")
+
+    # Relacion con Product
+
+    product = db.relationship("Product", back_populates="user")
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -32,39 +37,42 @@ class User(db.Model):
         }
 
 class Stock(db.Model):
-    __tablename__ = "stock"
+    __tablename__ = 'stock'
+
     id = db.Column(db.Integer, primary_key=True)
-    company_name = db.Column(db.String(250), unique=False, nullable=False)
-    address = db.Column(db.String(250), unique=True, nullable=False)
+    address = db.Column(db.String(250), unique=False, nullable=False)
     rif = db.Column(db.String(250), unique=True, nullable=False)
-    # Relacion con el user
-    user_id = db.Column(db.ForeignKey("user.id"), nullable=True)
-    user = db.relationship("User", back_populates="Stock")
-    # Relacion con Product
+
+    # Relacion con User
+
+    user_id = db.Column(ForeignKey("user.id"))
+    user = db.relationship("User", back_populates="stock")
+
+    # Relacion Con Product
+
+    product = db.relationship("Product", back_populates="stock")
 
 
-    def __repr__(self):
-        return f'<Stock {self.company_name}>'
-
-    def serialize(self):
-        return {
-            "id": self.id,
-            "company_name": self.company_name,
-            "address": self.address,
-            "rif": self.rif,
-            # do not serialize the password, its a security breach
-        }
 
 class Product(db.Model):
-    __tablename__ = "product"
+    __tablename__ = 'product'
+
     id = db.Column(db.Integer, primary_key=True)
-    product_name = db.Column(db.String(100), unique=False, nullable=False)
-    description = db.Column(db.String(250), unique=False, nullable=False)
-    item = db.Column(db.Integer, unique=False, nullable=False)
-    price = db.Column(db.Integer, unique=False, nullable=False)
-    admission_date = db.Column(db.String(15), unique=False, nullable=False)
+    product_name = db.Column(db.String(250), unique=True, nullable=False)
+    description = db.Column(db.String(250), unique=True, nullable=False)
+    item = db.Column(db.String(250), unique=True, nullable=False)
+    price = db.Column(db.String(250), unique=True, nullable=False)
+    admission_date = db.Column(db.String(250), unique=True, nullable=False)
+
     # Relacion con User
-    user_id = db.Column(db.ForeignKey("user.id"))
+
+    user_id = db.Column(ForeignKey("user.id"))
     user = db.relationship("User", back_populates="product")
+
     # Relacion con Stock
+
+    stock_id = db.Column(ForeignKey("stock.id"))
+    stock = db.relationship("Stock", back_populates="product")
+
+
     

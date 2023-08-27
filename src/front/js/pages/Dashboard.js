@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Sidebar } from "../component/Sidebar.jsx";
-//import { RequestInformation } from "../component/dashboardRequestedInfo.jsx";
+
 import { Navbardashboard } from "../component/Navbardashboard.jsx"
 import { Context } from "../store/appContext.js";
 import { Almacen } from "./Almacen.js";
-import { Dashboard } from "../component/dashboard.jsx";
+import {  DashboardHome } from "../component/dashboardHome.jsx";
+import { Products } from "../component/products.jsx";
 
 export const Dashboard = () => {
 	const navigate = useNavigate();
@@ -65,8 +66,8 @@ export const Dashboard = () => {
 					<Navbardashboard />
 
 					{showAlmacen && <Almacen />}
-					{/* { showProduct && <RequestInformation /> } */}
-					{showHome && < Dashboard />}
+					 { showProduct && <Products /> } 
+					 {showHome && <  DashboardHome />} 
 
 
 				</div>

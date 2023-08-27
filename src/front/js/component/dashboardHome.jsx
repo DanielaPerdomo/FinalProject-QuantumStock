@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/dashboardPage.css";
 
-export const dashboard = () => {
+export const DashboardHome = () => {
   return (
 
     <>  <div>

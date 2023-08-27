@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/dashboardPage.css";
 
-export const Product = () => {
+export const Products = () => {
     return (
 
         <>

@@ -48,9 +48,9 @@ class Product(db.Model):
     description = db.Column(db.String(250), unique=False, nullable=False)
     item = db.Column(db.Integer, unique=False, nullable=False)
     price = db.Column(db.Integer, unique=False, nullable=False)
-    admission_date = db.Column(db.String(10), unique=False, nullable=False)
+    admission_date = db.Column(db.String(15), unique=False, nullable=False)
     # relacion con stock
-    stock_id = db.Column(db.Integer, db.ForeignKey('stock.id'), nullable=False)
+    stock_id = db.Column(db.ForeignKey('stock.id'), nullable=False)
     stock = db.relationship("Stock", back_populates="Product")
     # Relacion con user
     user_id = db.Column(db.ForeignKey("user.id"), nullable=True)

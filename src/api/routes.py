@@ -2,9 +2,10 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, Stock, Product
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token,jwt_required,get_jwt_identity
+
 
 from werkzeug.security import generate_password_hash,check_password_hash
 import bcrypt
@@ -101,4 +102,64 @@ def login():
 def get_user():
     user_id = get_jwt_identity()
     user = User.query.get(user_id)
-    return jsonify(user.serialize()),200   
+    return jsonify(user.serialize()),200  
+
+@api.route("/stock", methods=["POST"]) 
+def create_almacen():
+    body = request.json
+    company_name = body.get("company_name")
+    address = body.get("address")
+    rif = body.get("rif")
+    if company_name is None or address is None or rif is None:
+        return jsonify({
+            "message": "All information are required"
+        }), 400
+    
+    stock = Stock(
+        company_name = company_name,
+        address = address,
+        rif = rif
+    )
+    try:
+        db.session.add(stock)
+        db.session.commit()
+    except Exception as error:
+        db.session.rollback()
+        return jsonify({
+            "message": "ocurrió un error interno",
+            "error": error.args
+        }), 500
+    return jsonify({}), 201
+
+
+
+@api.route("/product", methods=["POST"]) 
+def create_product():
+    body = request.json
+    product_name = body.get("product_name")
+    description = body.get("description")
+    item = body.get("item")
+    price = body.get("price")
+    admission_date = body.get("admission_date")
+    if product_name is None or description is None or item is None or  price is None or admission_date is None:
+        return jsonify({
+            "message": "All information are required"
+        }), 400
+    
+    product = Product(
+        product_name = product_name,
+        description = description,
+        item = item,
+        price = price,
+        admission_date = admission_date
+    )
+    try:
+        db.session.add(product)
+        db.session.commit()
+    except Exception as error:
+        db.session.rollback()
+        return jsonify({
+            "message": "ocurrió un error interno",
+            "error": error.args
+        }), 500
+    return jsonify({}), 201

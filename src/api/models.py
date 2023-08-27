@@ -16,9 +16,11 @@ class User(db.Model):
     Stock = db.relationship("Stock", back_populates="user")
     # Relacion con Product
     Product = db.relationship("Product", back_populates="user")
+
+
     def __repr__(self):
         return f'<User {self.email}>'
-    
+
     def serialize(self):
         return {
             "id": self.id,
@@ -39,7 +41,19 @@ class Stock(db.Model):
     user_id = db.Column(db.ForeignKey("user.id"), nullable=True)
     user = db.relationship("User", back_populates="Stock")
     # Relacion con Product
-    Product = db.relationship("Product", back_populates="stock")
+
+
+    def __repr__(self):
+        return f'<Stock {self.company_name}>'
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "company_name": self.company_name,
+            "address": self.address,
+            "rif": self.rif,
+            # do not serialize the password, its a security breach
+        }
 
 class Product(db.Model):
     __tablename__ = "product"

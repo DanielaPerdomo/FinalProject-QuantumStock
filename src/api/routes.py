@@ -96,7 +96,7 @@ def login():
     }),201
 
 
-@api.route("/demo", methods=["GET"])
+@api.route("/Dashboard", methods=["GET"])
 @jwt_required()
 def get_user():
     user_id = get_jwt_identity()

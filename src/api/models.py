@@ -16,28 +16,6 @@ class User(db.Model):
     Stock = db.relationship("Stock", back_populates="user")
     # Relacion con Product
     Product = db.relationship("Product", back_populates="user")
-    def __repr__(self):
-        return f'<User {self.email}>'
-    
-    def serialize(self):
-        return {
-            "id": self.id,
-            "name": self.name,
-            "email": self.email,
-            "company_name": self.company_name,
-            "rol_company": self.rol_company
-            # do not serialize the password, its a security breach
-        }
-
-    def serialize(self):
-        return {
-            "id": self.id,
-            "name": self.name,
-            "email": self.email,
-            "company_name": self.company_name,
-            "rol_company": self.rol_company
-            # do not serialize the password, its a security breach
-        }
 
 
     def __repr__(self):

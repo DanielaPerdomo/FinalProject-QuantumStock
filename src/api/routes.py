@@ -5,10 +5,10 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Stock, Product
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token,jwt_required,get_jwt_identity
-
-
 from werkzeug.security import generate_password_hash,check_password_hash
 import bcrypt
+
+
 
 api = Blueprint('api', __name__)
 

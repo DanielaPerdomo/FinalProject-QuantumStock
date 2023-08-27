@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import ForeignKey
 
 db = SQLAlchemy()
 
@@ -34,18 +35,18 @@ class User(db.Model):
 class Stock(db.Model):
     __tablename__ = "stock"
     id = db.Column(db.Integer, primary_key=True)
-    company_name = db.Column(db.String(250), unique=False, nullable=False)
+   
     address = db.Column(db.String(250), unique=True, nullable=False)
     rif = db.Column(db.String(250), unique=True, nullable=False)
     # Relacion con el user
     user_id = db.Column(db.ForeignKey("user.id"), nullable=True)
-    user = db.relationship("User", back_populates="Stock")
+    user = db.relationship("User", back_populates="stock")
     # Relacion con Product
-
-
+    Product = db.relationship("Product", back_populates="stock")
+       
     def __repr__(self):
-        return f'<Stock {self.company_name}>'
-
+        return f'<Stock {self.company_name}>'     
+                
     def serialize(self):
         return {
             "id": self.id,
@@ -65,9 +66,9 @@ class Product(db.Model):
     admission_date = db.Column(db.String(15), unique=False, nullable=False)
     # relacion con stock
     stock_id = db.Column(db.ForeignKey('stock.id'), nullable=False)
-    stock = db.relationship("Stock", back_populates="Product")
+    stock = db.relationship("Stock", back_populates="product")
     # Relacion con user
     user_id = db.Column(db.ForeignKey("user.id"), nullable=True)
-    user = db.relationship("User", back_populates="Product")
+    user = db.relationship("User", back_populates="product")
 
 

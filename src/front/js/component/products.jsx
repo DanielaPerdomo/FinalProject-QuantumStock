@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import "../../styles/dashboardPage.css";
+import "../../styles/homeForm.css";
 
 export const Products = () => {
     return (
 
         <>
-            {/* <div>
+            <div>
                 <h1 className=" text-dark "><i className="fa-brands fa-product-hunt"/><span className="m-3">Productos</span></h1>
-            </div> */}
+            </div>
             {/* TABLA DE MOSTRAR PRODUCTOS CARGADOE EN EL INVENTARIO */}
             <table className="tableProducts table table-responsive table-hover m-1 mt-5">
                 <thead>
@@ -52,24 +52,36 @@ export const Products = () => {
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h1 className="modal-title fs-5" id="exampleModalLabel">Datos de Producto</h1>
+                                <h1 className="modal-title fs-5 text-dark" id="exampleModalLabel">Datos de Producto</h1>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
                                 <form>
-                                    <div className="mb-3">
-                                        <label htmlFor="recipient-name" className="col-form-label">Recipient:</label>
+                                    <div className="mb-1">
+                                        <label htmlFor="recipient-name" className="col-form-label">Nombre del Producto:</label>
                                         <input type="text" className="form-control" id="recipient-name" />
                                     </div>
-                                    <div className="mb-3">
-                                        <label htmlFor="message-text" className="col-form-label">Message:</label>
-                                        <textarea className="form-control" id="message-text"></textarea>
+                                    <div className="mb-1">
+                                        <label htmlFor="recipient-name" className="col-form-label">Descripción:</label>
+                                        <input type="text" className="form-control" id="recipient-name" />
+                                    </div>
+                                    <div className="mb-1">
+                                        <label htmlFor="recipient-name" className="col-form-label">Cantidad:</label>
+                                        <input type="text" className="form-control" id="recipient-name" />
+                                    </div>
+                                    <div className="mb-1">
+                                        <label htmlFor="recipient-name" className="col-form-label">Precio:</label>
+                                        <input type="text" className="form-control" id="recipient-name" />
+                                    </div>
+                                    <div className="mb-1">
+                                        <label htmlFor="recipient-name" className="col-form-label">Fecha de Ingreso:</label>
+                                        <input type="text" className="form-control" id="recipient-name" />
                                     </div>
                                 </form>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-primary">Send message</button>
+                                <button type="button" className=" btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" className=" btn btn-primary">Send message</button>
                             </div>
                         </div>
                     </div>

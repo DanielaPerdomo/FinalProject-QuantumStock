@@ -4,11 +4,17 @@ import { Sidebar } from "../component/Sidebar.jsx";
 import { RequestInformation } from "../component/dashboardRequestedInfo.jsx";
 import { Navbardashboard } from "../component/Navbardashboard.jsx"
 import { Context } from "../store/appContext.js";
+import { Almacen } from "./Almacen.js";
 
-
-export const Dashboard = () => {
+export const Dashboard = ( ) => {
 	const navigate = useNavigate();
 	const { store, actions } = useContext(Context);
+	
+	const [showAlmacen, setShowAlmacen] = useState(false);
+    /*almacen*/ 
+	const handleLoginClick = () =>{
+		setShowAlmacen(!showAlmacen);
+	};
 
 	useEffect(() => {
 		if (store.token == undefined) {
@@ -23,12 +29,13 @@ export const Dashboard = () => {
 
 				<div className=" p-0 col-lg-3 col-4">
 
-					<Sidebar />
+					<Sidebar onAlmacenClick={handleLoginClick} />
 				</div>
 				<div className=" m-0 p-0 col-lg-9 col-8">
+				
 					<Navbardashboard />
-
-					<RequestInformation />
+                    {showAlmacen && <Almacen/>}
+					{/* <RequestInformation /> */}
 
 				</div>
 			</div>

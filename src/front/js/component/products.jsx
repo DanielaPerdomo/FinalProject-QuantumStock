@@ -1,10 +1,30 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/homeForm.css";
+import { Context } from "../store/appContext";
+import { useNavigate } from "react-router-dom";
 
-export const Products = () => {
+export const Products = ({}) => {
+
+    const [products, setProducts]= useState({
+        name: "", 
+        description: "",
+        stock: "",
+        price: "",
+        admissionDate: "",
+    })
 
 
-    
+    console.log(products)
+
+
+    const handleInfo = (event) => {
+        console.log(event)
+        setProducts({
+            ...products, 
+            [event.target.name] : event.target.value
+        })
+    }
+
     return (
 
         <>
@@ -62,23 +82,23 @@ export const Products = () => {
                                 <form>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label">Nombre del Producto:</label>
-                                        <input type="text" className="form-control" id="recipient-name" />
+                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} name="name" value={products.name}/>
                                     </div>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label">Descripción:</label>
-                                        <input type="text" className="form-control" id="recipient-name" />
+                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} name="description" value={products.description}/>
                                     </div>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label">Cantidad:</label>
-                                        <input type="text" className="form-control" id="recipient-name" />
+                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} name="stock" value={products.stock}/>
                                     </div>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label">Precio:</label>
-                                        <input type="text" className="form-control" id="recipient-name" />
+                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} name="price" value={products.price}/>
                                     </div>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label">Fecha de Ingreso:</label>
-                                        <input type="text" className="form-control" id="recipient-name" />
+                                        <input type="text" className="form-control" id="recipient-name"onChange={handleInfo}  name="admissionDate" value={products.admissionDate}/>
                                     </div>
                                 </form>
                             </div>

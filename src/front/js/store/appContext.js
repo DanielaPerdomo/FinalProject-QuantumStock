@@ -23,8 +23,8 @@ const injectContext = PassedComponent => {
 
 		useEffect(() => {
 			let token = localStorage.getItem("token")
-			if (state.store.token==undefined && token){
-					 state.actions.setToken(token)
+			if (state.store.token == undefined && token) {
+				state.actions.setToken(token)
 
 			}
 

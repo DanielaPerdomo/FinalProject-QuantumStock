@@ -17,7 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			token: localStorage.getItem("token") ?? null,
 			info: "",
-			almacen:""
+			almacen: {}
 
 		},
 		actions: {
@@ -126,36 +126,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ token: null })
 			},
 
+
 			getStock: async () => {
-                const store=getStore()
-				
+
+				const store = getStore()
+
 				try {
 					const response = await fetch(process.env.BACKEND_URL + "api/user/store", {
 						method: "GET",
-
-					
+						headers: {
+							"Content-Type": "application/json",
+						},
 					})
 					if (response.ok) {
-
 						const body = await response.json()
-
-						 console.log(body) 
-						
-						
-						setStore({ almacen: [...store.almacen, body] })
-						
+						const bodyOjt = body[0];
+						setStore({ almacen: bodyOjt })
 					}
-					/* console.log("esto es store.info",store.info) */
-
 				} catch (error) {
-
 					console.log(error)
 				}
 			}
-
-
-
 		}
+	
 
 	};
 };

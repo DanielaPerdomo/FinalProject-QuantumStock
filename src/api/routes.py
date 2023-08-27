@@ -184,7 +184,9 @@ def handle_get_product():
     list_of_product = list(map(
         lambda products: products.serialize(), product
     ))
-
+    
+    """ product_dict = dict(list_of_product) """
+    
     return jsonify(list_of_product), 200
 
 

@@ -17,7 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			token: localStorage.getItem("token") ?? null,
 			info: "",
-			almacen: {}
+			almacen: []
 
 		},
 		actions: {
@@ -140,15 +140,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					if (response.ok) {
 						const body = await response.json()
-						const bodyOjt = body[0];
-						setStore({ almacen: bodyOjt })
+						console.log("este es el body:", body)
+						/* const bodyOjt = body[0]; */
+						setStore({ almacen: body })
 					}
 				} catch (error) {
 					console.log(error)
 				}
 			}
 		}
-	
+
 
 	};
 };

@@ -3,7 +3,7 @@ import { Toaster, toast } from 'sonner'
 import { Context } from "../store/appContext.js";
 export const Almacen = () => {
 
-    const { store, action } = useContext(Context);
+    const { store, actions } = useContext(Context);
     const [address, setAddress] = useState("");
     const [rif, setRif] = useState("");
 
@@ -37,7 +37,9 @@ export const Almacen = () => {
             if (resp.ok) {
                 resetForm();
                 toast.success('Registro de Almacen exitoso')
+                actions.getStock()
                 return await resp.json();
+
 
             } else {
               /* return alert("Usuario ya creado"); */ return toast.error("Almacen ya creado")
@@ -65,7 +67,6 @@ export const Almacen = () => {
                     <thead className="">
 
                         <tr >
-
                             <th scope="col">ID</th>
                             <th scope="col">address</th>
                             <th scope="col">Rif</th>
@@ -73,20 +74,29 @@ export const Almacen = () => {
                         </tr>
                     </thead>
                     <tbody className="table-group-divider">
-                        <tr>
-                            <th scope="row"></th>
-                            {Object.keys(store.almacen).map((propiedad, index) => (
-                                <td key={index}>{store.almacen[propiedad]}</td>
-                            ))}
-                            <td>
-                                <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                </button>
-                                <button type="button" className="btn btn-outline-danger m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-                                    <i class="fa-regular fa-trash-can"></i>
-                                </button>
-                            </td>
-                        </tr>
+
+                        {/*  {Object.keys(store.almacen).map((propiedad, index) => (
+                        ))} */}
+                        {store.almacen.map((item, i) => {
+                            return (
+                                <tr key={item.id}>
+                                    <td>{item.id}</td>
+                                    <td>{item.address}</td>
+                                    <td>{item.rif}</td>
+                                    <td>
+                                        <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                        </button>
+                                        <button type="button" className="btn btn-outline-danger m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+                                            <i class="fa-regular fa-trash-can"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            )
+                        })}
+
+
                     </tbody>
                 </table>
 

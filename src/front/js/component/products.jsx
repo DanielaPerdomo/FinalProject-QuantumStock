@@ -1,37 +1,59 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../../styles/homeForm.css";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 
-export const Products = ({}) => {
-
-    
-
-    const [products, setProducts]= useState({
-        name: "", 
+export const Products = ({ }) => {
+    //Inicio Codigo de Jose
+    const [products, setProducts] = useState({
+        product_name: "",
         description: "",
-        stock: "",
+        item: "",
         price: "",
-        admissionDate: "",
+        admission_date: "",
     })
 
-
-    console.log(products)
-
-
     const handleInfo = (event) => {
-        console.log(event)
         setProducts({
-            ...products, 
-            [event.target.name] : event.target.value
+            ...products,
+            [event.target.name]: event.target.value //Fin de codigo de Jose
         })
     }
+
+    const { store, action } = useContext(Context);
+    const resetForm = () => {
+
+    };
+    async function createProduct(event) {
+        event.preventDefault();
+        try {
+            const opts = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(products)
+
+            };
+
+            const resp = await fetch(process.env.BACKEND_URL + "api/product", opts);
+            if (resp.ok) {
+                // resetForm();
+                toast.success('Registro de Producto Exitoso')
+                return await resp.json();
+            } else {
+                return toast.error("Producto creado exitosamente")
+            }
+        } catch (error) {
+            console.error("There was an Error!!!", error);
+        };
+    };
 
     return (
 
         <>
             <div>
-                <h1 className=" text-dark "><i className="fa-brands fa-product-hunt"/><span className="m-3">Productos</span></h1>
+                <h1 className=" text-dark "><i className="fa-brands fa-product-hunt" /><span className="m-3">Productos</span></h1>
             </div>
             {/* TABLA DE MOSTRAR PRODUCTOS CARGADOE EN EL INVENTARIO */}
             <table className="tableProducts table table-responsive table-hover m-1 mt-5">
@@ -56,10 +78,10 @@ export const Products = ({}) => {
                         <td>5</td>
                         <td>
                             <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-                                <i class="fa-regular fa-pen-to-square"></i>
+                                <i className="fa-regular fa-pen-to-square"></i>
                             </button>
                             <button type="button" className="btn btn-outline-danger m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-                                <i class="fa-regular fa-trash-can"></i>
+                                <i className="fa-regular fa-trash-can"></i>
                             </button>
                         </td>
 
@@ -73,7 +95,7 @@ export const Products = ({}) => {
                     <i className="fa-regular fa-square-plus"></i>
                 </button>
 
-                <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -81,33 +103,34 @@ export const Products = ({}) => {
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
-                                <form>
+                                <form onSubmit={createProduct}>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label">Nombre del Producto:</label>
-                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} name="name" value={products.name}/>
+                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} name="product_name" value={products.product_name} />
                                     </div>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label">Descripción:</label>
-                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} name="description" value={products.description}/>
+                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} name="description" value={products.description} />
                                     </div>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label">Cantidad:</label>
-                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} name="stock" value={products.stock}/>
+                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} name="item" value={products.item} />
                                     </div>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label">Precio:</label>
-                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} name="price" value={products.price}/>
+                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} name="price" value={products.price} />
                                     </div>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label">Fecha de Ingreso:</label>
-                                        <input type="text" className="form-control" id="recipient-name"onChange={handleInfo}  name="admissionDate" value={products.admissionDate}/>
+                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} name="admission_date" value={products.admission_date} />
+                                    </div>
+                                    <div className="modal-footer">
+                                        <button type="button" className=" btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" className=" btn btn-primary">Send message</button>
                                     </div>
                                 </form>
                             </div>
-                            <div className="modal-footer">
-                                <button type="button" className=" btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" className=" btn btn-primary">Send message</button>
-                            </div>
+
                         </div>
                     </div>
                 </div>

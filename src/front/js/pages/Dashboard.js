@@ -5,12 +5,13 @@ import { Sidebar } from "../component/Sidebar.jsx";
 import { Navbardashboard } from "../component/Navbardashboard.jsx"
 import { Context } from "../store/appContext.js";
 import { Almacen } from "./Almacen.js";
-import {  DashboardHome } from "../component/dashboardHome.jsx";
+import { DashboardHome } from "../component/dashboardHome.jsx";
 import { Products } from "../component/products.jsx";
 
 export const Dashboard = () => {
 	const navigate = useNavigate();
 	const { store, actions } = useContext(Context);
+
 
 	const [showAlmacen, setShowAlmacen] = useState(false);
 	const [showProduct, setShowProduct] = useState(false);
@@ -37,11 +38,11 @@ export const Dashboard = () => {
 	const handlehomeClick = () => {
 
 		if (showHome == false) {
-		setShowHome(true)
-		setShowAlmacen(false);
-		setShowProduct(false);
+			setShowHome(true)
+			setShowAlmacen(false);
+			setShowProduct(false);
 
-	}
+		}
 	}
 	useEffect(() => {
 		if (store.token == undefined) {
@@ -50,6 +51,7 @@ export const Dashboard = () => {
 		}
 	}, [])
 
+	console.log("Esto es la info en el dashboard:", store.info);
 	return (
 		<div className="container-fluid information">
 			<div className="row">
@@ -66,8 +68,8 @@ export const Dashboard = () => {
 					<Navbardashboard />
 
 					{showAlmacen && <Almacen />}
-					 { showProduct && <Products /> } 
-					 {showHome && <  DashboardHome />} 
+					{showProduct && <Products />}
+					{showHome && <  DashboardHome />}
 
 
 				</div>

@@ -156,7 +156,7 @@ def handle_get_store():
     return jsonify(list_store), 200
 
 
-# ENDPOINT para actualizar o editar productos
+# ENDPOINT para actualizar o editar amacen
 
 @api.route("/stock/<int:stock_id>", methods=["PUT"])
 def update_stock(stock_id):
@@ -273,7 +273,27 @@ def  update_product(product_id):
     return jsonify({"message": f"product {product_id} updated successfully"}), 200
 
 
-            
+@api.route("/delete/product/<int:product_id>", methods=["DELETE"])
+
+def delete_product(product_id):
+    existing_product = Product.query.get(product_id)
+
+    if not existing_product:
+        return jsonify({
+            "message": "the product does not exist"
+        }), 400
+
+    try:
+        db.session.delete(existing_product)
+        db.session.commit()
+    except Exception as error:
+        return jsonify({
+            "message": "the product cannot be deleted",
+            "error": error.args
+        }), 400
+    
+    return jsonify({"message": "removed product"}), 200
+
     
     
     

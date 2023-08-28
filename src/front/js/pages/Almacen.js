@@ -112,13 +112,13 @@ export const Almacen = () => {
 
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label">Address:</label>
-                                        <input type="text" className="form-control" id="recipient-name" value={address}
+                                        <input type="text" className="form-control" id="recipient-name" required value={address}
                                             onChange={e => setAddress(e.target.value)} />
                                     </div>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label">Rif:</label>
                                         <input type="text" className="form-control" id="recipient-name"
-
+                                                required
                                             value={rif}
                                             onChange={e => setRif(e.target.value)} />
                                     </div>

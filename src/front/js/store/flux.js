@@ -167,34 +167,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			// PutProduct :async () =>{    
-
-			// 	try {
-			// 		const response = await fetch(process.env.BACKEND_URL + "api/product/<int:product_id>", {
-			// 			method: "PUT",
-			// 			headers: {
-			// 				"Content-Type": "application/json",
-			// 			},
-			// 			body: JSON.stringify({
-			// 				product_name: product_name,
-			// 				description:description,
-			// 				item:item,
-			// 				price:price,
-			// 				admission_date:admission_date
-			// 			})
-			// 		})
-			// 		if (response.ok) {
-			// 			getProduct()
-			// 		}
-			// 	} catch (error) {
-			// 		console.log(error)
-			// 	}
-
-
-
-			// },
-
-			deleteProduct: async (productos) =>{  
+			PutProduct :async () =>{    
 
 				try {
 					const response = await fetch(process.env.BACKEND_URL + "api/product/<int:product_id>", {
@@ -202,9 +175,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 						headers: {
 							"Content-Type": "application/json",
 						},
-						body: JSON.stringify(
-							productos
-						)
+						body: JSON.stringify({
+							product_name: product_name,
+							description:description,
+							item:item,
+							price:price,
+							admission_date:admission_date
+						})
 					})
 					if (response.ok) {
 						getProduct()
@@ -215,15 +192,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
 
+			},
+
+			deleteProduct: async (product_id) =>{  
+
+				try {
+					const response = await fetch(process.env.BACKEND_URL + `API/delete/product/${product_id}`, {
+						method: "DELETE",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(
+							
+						)
+					})
+					if (response.ok) {
+						getProduct()
+					}
+				} catch (error) {
+					console.log(error)
+				}
 			}
-
-
-			
-
-
 		}
-
-
 	};
 };
 

@@ -96,14 +96,9 @@ export const Products = () => {
                                         <i className="fa-regular fa-pen-to-square"></i>
                                     </button>
                                     <button type="button" className="btn btn-outline-danger m-2" data-bs-whatever="@mdo"
-                                     onClick={() => {
+                                     onClick={actions.deleteProduct(index)}
 
-                                        let listaFiltrada = store.product.filter((i, newindex) => index != newindex);
-                                        actions.deleteProduct(listaFiltrada)
-                                        // console.log("lista filtrada", listaFiltrada)
-                                    }
-
-                                    }
+                                    
                                     
                                     >
                                         <i className="fa-regular fa-trash-can"></i>
@@ -130,7 +125,7 @@ export const Products = () => {
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
-                                <form onSubmit={createProduct}>
+                                <form onSubmit={createProduct }>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label">Nombre del Producto:</label>
                                         <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} required name="product_name" value={products.product_name} />

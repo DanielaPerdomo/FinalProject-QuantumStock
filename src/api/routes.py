@@ -23,7 +23,10 @@ def handle_hello():
     return jsonify(response_body), 200
 
 
-# ENDPOINT PARA CREEAR USUARIOS
+
+# GESTION DE USUARIOS
+
+# ENDPOINT para crear usuarios 
 
 @api.route('/signup', methods=['POST'])
 def handle_singup():
@@ -66,7 +69,7 @@ def handle_singup():
     return jsonify({}), 201
 
     
-# ENDPOINT PARA CREAR TOKEN Y LOGUEAR AL USUARIO
+# ENDPOINT para crear token y logear al usuario
 
 @api.route("/login", methods=["POST"])
 def login():
@@ -109,7 +112,11 @@ def get_user():
     user = User.query.get(user_id)
     return jsonify(user.serialize()),200  
 
-# ENDPOINT PARA CREAR UN NUEVO ALMACEN
+
+
+# GESTION DEL ALMACEN
+
+# ENDPOINT para crear un nuevo almacen
 
 @api.route("/stock", methods=["POST"]) 
 def create_almacen():
@@ -136,9 +143,25 @@ def create_almacen():
         }), 500
     return jsonify({}), 201
 
+# ENDPOINT para obtener informacion del almacen
 
-# ENDPOINT PARA CREAR UN NUEVO PRODUCTO
-# Hacer ruta privada para crear producto con el user id
+@api.route("/user/store", methods=['GET'])
+def handle_get_store():
+
+    store = Stock.query.all()
+    list_store = list(map(
+        lambda stores: stores.serialize(), store
+    ))
+
+    return jsonify(list_store), 200
+
+
+
+# GESTION DE PRODUCTOS
+
+
+# ENDPOINT para crear un nuevo producto
+# Hacer ruta privada para crear producto con el user id (IMPORTANTE!!)
 
 
 @api.route("/product", methods=["POST"]) 
@@ -175,7 +198,7 @@ def create_product():
     return jsonify({}), 201
 
 
-# ENDPOINT PARA OBTENER INFORMACION DE PRODUCTOS
+# ENDPOINT para obtener informacion de productos
 
 @api.route("/list/of/product", methods=["GET"])
 def handle_get_product():
@@ -190,14 +213,13 @@ def handle_get_product():
     return jsonify(list_of_product), 200
 
 
-# ENDPOINT PARA OBTENER INFORMACION DEL ALMACEN
+# ENDPOINT para actualizar o editar productos
 
-@api.route("/user/store", methods=['GET'])
-def handle_get_store():
+@api.route("/product/<int:product_id>", methods=["PUT"])
+def  update_product(product_id):
 
-    store = Stock.query.all()
-    list_store = list(map(
-        lambda stores: stores.serialize(), store
-    ))
+    existing_product = Product.query.get(product_id)
 
-    return jsonify(list_store), 200
+    return jsonify(existing_product), 200
+
+

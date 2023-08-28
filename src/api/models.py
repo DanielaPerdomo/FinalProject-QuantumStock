@@ -69,11 +69,11 @@ class Product(db.Model):
     __tablename__ = 'product'
 
     id = db.Column(db.Integer, primary_key=True)
-    product_name = db.Column(db.String(250), unique=True, nullable=False)
-    description = db.Column(db.String(250), unique=True, nullable=False)
-    item = db.Column(db.String(250), unique=True, nullable=False)
-    price = db.Column(db.String(250), unique=True, nullable=False)
-    admission_date = db.Column(db.String(250), unique=True, nullable=False)
+    product_name = db.Column(db.String(250), unique=False, nullable=False)
+    description = db.Column(db.String(250), unique=False, nullable=False)
+    item = db.Column(db.String(250), unique=False, nullable=False)
+    price = db.Column(db.String(250), unique=False, nullable=False)
+    admission_date = db.Column(db.String(250), unique=False, nullable=False)
 
     # Relacion con User
 

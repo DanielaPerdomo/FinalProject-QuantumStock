@@ -21,9 +21,15 @@ export const Products = () => {
         })
     }
 
-   
+
     const resetForm = () => {
-        setProducts("");
+        setProducts({
+            product_name: "",
+            description: "",
+            item: "",
+            price: "",
+            admission_date: ""
+        });
 
     };
     async function createProduct(event) {
@@ -56,7 +62,7 @@ export const Products = () => {
 
         <>
             <div>
-            <Toaster position="top-right" richColors />
+                <Toaster position="top-right" richColors />
                 <h1 className=" text-dark "><i className="fa-brands fa-product-hunt" /><span className="m-3">Productos</span></h1>
             </div>
             {/* TABLA DE MOSTRAR PRODUCTOS CARGADOE EN EL INVENTARIO */}
@@ -74,7 +80,7 @@ export const Products = () => {
                 </thead>
 
                 <tbody className="table-group-divider">
-                  
+
                     {store.product.map((item, i) => {
                         return (
                             <tr key={item.id}>

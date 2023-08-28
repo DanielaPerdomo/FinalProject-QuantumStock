@@ -33,6 +33,8 @@ export const Almacen = () => {
                 })
             };
 
+            if (store.almacen.length<1){
+
             const resp = await fetch(process.env.BACKEND_URL + "api/stock", opts);
 
             if (resp.ok) {
@@ -45,6 +47,11 @@ export const Almacen = () => {
             } else {
                 return toast.error("Almacen ya creado")
             }
+        }else {
+            resetForm();
+            return toast.error("Almacen ya creado")  
+        }
+
 
 
         } catch (error) {
@@ -55,7 +62,7 @@ export const Almacen = () => {
 
     return (
         <div className="">
-            <Toaster position="top-right" richColors />
+            <Toaster position="top-center" richColors />
             <div >
                 <h1 className=" text-dark "><i className="fa-solid fa-warehouse"></i><span className="m-3">Almacen</span></h1>
             </div>
@@ -71,8 +78,11 @@ export const Almacen = () => {
                     </tr>
                 </thead>
                 <tbody className="table-group-divider">
-                    {store.almacen.map((item, i) => {
+                    {store.almacen.length >0 ?(
+                    
+                    store.almacen.map((item, i) => {
                         return (
+
                             <tr key={item.id}>
                                 <td>{item.id}</td>
                                 <td>{item.address}</td>
@@ -88,7 +98,10 @@ export const Almacen = () => {
                             </tr>
 
                         )
-                    })}
+
+                    }))
+                    : (<td>Añadir Almacen</td>)
+                    }
 
 
                 </tbody>

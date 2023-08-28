@@ -138,7 +138,7 @@ def create_almacen():
 
 
 # ENDPOINT PARA CREAR UN NUEVO PRODUCTO
-# Hacer ruta privada para crear productocon el user id
+# Hacer ruta privada para crear producto con el user id
 
 
 @api.route("/product", methods=["POST"]) 

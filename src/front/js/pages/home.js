@@ -1,4 +1,4 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import { Navbar } from "../component/homeNavbar.jsx";
@@ -12,14 +12,14 @@ export const Home = () => {
 	const [showSignUp, setShowSignUp] = useState(false)
 
 	/* LOGIN */
-	const handleLoginClick = () =>{
+	const handleLoginClick = () => {
 		setShowLoginForm(!showLoginForm);
 	};
 
-	const handleCloseForm = () =>{
+	const handleCloseForm = () => {
 		setShowLoginForm(!showLoginForm);
 	}
-	
+
 	/* SIGNUP */
 
 	const handleSignUpClick = () => {
@@ -37,7 +37,7 @@ export const Home = () => {
 		setShowSignUp(true)
 	}
 
-	const handleChageLogin = () =>{
+	const handleChageLogin = () => {
 		handleCloseFormSingUp();
 		setShowLoginForm(true)
 	}
@@ -52,19 +52,19 @@ export const Home = () => {
 				<div className="col">
 					<Navbar onLoginClick={handleLoginClick} onSignUpClick={handleSignUpClick} />
 				</div>
-			</div>	
+			</div>
 			<div className="row">
 				<div className="col mt-5">
-			 		 <Body 
-					 showLoginForm={showLoginForm} 
-					 onClose={handleCloseForm}
-					 showSignUp={showSignUp}
-					 onCloseSignUp={handleCloseFormSingUp}
-					 OnChageClick={handleChage}
-					 OnChageClickLogin={handleChageLogin}
-					 />
+					<Body
+						showLoginForm={showLoginForm}
+						onClose={handleCloseForm}
+						showSignUp={showSignUp}
+						onCloseSignUp={handleCloseFormSingUp}
+						OnChageClick={handleChage}
+						OnChageClickLogin={handleChageLogin}
+					/>
 				</div>
-			</div>	
+			</div>
 			<div className="row">
 				<div className="footerHome col">
 					<Footer />

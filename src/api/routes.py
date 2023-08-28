@@ -218,8 +218,58 @@ def handle_get_product():
 @api.route("/product/<int:product_id>", methods=["PUT"])
 def  update_product(product_id):
 
+    """ body = request.json
+    product_name = body.get("product_name")
+    description = body.get("description")
+    item = body.get("item")
+    price = body.get("price")
+    admission_date = body.get("admission_date") """
+
     existing_product = Product.query.get(product_id)
 
-    return jsonify(existing_product), 200
+    if not existing_product:
+        return jsonify({
+            "message": "the product does not exist"
+        }), 400
+    
+    body = request.json
+
+    existing_product.product_name = body["product_name"]
+    existing_product.description = body["description"]
+    existing_product.item = body["item"]
+    existing_product.price = body["price"]
+    existing_product.admission_date = body["admission_date"]
+    
+
+    try: 
+        db.session.commit()
+    except  Exception as error:
+        db.session.rollback()
+        return jsonify({
+            "message": "product not found",
+            "error": error.args
+            }), 400
+        
+    return jsonify({"message": f"product {product_id} updated successfully"}), 200
+
+
+
+
+
+
+
+    """ for article in Product:
+            if article['id'] == product_id:
+            article['product_name'] = product_name
+            article['description'] = description
+            article['product_name'] = product_name
+            article['item'] = item
+            article['price'] = price
+            article['admission_date'] = admission_date """
+
+            
+    
+    
+    
 
 

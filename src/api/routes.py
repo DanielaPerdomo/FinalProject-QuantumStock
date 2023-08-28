@@ -66,7 +66,7 @@ def handle_singup():
     return jsonify({}), 201
 
     
-# ENDPOINT PARA CREAR TOKEN Y LOGUER AL USUARIO
+# ENDPOINT PARA CREAR TOKEN Y LOGUEAR AL USUARIO
 
 @api.route("/login", methods=["POST"])
 def login():
@@ -138,11 +138,11 @@ def create_almacen():
 
 
 # ENDPOINT PARA CREAR UN NUEVO PRODUCTO
+# Hacer ruta privada para crear productocon el user id
+
 
 @api.route("/product", methods=["POST"]) 
-
 def create_product():
-
 
     body = request.json
     product_name = body.get("product_name")

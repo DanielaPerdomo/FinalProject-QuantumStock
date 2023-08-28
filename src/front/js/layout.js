@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
 import { Context } from "./store/appContext";
+import { AboutUs } from "./pages/aboutUs";
 
 import { Home } from "./pages/home";
 import { Dashboard } from "./pages/Dashboard";
@@ -32,7 +33,7 @@ console.log("esto es store",store)
                     <Routes>
                         <Route element={<Home />} path="/" />
                         <Route element={<Dashboard />} path="/Dashboard" />
-                        
+                        <Route element={<AboutUs />} path="/aboutUs" />
                         <Route element={<Single />} path="/single/:theid" />
                                              
                         <Route element={<h1>Not found!</h1>} />

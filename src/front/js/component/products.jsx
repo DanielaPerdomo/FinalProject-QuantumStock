@@ -14,7 +14,6 @@ export const Products = ({ }) => {
     })
 
     const handleInfo = (event) => {
-        console.log(event)
         setProducts({
             ...products,
             [event.target.name]: event.target.value //Fin de codigo de Jose
@@ -25,7 +24,6 @@ export const Products = ({ }) => {
     const resetForm = () => {
 
     };
-    console.log("Esto nos trae los productos: ", store.almacen)
     async function createProduct(event) {
         event.preventDefault();
         try {
@@ -44,12 +42,11 @@ export const Products = ({ }) => {
                 toast.success('Registro de Producto Exitoso')
                 return await resp.json();
             } else {
-              /* return alert("Usuario ya creado"); */ return toast.error("Producto creado exitosamente")
+                return toast.error("Producto creado exitosamente")
             }
         } catch (error) {
             console.error("There was an Error!!!", error);
         };
-        /* return alert("Registro exitoso") */
     };
 
     return (
@@ -81,10 +78,10 @@ export const Products = ({ }) => {
                         <td>5</td>
                         <td>
                             <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-                                <i class="fa-regular fa-pen-to-square"></i>
+                                <i className="fa-regular fa-pen-to-square"></i>
                             </button>
                             <button type="button" className="btn btn-outline-danger m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-                                <i class="fa-regular fa-trash-can"></i>
+                                <i className="fa-regular fa-trash-can"></i>
                             </button>
                         </td>
 
@@ -98,7 +95,7 @@ export const Products = ({ }) => {
                     <i className="fa-regular fa-square-plus"></i>
                 </button>
 
-                <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">

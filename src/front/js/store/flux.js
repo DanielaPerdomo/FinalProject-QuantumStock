@@ -140,8 +140,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					if (response.ok) {
 						const body = await response.json()
-						console.log("este es el body:", body)
-						/* const bodyOjt = body[0]; */
 						setStore({ almacen: body })
 					}
 				} catch (error) {

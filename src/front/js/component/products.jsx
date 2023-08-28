@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../../styles/homeForm.css";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
@@ -34,14 +34,10 @@ export const Products = ({}) => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({
-                    // name: name,
-                    description: description,
-                    stock: stock,
-                    price: price,
-                    admissionDate: admissionDate,
-                })
+                body: JSON.stringify(products)
+            
             };
+            
             const resp = await fetch(process.env.BACKEND_URL + "api/product", opts);
             if (resp.ok) {
                 resetForm();

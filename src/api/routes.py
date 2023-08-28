@@ -156,6 +156,32 @@ def handle_get_store():
     return jsonify(list_store), 200
 
 
+# ENDPOINT para actualizar o editar amacen
+
+@api.route("/stock/<int:stock_id>", methods=["PUT"])
+def update_stock(stock_id):
+    
+    existing_stock = Stock.query.get(stock_id)
+
+    if not existing_stock:
+        return jsonify({
+            "message": "It has no warehouse"
+        }), 400
+    
+    body = request.json
+
+    existing_stock.address = body["address"]
+
+    try:
+        db.session.commit()
+    except Exception as error:
+        db.session.rollback()
+        return jsonify({
+            "message": "the store was not updated",
+            "error": error.args
+        }), 400
+    
+    return jsonify({"message": f"Warehouse {stock_id} updated successfully"})
 
 # GESTION DE PRODUCTOS
 
@@ -218,12 +244,6 @@ def handle_get_product():
 @api.route("/product/<int:product_id>", methods=["PUT"])
 def  update_product(product_id):
 
-    """ body = request.json
-    product_name = body.get("product_name")
-    description = body.get("description")
-    item = body.get("item")
-    price = body.get("price")
-    admission_date = body.get("admission_date") """
 
     existing_product = Product.query.get(product_id)
 
@@ -253,21 +273,27 @@ def  update_product(product_id):
     return jsonify({"message": f"product {product_id} updated successfully"}), 200
 
 
+@api.route("/delete/product/<int:product_id>", methods=["DELETE"])
 
+def delete_product(product_id):
+    existing_product = Product.query.get(product_id)
 
+    if not existing_product:
+        return jsonify({
+            "message": "the product does not exist"
+        }), 400
 
+    try:
+        db.session.delete(existing_product)
+        db.session.commit()
+    except Exception as error:
+        return jsonify({
+            "message": "the product cannot be deleted",
+            "error": error.args
+        }), 400
+    
+    return jsonify({"message": "removed product"}), 200
 
-
-    """ for article in Product:
-            if article['id'] == product_id:
-            article['product_name'] = product_name
-            article['description'] = description
-            article['product_name'] = product_name
-            article['item'] = item
-            article['price'] = price
-            article['admission_date'] = admission_date """
-
-            
     
     
     

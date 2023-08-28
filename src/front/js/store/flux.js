@@ -167,14 +167,44 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			PutProduct :async () =>{
+			// PutProduct :async () =>{    
+
+			// 	try {
+			// 		const response = await fetch(process.env.BACKEND_URL + "api/product/<int:product_id>", {
+			// 			method: "PUT",
+			// 			headers: {
+			// 				"Content-Type": "application/json",
+			// 			},
+			// 			body: JSON.stringify({
+			// 				product_name: product_name,
+			// 				description:description,
+			// 				item:item,
+			// 				price:price,
+			// 				admission_date:admission_date
+			// 			})
+			// 		})
+			// 		if (response.ok) {
+			// 			getProduct()
+			// 		}
+			// 	} catch (error) {
+			// 		console.log(error)
+			// 	}
+
+
+
+			// },
+
+			deleteProduct: async (productos) =>{  
 
 				try {
-					const response = await fetch(process.env.BACKEND_URL + "", {
+					const response = await fetch(process.env.BACKEND_URL + "api/product/<int:product_id>", {
 						method: "PUT",
 						headers: {
 							"Content-Type": "application/json",
 						},
+						body: JSON.stringify(
+							productos
+						)
 					})
 					if (response.ok) {
 						getProduct()
@@ -185,7 +215,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
 
-			},
+			}
+
+
+			
 
 
 		}

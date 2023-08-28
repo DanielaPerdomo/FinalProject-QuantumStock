@@ -81,9 +81,10 @@ export const Products = () => {
 
                 <tbody className="table-group-divider">
 
-                    {store.product.map((item, i) => {
+                    {store.product.map((item, index) => {
                         return (
-                            <tr key={item.id}>
+                            
+                            <tr key={index}>
                                 <td>{item.id}</td>
                                 <td>{item.product_name}</td>
                                 <td>{item.description}</td>
@@ -94,11 +95,22 @@ export const Products = () => {
                                     <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
                                         <i className="fa-regular fa-pen-to-square"></i>
                                     </button>
-                                    <button type="button" className="btn btn-outline-danger m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+                                    <button type="button" className="btn btn-outline-danger m-2" data-bs-whatever="@mdo"
+                                     onClick={() => {
+
+                                        let listaFiltrada = store.product.filter((i, newindex) => index != newindex);
+                                        actions.deleteProduct(listaFiltrada)
+                                        // console.log("lista filtrada", listaFiltrada)
+                                    }
+
+                                    }
+                                    
+                                    >
                                         <i className="fa-regular fa-trash-can"></i>
                                     </button>
                                 </td>
                             </tr>
+                        
                         )
                     })}
                 </tbody>
@@ -141,7 +153,7 @@ export const Products = () => {
                                     </div>
                                     <div className="modal-footer">
                                         <button type="button" className=" btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" className=" btn btn-primary">Crear Producto</button>
+                                        <button type="submit"  className=" btn btn-primary">Crear Producto</button>
                                     </div>
                                 </form>
                             </div>

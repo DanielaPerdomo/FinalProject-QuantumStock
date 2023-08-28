@@ -165,7 +165,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.log(error)
 				}
-			}
+			},
+
+			PutProduct :async () =>{
+
+				try {
+					const response = await fetch(process.env.BACKEND_URL + "", {
+						method: "PUT",
+						headers: {
+							"Content-Type": "application/json",
+						},
+					})
+					if (response.ok) {
+						getProduct()
+					}
+				} catch (error) {
+					console.log(error)
+				}
+
+
+
+			},
+
+
 		}
 
 

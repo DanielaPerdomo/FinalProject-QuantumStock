@@ -4,7 +4,8 @@ import "../../styles/dashboardPage.css";
 export const DashboardHome = () => {
   return (
 
-    <>  <div>
+    <> 
+     <div>
 
       <div className="card">
         <h5 className="card-header">Featured</h5>

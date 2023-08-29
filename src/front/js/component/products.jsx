@@ -96,7 +96,7 @@ export const Products = () => {
                                         <i className="fa-regular fa-pen-to-square"></i>
                                     </button>
                                     <button type="button" className="btn btn-outline-danger m-2" data-bs-whatever="@mdo"
-                                     onClick={actions.deleteProduct(index)}
+                                     onClick={()=>{actions.deleteProduct(item.id)}}
 
                                     
                                     

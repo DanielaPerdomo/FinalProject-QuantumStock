@@ -3,8 +3,6 @@ import { Toaster, toast } from 'sonner'
 import { Context } from "../store/appContext.js";
 
 
-
-
 export const Almacen = () => {
 
     const { store, actions } = useContext(Context);

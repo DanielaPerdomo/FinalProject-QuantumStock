@@ -141,6 +141,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					if (response.ok) {
 						const body = await response.json()
+						console.log("esto es almacenfa jaja",body)
 						setStore({ almacen: body })
 					}
 				} catch (error) {
@@ -167,10 +168,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			PutProduct :async () =>{    
+			PutProduct :async (product_id) =>{    
 
 				try {
-					const response = await fetch(process.env.BACKEND_URL + "api/product/<int:product_id>", {
+					const response = await fetch(process.env.BACKEND_URL + `api/product/<int:${product_id}`, {
 						method: "PUT",
 						headers: {
 							"Content-Type": "application/json",

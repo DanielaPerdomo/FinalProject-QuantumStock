@@ -58,6 +58,7 @@ export const Products = () => {
                 return toast.error("Producto creado exitosamente")
             }
         } catch (error) {
+            
             console.error("There was an Error!!!", error);
         };
     };
@@ -148,8 +149,6 @@ export const Products = () => {
                 resetForm={resetForm}
             />
         </>
-
-
 
     )
 }

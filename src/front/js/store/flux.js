@@ -128,26 +128,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 
-			getStock: async () => {
-				const store = getStore()
-
-				try {
-					const response = await fetch(process.env.BACKEND_URL + "api/user/store", {
-						method: "GET",
-						headers: {
-							"Content-Type": "application/json",
-							Authorization: `Bearer ${store.token}`
-						},
-					})
-					if (response.ok) {
-						const body = await response.json()
-						setStore({ almacen: [body] })
-						console.log("store en el flux:", store.almacen)
-					}
-				} catch (error) {
-					console.log(error)
-				}
-			},
 
 			getProduct: async () => {
 
@@ -215,7 +195,79 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.log(error)
 				}
+			},
+			getStock: async () => {
+				const store = getStore()
+
+				try {
+					const response = await fetch(process.env.BACKEND_URL + "api/user/store", {
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json",
+							Authorization: `Bearer ${store.token}`
+						},
+					})
+					if (response.ok) {
+						const body = await response.json()
+						setStore({ almacen: [body] })
+						console.log("store en el flux:", store.almacen)
+					}
+				} catch (error) {
+					console.log(error)
+				}
+			},
+
+			putStock: async ({ id, product_name, description, item, price, admission_date }) => {
+
+				try {
+					const response = await fetch(process.env.BACKEND_URL + `api/product/${id}`, {
+						method: "PUT",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({
+							"product_name": product_name,
+							"description": description,
+							"item": item,
+							"price": price,
+							"admission_date": admission_date
+						})
+					})
+					if (response.ok) {
+						const actions = getActions()
+						actions.getProduct()
+					}
+				} catch (error) {
+					console.log(error)
+				}
+
+
+
+			},
+
+			deleteStock: async (product_id) => {
+
+				try {
+					const response = await fetch(process.env.BACKEND_URL + `api/delete/product/${product_id}`, {
+						method: "DELETE",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(
+
+						)
+					})
+					if (response.ok) {
+						const actions = getActions()
+						actions.getStock()
+					}
+				} catch (error) {
+					console.log(error)
+				}
 			}
+
+
+
 		}
 	};
 };

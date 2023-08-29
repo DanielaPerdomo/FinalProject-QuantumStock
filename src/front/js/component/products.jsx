@@ -3,6 +3,8 @@ import "../../styles/homeForm.css";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from 'sonner'
+import { Modal } from "./modal.jsx";
+
 export const Products = () => {
     const { store, actions } = useContext(Context);
     //Inicio Codigo de Jose
@@ -58,6 +60,11 @@ export const Products = () => {
         };
     };
 
+    const handleDeleteProduct = (product_id) => {
+        actions.deleteProduct(product_id)
+        actions.getProduct()
+    }
+
     return (
 
         <>
@@ -83,7 +90,7 @@ export const Products = () => {
 
                     {store.product.map((item, index) => {
                         return (
-                            
+
                             <tr key={index}>
                                 <td>{item.id}</td>
                                 <td>{item.product_name}</td>
@@ -92,20 +99,29 @@ export const Products = () => {
                                 <td>{item.price}</td>
                                 <td>{item.admission_date}</td>
                                 <td>
-                                    <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+                                    <button type="button" className="btn btn-outline-primary m-2" onClick={(event) => {
+                                        setProducts(prev => ({
+                                            product_name: item.product_name,
+                                            description: item.description,
+                                            item: item.item,
+                                            price: item.price,
+                                            admission_date: item.admission_date,
+                                            id: item.id
+                                        }))
+                                        console.log(event.target.getAttribute('data-modal-name'))
+                                    }} data-modal-name={item.id} data-bs-toggle="modal" data-bs-target={`#updateProduct`} data-bs-whatever="@mdo">
                                         <i className="fa-regular fa-pen-to-square"></i>
                                     </button>
                                     <button type="button" className="btn btn-outline-danger m-2" data-bs-whatever="@mdo"
-                                     onClick={actions.deleteProduct(index)}
-
-                                    
-                                    
+                                        onClick={() => {
+                                            handleDeleteProduct(item.id)
+                                        }}
                                     >
                                         <i className="fa-regular fa-trash-can"></i>
                                     </button>
                                 </td>
                             </tr>
-                        
+
                         )
                     })}
                 </tbody>
@@ -113,50 +129,24 @@ export const Products = () => {
 
             {/* MODAL PARA AGREGAR PRODUCTOS */}
             <div>
-                <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+                <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#createProduct" data-bs-whatever="@mdo">
                     <i className="fa-regular fa-square-plus"></i>
                 </button>
-
-                <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h1 className="modal-title fs-5 text-dark" id="exampleModalLabel">Datos de Producto</h1>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div className="modal-body">
-                                <form onSubmit={createProduct }>
-                                    <div className="mb-1">
-                                        <label htmlFor="recipient-name" className="col-form-label">Nombre del Producto:</label>
-                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} required name="product_name" value={products.product_name} />
-                                    </div>
-                                    <div className="mb-1">
-                                        <label htmlFor="recipient-name" className="col-form-label">Descripción:</label>
-                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} required name="description" value={products.description} />
-                                    </div>
-                                    <div className="mb-1">
-                                        <label htmlFor="recipient-name" className="col-form-label">Cantidad:</label>
-                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} required name="item" value={products.item} />
-                                    </div>
-                                    <div className="mb-1">
-                                        <label htmlFor="recipient-name" className="col-form-label">Precio:</label>
-                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} required name="price" value={products.price} />
-                                    </div>
-                                    <div className="mb-1">
-                                        <label htmlFor="recipient-name" className="col-form-label">Fecha de Ingreso:</label>
-                                        <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} required name="admission_date" value={products.admission_date} />
-                                    </div>
-                                    <div className="modal-footer">
-                                        <button type="button" className=" btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit"  className=" btn btn-primary">Crear Producto</button>
-                                    </div>
-                                </form>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
             </div>
+
+            <Modal
+                id={"createProduct"}
+                handleUpdate={createProduct}
+                handleInfo={handleInfo}
+                data={products}
+            />
+            <Modal
+                id={"updateProduct"}
+                handleUpdate={actions.putProduct}
+                handleInfo={handleInfo}
+                data={products}
+                resetForm={resetForm}
+            />
         </>
 
 

@@ -6,10 +6,12 @@ import { Context } from "../store/appContext.js";
 export const Almacen = () => {
 
     const { store, actions } = useContext(Context);
+    const [nameStock, setNameStock] = useState("");
     const [address, setAddress] = useState("");
     const [rif, setRif] = useState("");
 
     const resetForm = () => {
+        setNameStock("");
         setAddress("");
         setRif("");
 
@@ -23,32 +25,34 @@ export const Almacen = () => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    "Authorization": `Bearer ${store.token}`
                 },
                 body: JSON.stringify({
+                    name: nameStock,
                     address: address,
                     rif: rif,
 
                 })
             };
 
-            if (store.almacen.length<1){
+            if (store.almacen.length < 1) {
 
-            const resp = await fetch(process.env.BACKEND_URL + "api/stock", opts);
+                const resp = await fetch(process.env.BACKEND_URL + "api/stock", opts);
 
-            if (resp.ok) {
-                resetForm();
-                toast.success('Registro de Almacen exitoso')
-                actions.getStock()
-                return await resp.json();
+                if (resp.ok) {
+                    resetForm();
+                    toast.success('Registro de Almacen exitoso')
+                    actions.getStock()
+                    return await resp.json();
 
 
+                } else {
+                    return toast.error("Almacen ya creado")
+                }
             } else {
+                resetForm();
                 return toast.error("Almacen ya creado")
             }
-        }else {
-            resetForm();
-            return toast.error("Almacen ya creado")  
-        }
 
 
 
@@ -56,7 +60,6 @@ export const Almacen = () => {
             console.error("There was an Error!!!", error);
         };
     };
-
 
     return (
         <div className="">
@@ -69,40 +72,52 @@ export const Almacen = () => {
                 <thead className="">
 
                     <tr >
-                        <th scope="col">ID</th>
-                        <th scope="col">address</th>
+                        <th scope="col">Nombre del almacen</th>
+                        <th scope="col">Direccion</th>
                         <th scope="col">Rif</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody className="table-group-divider">
-                    {store.almacen.length >0 ?(
-                    
-                    store.almacen.map((item, i) => {
-                        return (
-
-                            <tr key={item.id}>
-                                <td>{item.id}</td>
-                                <td>{item.address}</td>
-                                <td>{item.rif}</td>
-                                <td>
-                                    <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-                                        <i className="fa-regular fa-pen-to-square"></i>
-                                    </button>
-                                    <button type="button" className="btn btn-outline-danger m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-                                        <i className="fa-regular fa-trash-can"></i>
-                                    </button>
-                                </td>
-                            </tr>
-
-                        )
-
-                    }))
-                    : (<td>Añadir Almacen</td>)
-                    }
-
-
+                    {Object.keys(store.almacen).length > 0 ? (
+                        Object.keys(store.almacen).map((itemId, index) => {
+                            const item = store.almacen[itemId];
+                            return (
+                                <tr key={index}>
+                                    <td>{item.name}</td>
+                                    <td>{item.address}</td>
+                                    <td>{item.rif}</td>
+                                    <td>
+                                        <button
+                                            type="button"
+                                            className="btn btn-outline-primary m-2"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal"
+                                            data-bs-whatever="@mdo"
+                                        >
+                                            <i className="fa-regular fa-pen-to-square"></i>
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className="btn btn-outline-danger m-2"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal"
+                                            data-bs-whatever="@mdo"
+                                        >
+                                            <i className="fa-regular fa-trash-can"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            );
+                        })
+                    ) : (
+                        <tr>
+                            <td colSpan="4">Añadir Almacen</td>
+                        </tr>
+                    )}
                 </tbody>
+
+
             </table>
 
             {/* MODAL PARA AGREGAR PRODUCTOS */}
@@ -120,6 +135,11 @@ export const Almacen = () => {
                             </div>
                             <div className="modal-body">
                                 <form onSubmit={creat_stock}>
+                                    <div className="mb-1">
+                                        <label htmlFor="recipient-name" className="col-form-label">Nombre:</label>
+                                        <input type="text" className="form-control" id="recipient-name" required value={nameStock}
+                                            onChange={e => setNameStock(e.target.value)} />
+                                    </div>
 
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label">Address:</label>
@@ -129,7 +149,7 @@ export const Almacen = () => {
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label">Rif:</label>
                                         <input type="text" className="form-control" id="recipient-name"
-                                                required
+                                            required
                                             value={rif}
                                             onChange={e => setRif(e.target.value)} />
                                     </div>

@@ -19,9 +19,6 @@ class User(db.Model):
 
     stock = db.relationship("Stock", back_populates="user")
 
-    # Relacion con Product
-
-    product = db.relationship("Product", back_populates="user")
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -40,6 +37,7 @@ class Stock(db.Model):
     __tablename__ = 'stock'
 
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(250), unique=False, nullable=False)
     address = db.Column(db.String(250), unique=False, nullable=False)
     rif = db.Column(db.String(250), unique=True, nullable=False)
 
@@ -58,6 +56,7 @@ class Stock(db.Model):
     def serialize(self):
         return {
             "id": self.id,
+            'name': self.name,
             "address": self.address,
             "rif": self.rif,
              "id_user": self.user_id
@@ -75,11 +74,7 @@ class Product(db.Model):
     price = db.Column(db.String(250), unique=False, nullable=False)
     admission_date = db.Column(db.String(250), unique=False, nullable=False)
 
-    # Relacion con User
-
-    user_id = db.Column(ForeignKey("user.id"))
-    user = db.relationship("User", back_populates="product")
-
+    
     # Relacion con Stock
 
     stock_id = db.Column(ForeignKey("stock.id"))

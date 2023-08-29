@@ -18,7 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			token: localStorage.getItem("token") ?? null,
 			info: "",
 			almacen: [],
-			product:[]
+			product: []
 
 		},
 		actions: {
@@ -129,20 +129,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
 			getStock: async () => {
-
-				
+				const store = getStore()
 
 				try {
 					const response = await fetch(process.env.BACKEND_URL + "api/user/store", {
 						method: "GET",
 						headers: {
 							"Content-Type": "application/json",
+							Authorization: `Bearer ${store.token}`
 						},
 					})
 					if (response.ok) {
 						const body = await response.json()
-						console.log("esto es almacenfa jaja",body)
-						setStore({ almacen: body })
+						setStore({ almacen: [body] })
+						console.log("store en el flux:", store.almacen)
 					}
 				} catch (error) {
 					console.log(error)
@@ -151,7 +151,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getProduct: async () => {
 
-			
+
 				try {
 					const response = await fetch(process.env.BACKEND_URL + "api/list/of/product", {
 						method: "GET",
@@ -161,31 +161,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					if (response.ok) {
 						const body = await response.json()
-						setStore({product: body })
+						setStore({ product: body })
 					}
 				} catch (error) {
 					console.log(error)
 				}
 			},
 
-			PutProduct :async (product_id) =>{    
+			putProduct: async ({ id, product_name, description, item, price, admission_date }) => {
 
 				try {
-					const response = await fetch(process.env.BACKEND_URL + `api/product/<int:${product_id}`, {
+					const response = await fetch(process.env.BACKEND_URL + `api/product/${id}`, {
 						method: "PUT",
 						headers: {
 							"Content-Type": "application/json",
 						},
 						body: JSON.stringify({
-							product_name: product_name,
-							description:description,
-							item:item,
-							price:price,
-							admission_date:admission_date
+							"product_name": product_name,
+							"description": description,
+							"item": item,
+							"price": price,
+							"admission_date": admission_date
 						})
 					})
 					if (response.ok) {
-						getProduct()
+						const actions = getActions()
+						actions.getProduct()
 					}
 				} catch (error) {
 					console.log(error)
@@ -195,20 +196,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
-			deleteProduct: async (product_id) =>{  
+			deleteProduct: async (product_id) => {
 
 				try {
-					const response = await fetch(process.env.BACKEND_URL + `API/delete/product/${product_id}`, {
+					const response = await fetch(process.env.BACKEND_URL + `api/delete/product/${product_id}`, {
 						method: "DELETE",
 						headers: {
 							"Content-Type": "application/json",
 						},
 						body: JSON.stringify(
-							
+
 						)
 					})
 					if (response.ok) {
-						getProduct()
+						const actions = getActions()
+						actions.getProduct()
 					}
 				} catch (error) {
 					console.log(error)

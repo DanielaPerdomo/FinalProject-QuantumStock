@@ -1,22 +1,33 @@
 import React, { useState, useContext } from "react";
 import { Toaster, toast } from 'sonner'
 import { Context } from "../store/appContext.js";
-
+import { ModalStock } from "../component/modalStock.jsx";
 
 export const Almacen = () => {
 
     const { store, actions } = useContext(Context);
-    const [nameStock, setNameStock] = useState("");
-    const [address, setAddress] = useState("");
-    const [rif, setRif] = useState("");
+    //cambios 
 
+    const [Stock, setStock] = useState({
+        nameStock: "",
+        address: "",
+        rif: "",
+        
+    })
+  
+    const handleInfo = (event) => {
+        setStock({
+            ...Stock,
+            [event.target.name]: event.target.value //Fin de codigo de Jose
+        })
+    }
     const resetForm = () => {
-        setNameStock("");
-        setAddress("");
-        setRif("");
-
+        setStock({
+            nameStock: "",
+            address: "",
+            rif: "",
+        });
     };
-
     async function creat_stock(event) {
         event.preventDefault();
 
@@ -27,12 +38,10 @@ export const Almacen = () => {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${store.token}`
                 },
-                body: JSON.stringify({
-                    name: nameStock,
-                    address: address,
-                    rif: rif,
+                body: JSON.stringify(Stock)
+                   
 
-                })
+                
             };
 
             if (store.almacen.length < 1) {
@@ -47,7 +56,7 @@ export const Almacen = () => {
 
 
                 } else {
-                    return toast.error("Almacen ya creado")
+                    return toast.error("Hubo un error")
                 }
             } else {
                 resetForm();
@@ -61,6 +70,10 @@ export const Almacen = () => {
         };
     };
 
+    const handleDeleteStock = (Stock_id) => {
+        // actions.deleteProduct(product_id)
+        // actions.getProduct()
+    }
     return (
         <div className="">
             <Toaster position="top-center" richColors />
@@ -91,8 +104,20 @@ export const Almacen = () => {
                                         <button
                                             type="button"
                                             className="btn btn-outline-primary m-2"
+
+
+                                            onClick={(event) => {
+                                                setStock(prev => ({
+                                                    nameStock: item.name,
+                                                    address: item.address,
+                                                    rif: item.rif,
+                                                   
+                                                    id: item.id
+                                                }))
+                                            }}
+                                            data-modal-name={item.id}
                                             data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal"
+                                            data-bs-target={`#updateStock`}
                                             data-bs-whatever="@mdo"
                                         >
                                             <i className="fa-regular fa-pen-to-square"></i>
@@ -100,9 +125,11 @@ export const Almacen = () => {
                                         <button
                                             type="button"
                                             className="btn btn-outline-danger m-2"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal"
                                             data-bs-whatever="@mdo"
+                                            onClick={() => {
+                                                handleDeleteStock(item.id)
+                                            }}
+                                            
                                         >
                                             <i className="fa-regular fa-trash-can"></i>
                                         </button>
@@ -120,52 +147,29 @@ export const Almacen = () => {
 
             </table>
 
-            {/* MODAL PARA AGREGAR PRODUCTOS */}
+            {/* MODAL PARA AGREGAR ALMACEN*/}
             <div>
                 <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
                     <i className="fa-regular fa-square-plus"></i>
                 </button>
-
-                <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h1 className="modal-title fs-5 text-dark" id="exampleModalLabel">Datos del Almacen</h1>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div className="modal-body">
-                                <form onSubmit={creat_stock}>
-                                    <div className="mb-1">
-                                        <label htmlFor="recipient-name" className="col-form-label">Nombre:</label>
-                                        <input type="text" className="form-control" id="recipient-name" required value={nameStock}
-                                            onChange={e => setNameStock(e.target.value)} />
-                                    </div>
-
-                                    <div className="mb-1">
-                                        <label htmlFor="recipient-name" className="col-form-label">Address:</label>
-                                        <input type="text" className="form-control" id="recipient-name" required value={address}
-                                            onChange={e => setAddress(e.target.value)} />
-                                    </div>
-                                    <div className="mb-1">
-                                        <label htmlFor="recipient-name" className="col-form-label">Rif:</label>
-                                        <input type="text" className="form-control" id="recipient-name"
-                                            required
-                                            value={rif}
-                                            onChange={e => setRif(e.target.value)} />
-                                    </div>
-                                    <button type="submit" className=" btn btn-primary">Guardar Almacen</button>
-                                </form>
-                            </div>
-                            <div className="modal-footer">
-
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            </div>
+                <ModalStock
+                id={"creat_stock"}
+                handleUpdate={creat_stock}
+                handleInfo={handleInfo}
+                data={Stock}
+            />
+            <ModalStock
+                id={"updateStock"}
+                handleUpdate={actions.putStock}
+                handleInfo={handleInfo}
+                data={Stock}
+                resetForm={resetForm}
+            />
+        </>
+           
 
-        </div>
+       
     )
 
 }

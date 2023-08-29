@@ -36,11 +36,13 @@ export const Products = () => {
     };
     async function createProduct(event) {
         event.preventDefault();
+
         try {
             const opts = {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    authorization: `Bearer ${store.token}`
                 },
                 body: JSON.stringify(products)
 
@@ -76,7 +78,6 @@ export const Products = () => {
             <table className="tableProducts table table-responsive table-hover m-1 mt-5">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripción</th>
                         <th scope="col">Stock</th>
@@ -92,7 +93,6 @@ export const Products = () => {
                         return (
 
                             <tr key={index}>
-                                <td>{item.id}</td>
                                 <td>{item.product_name}</td>
                                 <td>{item.description}</td>
                                 <td>{item.item}</td>

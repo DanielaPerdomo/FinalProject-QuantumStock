@@ -123,15 +123,17 @@ def get_user():
 def create_almacen():
     user_id = get_jwt_identity()
     body = request.json
+    name = body.get("name")
     address = body.get("address")
     rif = body.get("rif")
-    if address is None or rif is None:
+    if name is None or address is None or rif is None:
         return jsonify({
             "message": "All information are required"
         }), 400
     
     stock = Stock(
         user_id = user_id,
+        name = name,
         address = address,
         rif = rif
     )
@@ -180,6 +182,7 @@ def update_stock(stock_id):
     
     body = request.json
 
+    existing_stock.name = ["name"]
     existing_stock.address = body["address"]
 
     try:
@@ -201,8 +204,9 @@ def update_stock(stock_id):
 
 
 @api.route("/product", methods=["POST"]) 
+@jwt_required()
 def create_product():
-
+    user_id = get_jwt_identity()
     body = request.json
     product_name = body.get("product_name")
     description = body.get("description")
@@ -216,6 +220,7 @@ def create_product():
         }), 400
     
     product = Product(
+        user_id = user_id,
         product_name = product_name,
         description = description,
         item = item,

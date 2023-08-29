@@ -8,10 +8,12 @@ import { Context } from "../store/appContext.js";
 export const Almacen = () => {
 
     const { store, actions } = useContext(Context);
+    const [nameStock, setNameStock] = useState("");
     const [address, setAddress] = useState("");
     const [rif, setRif] = useState("");
 
     const resetForm = () => {
+        setNameStock("");
         setAddress("");
         setRif("");
 
@@ -28,6 +30,7 @@ export const Almacen = () => {
                     "Authorization": `Bearer ${store.token}`
                 },
                 body: JSON.stringify({
+                    name: nameStock,
                     address: address,
                     rif: rif,
 
@@ -60,8 +63,6 @@ export const Almacen = () => {
         };
     };
 
-    console.log("Arreglo del almacen:", store.almacen)
-
     return (
         <div className="">
             <Toaster position="top-center" richColors />
@@ -73,8 +74,8 @@ export const Almacen = () => {
                 <thead className="">
 
                     <tr >
-                        <th scope="col">ID</th>
-                        <th scope="col">address</th>
+                        <th scope="col">Nombre del almacen</th>
+                        <th scope="col">Direccion</th>
                         <th scope="col">Rif</th>
                         <th scope="col">Actions</th>
                     </tr>
@@ -85,7 +86,7 @@ export const Almacen = () => {
                             const item = store.almacen[itemId];
                             return (
                                 <tr key={index}>
-                                    <td>{item.id}</td>
+                                    <td>{item.name}</td>
                                     <td>{item.address}</td>
                                     <td>{item.rif}</td>
                                     <td>
@@ -136,6 +137,11 @@ export const Almacen = () => {
                             </div>
                             <div className="modal-body">
                                 <form onSubmit={creat_stock}>
+                                    <div className="mb-1">
+                                        <label htmlFor="recipient-name" className="col-form-label">Nombre:</label>
+                                        <input type="text" className="form-control" id="recipient-name" required value={nameStock}
+                                            onChange={e => setNameStock(e.target.value)} />
+                                    </div>
 
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label">Address:</label>

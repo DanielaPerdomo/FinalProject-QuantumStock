@@ -18,6 +18,7 @@ export const Dashboard = () => {
 	const [showHome, setShowHome] = useState(true);
 	/*almacen*/
 	const handlealmacenClick = () => {
+		actions.getStock()
 		if (showAlmacen == false) {
 			setShowAlmacen(true);
 			setShowProduct(false);
@@ -27,7 +28,7 @@ export const Dashboard = () => {
 	};
 
 	const handleproductClick = () => {
-
+		actions.getProduct()
 		if (showProduct == false) {
 			setShowProduct(true);
 			setShowAlmacen(false);
@@ -41,7 +42,6 @@ export const Dashboard = () => {
 			setShowHome(true)
 			setShowAlmacen(false);
 			setShowProduct(false);
-
 		}
 	}
 	useEffect(() => {

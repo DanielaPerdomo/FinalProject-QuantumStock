@@ -208,9 +208,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 						)
 					})
-					/* 		if (response.ok) {
-								getProduct()
-							} */
+					if (response.ok) {
+						const actions = getActions()
+						actions.getProduct()
+					}
 				} catch (error) {
 					console.log(error)
 				}

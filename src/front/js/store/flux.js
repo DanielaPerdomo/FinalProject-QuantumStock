@@ -220,7 +220,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			putStock: async ({ id, name_Stock,address,rif}) => {
 
 				try {
-					const response = await fetch(process.env.BACKEND_URL + `api/stock/${id}`, {
+					const response = await fetch(process.env.BACKEND_URL + `api/stock/`, {
 						method: "PUT",
 						headers: {
 							"Content-Type": "application/json",
@@ -247,7 +247,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			deleteStock: async (Stock_id) => {
 
 				try {
-					const response = await fetch(process.env.BACKEND_URL + `api/delete/Stock/${Stock_id}`, {
+					const response = await fetch(process.env.BACKEND_URL + `api/delete/Stock/`, {
 						method: "DELETE",
 						headers: {
 							"Content-Type": "application/json",

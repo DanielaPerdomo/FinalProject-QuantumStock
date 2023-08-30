@@ -4,22 +4,23 @@ import { Context } from "../store/appContext.js";
 import { ModalStock } from "../component/modalStock.jsx";
 
 export const Almacen = () => {
-
     const { store, actions } = useContext(Context);
     //cambios 
-
     const [Stock, setStock] = useState({
+        
         name_Stock: "",
         address: "",
-        rif: "",
-        
+        rif: "",       
     })
   
     const handleInfo = (event) => {
         setStock({
             ...Stock,
-            [event.target.name]: event.target.value //Fin de codigo de Jose
+                     [event.target.name]: event.target.value 
+               
+               //Fin de codigo de Jose
         })
+        console.log("me ejeuto",event.target.name)
     }
     const resetForm = () => {
         setStock({
@@ -44,7 +45,7 @@ export const Almacen = () => {
                 
             };
 
-            if (store.almacen.length < 1) {
+            // if (store.almacen.length < 1) {
 
                 const resp = await fetch(process.env.BACKEND_URL + "api/stock", opts);
 
@@ -58,10 +59,10 @@ export const Almacen = () => {
                 } else {
                     return toast.error("Hubo un error")
                 }
-            } else {
-                resetForm();
-                return toast.error("Almacen ya creado")
-            }
+            // } else {
+            //     resetForm();
+            //     return toast.error("Almacen ya creado")
+            // }
 
 
 
@@ -70,9 +71,9 @@ export const Almacen = () => {
         };
     };
 
-    const handleDeleteStock = (Stock_id) => {
-         actions.deleteProduct(Stock_id)
-         actions.getProduct()
+    const handleDeleteStock = () => {
+         actions.deleteStock()
+         actions.getStock()
     }
     return (
      <>
@@ -116,6 +117,7 @@ export const Almacen = () => {
                                                    
                                                     id: item.id
                                                 }))
+                                                console.log(event.target.getAttribute('data-modal-name'))
                                             }}
                                             data-modal-name={item.id}
                                             data-bs-toggle="modal"
@@ -129,7 +131,7 @@ export const Almacen = () => {
                                             className="btn btn-outline-danger m-2"
                                             data-bs-whatever="@mdo"
                                             onClick={() => {
-                                                handleDeleteStock(item.id)
+                                                handleDeleteStock()
                                             }}
                                             
                                         >
@@ -145,14 +147,14 @@ export const Almacen = () => {
                         </tr>
                     )
                 }
-                </tbody>
+          </tbody>
 
 
             </table>
 
             {/* MODAL PARA AGREGAR ALMACEN*/}
             <div>
-                <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+                <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#creat_stock" data-bs-whatever="@mdo">
                     <i className="fa-regular fa-square-plus"></i>
                 </button>
                 </div>

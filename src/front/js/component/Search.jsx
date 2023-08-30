@@ -7,14 +7,14 @@ export const Search = () => {
         <div className="container">
             <div className="input-group mb-3">
                 <div className="input-group-append nav-icon mt-2 me-2">
-                    <i className="fa-solid fa-magnifying-glass text-dark"></i>
+                    
                 </div>
                 <input
 
 
                     type="text"
                     className="form-control rounded"
-                    placeholder="Buscar..."
+                    placeholder=    "  Buscar..."
                 />
 
             </div>

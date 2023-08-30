@@ -7,6 +7,7 @@ export const Almacen = () => {
     const { store, actions } = useContext(Context);
     //cambios 
     const [Stock, setStock] = useState({
+        
         name_Stock: "",
         address: "",
         rif: "",       
@@ -15,8 +16,11 @@ export const Almacen = () => {
     const handleInfo = (event) => {
         setStock({
             ...Stock,
-            [event.target.name]: event.target.value //Fin de codigo de Jose
+                     [event.target.name]: event.target.value 
+               
+               //Fin de codigo de Jose
         })
+        console.log("me ejeuto",event.target.name)
     }
     const resetForm = () => {
         setStock({

@@ -19,7 +19,7 @@ export const ModalStock = ({ handleInfo, handleUpdate, data, id, resetForm = () 
     }, [])
     return (
 
-     <div className="modal fade" id={id} tabIndex="-1" aria-labelledby={id + `Label`} aria-hidden="true">
+     <div className="modal fade" id={id } tabIndex="-1" aria-labelledby={id + `Label`} aria-hidden="true">
         <div className="modal-dialog">
             <div className="modal-content">
                 <div className="modal-header">
@@ -30,18 +30,18 @@ export const ModalStock = ({ handleInfo, handleUpdate, data, id, resetForm = () 
                     <form onSubmit={sendForm}>
                         <div className="mb-1">
                             <label htmlFor="recipient-name" className="col-form-label">Nombre:</label>
-                            <input type="text" className="form-control" id="recipient-name" required value={data.name_Stock}
+                            <input type="text" className="form-control" id="recipient-name" required value={data.name_Stock} name="name_Stock"
                                 onChange={handleInfo} />
                         </div>
 
                         <div className="mb-1">
                             <label htmlFor="recipient-name" className="col-form-label">Address:</label>
-                            <input type="text" className="form-control" id="recipient-name" required value={data.address}
+                            <input type="text" className="form-control" id="recipient-name" required value={data.address} name="address"
                                 onChange={handleInfo} />
                         </div>
                         <div className="mb-1">
                             <label htmlFor="recipient-name" className="col-form-label">Rif:</label>
-                            <input type="text" className="form-control" id="recipient-name"
+                            <input type="text" className="form-control" id="recipient-name"  name="rif"
                                 required
                                 value={data.rif}
                                 onChange={handleInfo} />

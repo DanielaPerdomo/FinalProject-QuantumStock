@@ -9,7 +9,7 @@ export const Almacen = () => {
     //cambios 
 
     const [Stock, setStock] = useState({
-        nameStock: "",
+        name_Stock: "",
         address: "",
         rif: "",
         
@@ -23,7 +23,7 @@ export const Almacen = () => {
     }
     const resetForm = () => {
         setStock({
-            nameStock: "",
+            name_Stock: "",
             address: "",
             rif: "",
         });
@@ -71,11 +71,12 @@ export const Almacen = () => {
     };
 
     const handleDeleteStock = (Stock_id) => {
-        // actions.deleteProduct(product_id)
-        // actions.getProduct()
+         actions.deleteProduct(Stock_id)
+         actions.getProduct()
     }
     return (
-        <div className="">
+     <>
+        
             <Toaster position="top-center" richColors />
             <div >
                 <h1 className=" text-dark "><i className="fa-solid fa-warehouse"></i><span className="m-3">Almacen</span></h1>
@@ -92,12 +93,13 @@ export const Almacen = () => {
                     </tr>
                 </thead>
                 <tbody className="table-group-divider">
-                    {Object.keys(store.almacen).length > 0 ? (
+                    {
+                    Object.keys(store.almacen).length > 0 ? (
                         Object.keys(store.almacen).map((itemId, index) => {
                             const item = store.almacen[itemId];
                             return (
                                 <tr key={index}>
-                                    <td>{item.name}</td>
+                                    <td>{item.name_Stock}</td>
                                     <td>{item.address}</td>
                                     <td>{item.rif}</td>
                                     <td>
@@ -108,7 +110,7 @@ export const Almacen = () => {
 
                                             onClick={(event) => {
                                                 setStock(prev => ({
-                                                    nameStock: item.name,
+                                                    name_Stock: item.name_Stock,
                                                     address: item.address,
                                                     rif: item.rif,
                                                    
@@ -141,7 +143,8 @@ export const Almacen = () => {
                         <tr>
                             <td colSpan="4">Añadir Almacen</td>
                         </tr>
-                    )}
+                    )
+                }
                 </tbody>
 
 

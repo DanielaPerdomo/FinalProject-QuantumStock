@@ -217,25 +217,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			putStock: async ({ id, product_name, description, item, price, admission_date }) => {
+			putStock: async ({ id, name_Stock,address,rif}) => {
 
 				try {
-					const response = await fetch(process.env.BACKEND_URL + `api/product/${id}`, {
+					const response = await fetch(process.env.BACKEND_URL + `api/stock/${id}`, {
 						method: "PUT",
 						headers: {
 							"Content-Type": "application/json",
 						},
 						body: JSON.stringify({
-							"product_name": product_name,
-							"description": description,
-							"item": item,
-							"price": price,
-							"admission_date": admission_date
+							"name_Stock": name_Stock,
+							"address": address,
+							"rif":rif
+							
 						})
 					})
 					if (response.ok) {
 						const actions = getActions()
-						actions.getProduct()
+						actions.getStock()
 					}
 				} catch (error) {
 					console.log(error)
@@ -245,10 +244,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
-			deleteStock: async (product_id) => {
+			deleteStock: async (Stock_id) => {
 
 				try {
-					const response = await fetch(process.env.BACKEND_URL + `api/delete/product/${product_id}`, {
+					const response = await fetch(process.env.BACKEND_URL + `api/delete/Stock/${Stock_id}`, {
 						method: "DELETE",
 						headers: {
 							"Content-Type": "application/json",

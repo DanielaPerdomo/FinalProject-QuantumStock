@@ -37,7 +37,7 @@ class Stock(db.Model):
     __tablename__ = 'stock'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(250), unique=False, nullable=False)
+    name_Stock = db.Column(db.String(250), unique=False, nullable=False)
     address = db.Column(db.String(250), unique=False, nullable=False)
     rif = db.Column(db.String(250), unique=True, nullable=False)
 
@@ -56,7 +56,7 @@ class Stock(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            'name': self.name,
+            'name_Stock': self.name_Stock,
             "address": self.address,
             "rif": self.rif,
              "id_user": self.user_id

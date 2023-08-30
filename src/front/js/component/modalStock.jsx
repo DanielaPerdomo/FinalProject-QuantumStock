@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 
 
-export const Modal = ({ handleInfo, handleUpdate, data, id, resetForm = () => { } }) => {
+export const ModalStock = ({ handleInfo, handleUpdate, data, id, resetForm = () => { } }) => {
 
     const sendForm = (event) => {
         event.preventDefault()
@@ -30,7 +30,7 @@ export const Modal = ({ handleInfo, handleUpdate, data, id, resetForm = () => { 
                     <form onSubmit={sendForm}>
                         <div className="mb-1">
                             <label htmlFor="recipient-name" className="col-form-label">Nombre:</label>
-                            <input type="text" className="form-control" id="recipient-name" required value={data.nameStock}
+                            <input type="text" className="form-control" id="recipient-name" required value={data.name_Stock}
                                 onChange={handleInfo} />
                         </div>
 

@@ -123,17 +123,17 @@ def get_user():
 def create_almacen():
     user_id = get_jwt_identity()
     body = request.json
-    name = body.get("name")
+    name_Stock = body.get("name_Stock")
     address = body.get("address")
     rif = body.get("rif")
-    if name is None or address is None or rif is None:
+    if name_Stock is None or address is None or rif is None:
         return jsonify({
             "message": "All information are required"
         }), 400
     
     stock = Stock(
         user_id = user_id,
-        name = name,
+        name_Stock = name_Stock,
         address = address,
         rif = rif
     )
@@ -182,7 +182,7 @@ def update_stock(stock_id):
     
     body = request.json
 
-    existing_stock.name = ["name"]
+    existing_stock.name_Stock = ["name_Stock"]
     existing_stock.address = body["address"]
 
     try:

@@ -124,7 +124,8 @@ export const Products = () => {
                             </tr>
 
                         )
-                    })}
+                    })
+                    }
                 </tbody>
             </table>
 

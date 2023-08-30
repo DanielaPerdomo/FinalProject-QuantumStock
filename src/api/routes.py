@@ -196,6 +196,35 @@ def update_stock(stock_id):
     
     return jsonify({"message": f"Warehouse {stock_id} updated successfully"})
 
+
+# ENDPOINT para eliminar almacen
+
+@api.route("/delete/stock", methods=['DELETE'])
+@jwt_required()
+def delete_stock():
+    user_id = get_jwt_identity()
+
+    existing_stock = Stock.query.filter_by(user_id=user_id).one_or_none()
+
+    if not existing_stock:
+        return jsonify({
+            "message": "The warehouse does not exist"
+        }), 400
+     
+    try:
+        db.session.delete(existing_stock)
+        db.session.commit()
+    except Exception as error:
+        db.session.rollback()
+        return jsonify({
+            "message": "could not delete store",
+            "error": error.args
+        }), 400
+    
+    return jsonify({"message": "removed store"}), 200
+
+
+
 # GESTION DE PRODUCTOS
 
 
@@ -206,8 +235,18 @@ def update_stock(stock_id):
 @api.route("/product", methods=["POST"]) 
 @jwt_required()
 def create_product():
+
     user_id = get_jwt_identity()
+    warehouse_user = Stock.query.filter_by(user_id=user_id).one_or_none()
+    print(warehouse_user)
+
+    if warehouse_user is None:
+        return jsonify({
+            "message": "No store found for this user"
+        }), 400
+    
     body = request.json
+
     product_name = body.get("product_name")
     description = body.get("description")
     item = body.get("item")
@@ -220,7 +259,7 @@ def create_product():
         }), 400
     
     product = Product(
-        user_id = user_id,
+        stock_id = warehouse_user.id,
         product_name = product_name,
         description = description,
         item = item,
@@ -236,7 +275,9 @@ def create_product():
             "message": "ocurrió un error interno",
             "error": error.args
         }), 500
-    return jsonify({}), 201
+    return jsonify({
+        "message":"product created successfully"
+    }), 201
 
 
 # ENDPOINT para obtener informacion de productos
@@ -289,7 +330,6 @@ def  update_product(product_id):
 
 
 @api.route("/delete/product/<int:product_id>", methods=["DELETE"])
-
 def delete_product(product_id):
     existing_product = Product.query.get(product_id)
 

@@ -66,7 +66,9 @@ def handle_singup():
             "message": "an internal error occurred",
             "error": error.args
         }), 500
-    return jsonify({}), 201
+    return jsonify({
+        "message": "User created"
+    }), 201
 
     
 # ENDPOINT para crear token y logear al usuario
@@ -122,10 +124,12 @@ def get_user():
 @jwt_required()
 def create_almacen():
     user_id = get_jwt_identity()
+
     body = request.json
     name_Stock = body.get("name_Stock")
     address = body.get("address")
     rif = body.get("rif")
+
     if name_Stock is None or address is None or rif is None:
         return jsonify({
             "message": "All information are required"
@@ -146,29 +150,28 @@ def create_almacen():
             "message": "ocurrió un error interno",
             "error": error.args
         }), 500
-    return jsonify({}), 201
+    return jsonify({
+        "message": "store created successfully"
+    }), 201
 
 # ENDPOINT para obtener informacion del almacen
 
 @api.route("/user/store", methods=['GET'])
 @jwt_required()
 def handle_get_store():
+
     user_id = get_jwt_identity()
     store = Stock.query.filter_by(user_id=user_id).one_or_none()
-    
+    print(store)
     if not store:
        return jsonify({
-           "message": "no tienes almacen"
+           "message": "you don't have storage"
        }), 404
     
-    """  list_store = list(map(
-        lambda stores: stores.serialize(), store
-    )) """
-
     return jsonify(store.serialize()), 200
 
 
-# ENDPOINT para actualizar o editar amacen
+# ENDPOINT para actualizar o editar almacen
 
 @api.route("/stock/<int:stock_id>", methods=["PUT"])
 def update_stock(stock_id):
@@ -182,7 +185,7 @@ def update_stock(stock_id):
     
     body = request.json
 
-    existing_stock.name_Stock = ["name_Stock"]
+    existing_stock.name_Stock = body["name_Stock"]
     existing_stock.address = body["address"]
 
     try:
@@ -227,7 +230,6 @@ def delete_stock():
 
 # GESTION DE PRODUCTOS
 
-
 # ENDPOINT para crear un nuevo producto
 # Hacer ruta privada para crear producto con el user id (IMPORTANTE!!)
 
@@ -237,8 +239,8 @@ def delete_stock():
 def create_product():
 
     user_id = get_jwt_identity()
+
     warehouse_user = Stock.query.filter_by(user_id=user_id).one_or_none()
-    print(warehouse_user)
 
     if warehouse_user is None:
         return jsonify({
@@ -272,7 +274,7 @@ def create_product():
     except Exception as error:
         db.session.rollback()
         return jsonify({
-            "message": "ocurrió un error interno",
+            "message": "Could not create product",
             "error": error.args
         }), 500
     return jsonify({
@@ -282,16 +284,22 @@ def create_product():
 
 # ENDPOINT para obtener informacion de productos
 
-@api.route("/list/of/product", methods=["GET"])
+@api.route("/products", methods=["GET"])
+@jwt_required()
 def handle_get_product():
+    
+    user_id = get_jwt_identity()
 
-    product = Product.query.all()
-    list_of_product = list(map(
-        lambda products: products.serialize(), product
-    ))
+    store = Stock.query.filter_by(user_id=user_id).one_or_none()
+
+    if store is None:
+        return jsonify({
+            "message": "No store found for this user"
+        }), 400
     
-    """ product_dict = dict(list_of_product) """
-    
+    products = Product.query.filter_by(stock_id=store.id).all()
+    list_of_product = [product.serialize() for product in products]
+
     return jsonify(list_of_product), 200
 
 

@@ -86,7 +86,7 @@ class Product(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "user_id": self.user_id,
+            "user_id": self.stock.user_id,
             "stock_id": self.stock_id,
             "product_name": self.product_name,
             "description": self.description,

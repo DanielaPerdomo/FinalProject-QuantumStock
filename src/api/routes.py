@@ -210,7 +210,7 @@ def delete_stock():
         return jsonify({
             "message": "The warehouse does not exist"
         }), 400
-    
+     
     try:
         db.session.delete(existing_stock)
         db.session.commit()
@@ -235,8 +235,18 @@ def delete_stock():
 @api.route("/product", methods=["POST"]) 
 @jwt_required()
 def create_product():
+
     user_id = get_jwt_identity()
+    warehouse_user = Stock.query.filter_by(user_id=user_id).one_or_none()
+    print(warehouse_user)
+
+    if warehouse_user is None:
+        return jsonify({
+            "message": "No store found for this user"
+        }), 400
+    
     body = request.json
+
     product_name = body.get("product_name")
     description = body.get("description")
     item = body.get("item")
@@ -249,7 +259,7 @@ def create_product():
         }), 400
     
     product = Product(
-        user_id = user_id,
+        stock_id = warehouse_user.id,
         product_name = product_name,
         description = description,
         item = item,
@@ -265,7 +275,9 @@ def create_product():
             "message": "ocurrió un error interno",
             "error": error.args
         }), 500
-    return jsonify({}), 201
+    return jsonify({
+        "message":"product created successfully"
+    }), 201
 
 
 # ENDPOINT para obtener informacion de productos

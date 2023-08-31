@@ -28,7 +28,7 @@ export const Almacen = () => {
             address: "",
             rif: "",
         });
-    };
+    };    
     async function creat_stock(event) {
         event.preventDefault();
 
@@ -45,7 +45,7 @@ export const Almacen = () => {
                 
             };
 
-            // if (store.almacen.length < 1) {
+            if (store.almacen.length < 1) {
 
                 const resp = await fetch(process.env.BACKEND_URL + "api/stock", opts);
 
@@ -59,10 +59,10 @@ export const Almacen = () => {
                 } else {
                     return toast.error("Hubo un error")
                 }
-            // } else {
-            //     resetForm();
-            //     return toast.error("Almacen ya creado")
-            // }
+            } else {
+                resetForm();
+                return toast.error("Almacen ya creado")
+            }
 
 
 

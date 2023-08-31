@@ -4,6 +4,8 @@ import { Search } from "./Search.jsx";
 import homeImageUrl from "../../img/HomeTechnology.jpg";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
+
+
 export const Navbardashboard = () => {
     const { actions, store } = useContext(Context);
     const navigate = useNavigate();
@@ -11,6 +13,8 @@ export const Navbardashboard = () => {
         actions.logOut();
         navigate("/")
     }
+
+    
     return (
 
         <div className="navbarDashboard mt-3">
@@ -26,7 +30,7 @@ export const Navbardashboard = () => {
                             </button>
                         </div>
                         <div className="col-3 mt-2">
-                            <div className="text-dark">Bienvenido estimad@</div>
+                            <div className="text-dark">Bienvenido {}</div>
                         </div>
                         <div className="col-5 m-0 p-0 d-flex justify-content-evenly ">
 

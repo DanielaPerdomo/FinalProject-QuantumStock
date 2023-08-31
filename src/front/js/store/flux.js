@@ -92,7 +92,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				const store = getStore();
 				try {
-					const response = await fetch(process.env.BACKEND_URL + "api/demo", {
+					const response = await fetch(process.env.BACKEND_URL + "api/Dashboard", {
 						method: "GET",
 
 						headers: {
@@ -131,12 +131,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getProduct: async () => {
 
-
+				const store = getStore()
 				try {
-					const response = await fetch(process.env.BACKEND_URL + "api/list/of/product", {
+					const response = await fetch(process.env.BACKEND_URL + "api/products", {
 						method: "GET",
 						headers: {
 							"Content-Type": "application/json",
+							Authorization: `Bearer ${store.token}`
 						},
 					})
 					if (response.ok) {
@@ -217,13 +218,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			putStock: async ({ id, name_Stock,address,rif}) => {
+			putStock: async ({ id, name_Stock,address,rif}) =>     {
 
-				try {
-					const response = await fetch(process.env.BACKEND_URL + `api/stock/`, {
+				try {     
+					const response = await fetch(process.env.BACKEND_URL + `api/stock/${id}`, {    
 						method: "PUT",
 						headers: {
-							"Content-Type": "application/json",
+							"Content-Type": "application/json",      
 						},
 						body: JSON.stringify({
 							"name_Stock": name_Stock,
@@ -244,13 +245,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
-			deleteStock: async (Stock_id) => {
-
+			deleteStock: async () => {
+				const store = getStore()
 				try {
-					const response = await fetch(process.env.BACKEND_URL + `api/delete/Stock/`, {
+					const response = await fetch(process.env.BACKEND_URL + "api/delete/stock", {
 						method: "DELETE",
 						headers: {
 							"Content-Type": "application/json",
+							Authorization: `Bearer ${store.token}`
 						},
 						body: JSON.stringify(
 

@@ -10,8 +10,6 @@ export const Search = () => {
                     
                 </div>
                 <input
-
-
                     type="text"
                     className="form-control rounded"
                     placeholder=    "  Buscar..."

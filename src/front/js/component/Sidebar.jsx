@@ -42,7 +42,7 @@ export const Sidebar = ({onAlmacenClick,onProduckClick,onHomeClick} ) => {
                     </div>
 
                     <div className="Sidebar-footer mb-5 p-2">
-                        <div className="Sidebar-options fs-6"><button type="button" className="Sidebar-button"><i className="fa-solid fa-gears"></i><span className="m-3">Configuraciones</span></button></div>
+                        {/* <div className="Sidebar-options fs-6"><button type="button" className="Sidebar-button"><i className="fa-solid fa-gears"></i><span className="m-3">Configuraciones</span></button></div> */}
                         <div className="Sidebar-options fs-6"><button type="button" className="Sidebar-button" onClick={handleLogOut}><i className="fa-solid fa-right-from-bracket"></i><span className="m-3">Cerrar session</span></button></div>
                     </div>
                 </div>

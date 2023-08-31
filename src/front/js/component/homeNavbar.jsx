@@ -14,7 +14,7 @@ export const Navbar = ({ onLoginClick, onSignUpClick }) => {
 					<strong> QuantumStock</strong>
 				</span>
 
-        <button className="navbar-toggler bs-navbar-color-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler bs-navbar-color-light bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse position-relative" id="navbarSupportedContent">

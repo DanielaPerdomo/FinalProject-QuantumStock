@@ -7,20 +7,20 @@ export const Almacen = () => {
     const { store, actions } = useContext(Context);
     //cambios 
     const [Stock, setStock] = useState({
-        
+
         name_Stock: "",
         address: "",
-        rif: "",       
+        rif: "",
     })
-  
+
     const handleInfo = (event) => {
         setStock({
             ...Stock,
-                     [event.target.name]: event.target.value 
-               
-               //Fin de codigo de Jose
+            [event.target.name]: event.target.value
+
+            //Fin de codigo de Jose
         })
-        console.log("me ejeuto",event.target.name)
+        /* console.log("me ejeuto",event.target.name) */
     }
     const resetForm = () => {
         setStock({
@@ -28,7 +28,7 @@ export const Almacen = () => {
             address: "",
             rif: "",
         });
-    };    
+    };
     async function creat_stock(event) {
         event.preventDefault();
 
@@ -40,9 +40,9 @@ export const Almacen = () => {
                     "Authorization": `Bearer ${store.token}`
                 },
                 body: JSON.stringify(Stock)
-                   
 
-                
+
+
             };
 
             if (store.almacen.length < 1) {
@@ -72,12 +72,12 @@ export const Almacen = () => {
     };
 
     const handleDeleteStock = () => {
-         actions.deleteStock()
-         actions.getStock()
+        actions.deleteStock()
+        actions.getStock()
     }
     return (
-     <>
-        
+        <>
+
             <Toaster position="top-center" richColors />
             <div >
                 <h1 className=" text-dark "><i className="fa-solid fa-warehouse"></i><span className="m-3">Almacen</span></h1>
@@ -95,59 +95,59 @@ export const Almacen = () => {
                 </thead>
                 <tbody className="table-group-divider">
                     {
-                    Object.keys(store.almacen).length > 0 ? (
-                        Object.keys(store.almacen).map((itemId, index) => {
-                            const item = store.almacen[itemId];
-                            return (
-                                <tr key={index}>
-                                    <td>{item.name_Stock}</td>
-                                    <td>{item.address}</td>
-                                    <td>{item.rif}</td>
-                                    <td>
-                                        <button
-                                            type="button"
-                                            className="btn btn-outline-primary m-2"
+                        Object.keys(store.almacen).length > 0 ? (
+                            Object.keys(store.almacen).map((itemId, index) => {
+                                const item = store.almacen[itemId];
+                                return (
+                                    <tr key={index}>
+                                        <td>{item.name_Stock}</td>
+                                        <td>{item.address}</td>
+                                        <td>{item.rif}</td>
+                                        <td>
+                                            <button
+                                                type="button"
+                                                className="btn btn-outline-primary m-2"
 
 
-                                            onClick={(event) => {
-                                                setStock(prev => ({
-                                                    name_Stock: item.name_Stock,
-                                                    address: item.address,
-                                                    rif: item.rif,
-                                                   
-                                                    id: item.id
-                                                }))
-                                                console.log(event.target.getAttribute('data-modal-name'))
-                                            }}
-                                            data-modal-name={item.id}
-                                            data-bs-toggle="modal"
-                                            data-bs-target={`#updateStock`}
-                                            data-bs-whatever="@mdo"
-                                        >
-                                            <i className="fa-regular fa-pen-to-square"></i>
-                                        </button>
-                                        <button
-                                            type="button"
-                                            className="btn btn-outline-danger m-2"
-                                            data-bs-whatever="@mdo"
-                                            onClick={() => {
-                                                handleDeleteStock()
-                                            }}
-                                            
-                                        >
-                                            <i className="fa-regular fa-trash-can"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            );
-                        })
-                    ) : (
-                        <tr>
-                            <td colSpan="4">Añadir Almacen</td>
-                        </tr>
-                    )
-                }
-          </tbody>
+                                                onClick={(event) => {
+                                                    setStock(prev => ({
+                                                        name_Stock: item.name_Stock,
+                                                        address: item.address,
+                                                        rif: item.rif,
+
+                                                        id: item.id
+                                                    }))
+                                                    console.log(event.target.getAttribute('data-modal-name'))
+                                                }}
+                                                data-modal-name={item.id}
+                                                data-bs-toggle="modal"
+                                                data-bs-target={`#updateStock`}
+                                                data-bs-whatever="@mdo"
+                                            >
+                                                <i className="fa-regular fa-pen-to-square"></i>
+                                            </button>
+                                            <button
+                                                type="button"
+                                                className="btn btn-outline-danger m-2"
+                                                data-bs-whatever="@mdo"
+                                                onClick={() => {
+                                                    handleDeleteStock()
+                                                }}
+
+                                            >
+                                                <i className="fa-regular fa-trash-can"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                );
+                            })
+                        ) : (
+                            <tr>
+                                <td colSpan="4">Añadir Almacen</td>
+                            </tr>
+                        )
+                    }
+                </tbody>
 
 
             </table>
@@ -157,8 +157,8 @@ export const Almacen = () => {
                 <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#creat_stock" data-bs-whatever="@mdo">
                     <i className="fa-regular fa-square-plus"></i>
                 </button>
-                </div>
-                <ModalStock
+            </div>
+            <ModalStock
                 id={"creat_stock"}
                 handleUpdate={creat_stock}
                 handleInfo={handleInfo}
@@ -172,9 +172,9 @@ export const Almacen = () => {
                 resetForm={resetForm}
             />
         </>
-           
 
-       
+
+
     )
 
 }

@@ -14,7 +14,7 @@ export const Navbardashboard = () => {
         navigate("/")
     }
 
-    
+
     return (
 
         <div className="navbarDashboard mt-3">
@@ -30,11 +30,11 @@ export const Navbardashboard = () => {
                             </button>
                         </div>
                         <div className="col-3 mt-2">
-                            <div className="text-dark">Bienvenido {}</div>
+                            <div className="text-dark">Bienvenido { }</div>
                         </div>
                         <div className="col-5 m-0 p-0 d-flex justify-content-evenly ">
 
-                            <Search />
+                            {/* <Search /> */}
                             <div className=" nav-icon fs-4 mx-2 p-0"><i className="fa-regular fa-user "></i><span className="m"></span></div>
                             <div className=" nav-icon fs-4 mx-2 p-0" onClick={handleLogOut}><i className="fa-solid fa-right-from-bracket  "></i><span className="m"></span></div>
 

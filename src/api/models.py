@@ -43,7 +43,7 @@ class Stock(db.Model):
 
     # Relacion con User
 
-    user_id = db.Column(ForeignKey("user.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     user = db.relationship("User", back_populates="stock")
 
     # Relacion Con Product
@@ -77,7 +77,7 @@ class Product(db.Model):
     
     # Relacion con Stock
 
-    stock_id = db.Column(ForeignKey("stock.id"))
+    stock_id = db.Column(db.Integer , db.ForeignKey("stock.id"))
     stock = db.relationship("Stock", back_populates="product")
 
     def __repr__(self):
@@ -86,7 +86,7 @@ class Product(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "user_id": self.stock.user_id,
+            #"user_id": self.stock.user_id,
             "stock_id": self.stock_id,
             "product_name": self.product_name,
             "description": self.description,

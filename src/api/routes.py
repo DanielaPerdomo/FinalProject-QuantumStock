@@ -227,11 +227,9 @@ def delete_stock():
     return jsonify({"message": "removed store"}), 200
 
 
-
 # GESTION DE PRODUCTOS
 
 # ENDPOINT para crear un nuevo producto
-# Hacer ruta privada para crear producto con el user id (IMPORTANTE!!)
 
 
 @api.route("/product", methods=["POST"]) 
@@ -289,7 +287,6 @@ def create_product():
 def handle_get_product():
     
     user_id = get_jwt_identity()
-
     store = Stock.query.filter_by(user_id=user_id).one_or_none()
 
     if store is None:

@@ -18,7 +18,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			token: localStorage.getItem("token") ?? null,
 			info: "",
 			almacen: [],
-			product: []
+			product: [],
+			cliente:[],
+			orden:[],
+			reporte:[]
 
 		},
 		actions: {
@@ -265,7 +268,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.log(error)
 				}
-			}
+			},
+
+			 
+                 
+
+
+
+
 
 
 

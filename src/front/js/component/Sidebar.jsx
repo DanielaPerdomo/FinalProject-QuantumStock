@@ -25,9 +25,6 @@ export const Sidebar = ({onAlmacenClick,onProduckClick,onHomeClick,onClientClick
                             <h5>Nombre de la empresa</h5>
                         </div>
                         <div className="user d-flex mt-3">
-                            <figure>
-                                <img src="#" alt="Foto de perfil" />
-                            </figure>
                             <span>[Nombre de usuario]</span>
                         </div>
                     </div>

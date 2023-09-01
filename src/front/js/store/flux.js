@@ -270,15 +270,76 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			 
-                 
+
+			getClient: async () => {
+				const store = getStore()
+
+				try {
+					const response = await fetch(process.env.BACKEND_URL + "api/clients", {
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json",
+							Authorization: `Bearer ${store.token}`
+						},
+					})
+					if (response.ok) {
+						const body = await response.json()
+						setStore({ cliente: [body] })
+						/* console.log("store en el flux:", store.almacen) */
+					}
+				} catch (error) {
+					console.log(error)
+				}
+			},
+
+			putClient: async ({ id, name_client, address_client,email_client,phone_client }) => {
+
+				try {
+					const response = await fetch(process.env.BACKEND_URL + `api/update/client/${id}`, {
+						method: "PUT",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({
+							"name_client": name_client,
+							"address_client": address_client,
+							"email_client":email_client,
+						 	"phone_client":phone_client
+							
+						})
+					})
+					if (response.ok) {
+						const actions = getActions()
+						actions.getClient()
+					}
+				} catch (error) {
+					console.log(error)
+				}
 
 
 
+			},
 
+			deleteClient: async (client_id) => {
 
+				try {
+					const response = await fetch(process.env.BACKEND_URL + `api/delete/client/${client_id}`, {
+						method: "DELETE",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(
 
-
+						)
+					})
+					if (response.ok) {
+						const actions = getActions()
+						actions.getClient()
+					}
+				} catch (error) {
+					console.log(error)
+				}
+			}
 		}
 	};
 };

@@ -22,22 +22,23 @@ export const Navbar = ({ onLoginClick, onSignUpClick }) => {
             <li className="nav-item">
               <Link to="/aboutUs">
                 <button type="button" className="btn btn-sm btn-outline-light border border-0 m-2 buttonNav" href="#">
+                  <i className="fa-solid fa-users fa-fade"></i>&ensp;
                   Nosotros
                 </button>
               </Link>
             </li>
             <li className="nav-item">
               <button onClick={onLoginClick} type="button" className="btn  btn-sm btn-info text-light  m-2 buttonNav">
-                Iniciar Sesión&ensp;
-                <i className="fa-solid fa-user"></i>
+                <i className="fa-solid fa-user fa-fade"></i> &ensp;
+                Iniciar Sesión
               </button>
             </li>
 
             <li className="nav-item">
               <Link to="/">
                 <button onClick={onSignUpClick} className="btn  btn-sm btn-outline-info text-light m-2 buttonNav" type="submit">
-                  Registrarse&ensp;
-                  <i className="fa-solid fa-right-to-bracket"></i>
+                  <i className="fa-solid fa-right-to-bracket fa-fade"></i> &ensp;
+                  Registrarse
                 </button>
               </Link>
             </li>

@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Stock, Product, Client
+from api.models import db, User, Stock, Product, Client, Buy_order
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token,jwt_required,get_jwt_identity
 from werkzeug.security import generate_password_hash,check_password_hash
@@ -475,3 +475,29 @@ def delete_client(client_id):
     return jsonify({
         "message": "The client has been deleted"
     }), 200
+
+
+# GESTION DE LAS ORDENES DE COMPRA
+
+# ENDPOINT para crear una orden de compra 
+
+""" @api.route("/purchase/order", methods=["POST"])
+@jwt_required()
+def create_purchase_order():
+    user_id = get_jwt_identity()
+    existing_client = Client.query.filter_by(user_id=user_id).one_or_none()
+
+    if not existing_client :
+        return jsonify({
+            "message": "Engage with an existing customer"
+        }), 400
+
+    new_order = Buy_order.query.filter_by(client_id=existing_client)
+    body = request.json
+    
+    y
+    
+    return jsonify({
+        "message": "purchase order created"
+    }), 200 """
+

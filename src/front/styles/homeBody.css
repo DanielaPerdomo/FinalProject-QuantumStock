@@ -10,11 +10,15 @@ body, html{
 }
 
 .Container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url(https://cdn.pixabay.com/photo/2018/04/21/00/42/hexagon-3337447_1280.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
     background-color: rgba(0, 0, 0, 0.85);
 }
 

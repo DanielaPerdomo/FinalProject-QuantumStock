@@ -3,37 +3,36 @@ import "../../styles/dashboardPage.css";
 
 export const DashboardHome = () => {
   return (
-    <div className="d-flex justify-content-center m-2 ">
+    <div className="d-flex justify-content-center m-5 ">
 
-      <div className="card text-bg-primary  m-2" style={{ "maxWidth": "18rem" }}>
-        <div className="card-header">Almacen</div>
+      <div className="card text-bg-primary  m-2" style={{ "minWidth": "15rem" }}>
+        <div className="card-header"><i className="fa-solid fa-warehouse fa-fade"></i>&ensp;Almacen</div>
         <div className="card-body">
-          <h5 className="card-title">Primary card title</h5>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          
+          <h6 className="card-text">Nombre:</h6><br/>
+          <h6 className="card-text">Direccion:</h6><br/>
+          <h6 className="card-text">RIF:</h6><br/>
         </div>
       </div>
 
-      <div className="card text-bg-dark  m-2" style={{ "maxWidth": "18rem" }}>
-        <div className="card-header">Productos</div>
+      <div className="card text-bg-dark  m-2" style={{ "minWidth": "15rem" }}>
+        <div className="card-header"><i className="fa-brands fa-product-hunt fa-fade"></i>&ensp;Productos</div>
         <div className="card-body">
-          <h5 className="card-title">Primary card title</h5>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h6 className="card-text">Total de Productos:</h6>
         </div>
       </div>
 
-      <div className="card text-bg-secondary  m-2" style={{ "maxWidth": "18rem" }}>
-        <div className="card-header">Clientes</div>
+      <div className="card text-bg-secondary  m-2" style={{ "minWidth": "15rem" }}>
+        <div className="card-header"><i className="fa-solid fa-person-circle-check fa-fade"></i>&ensp;Clientes</div>
         <div className="card-body">
-          <h5 className="card-title">Primary card title</h5>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h6 className="card-text">Total de Clientes:</h6>
         </div>
       </div>
 
-      <div className="card text-bg-info  m-2" style={{ "maxWidth": "18rem" }}>
-        <div className="card-header">Proveedores</div>
+      <div className="card text-bg-info  m-2" style={{ "minWidth": "15rem" }}>
+        <div className="card-header"><i className="fa-solid fa-people-carry-box fa-fade"></i>&ensp;Proveedores</div>
         <div className="card-body">
-          <h5 className="card-title">Primary card title</h5>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h6 className="card-text">Total de Proveedores:</h6>
         </div>
       </div>
     </div>

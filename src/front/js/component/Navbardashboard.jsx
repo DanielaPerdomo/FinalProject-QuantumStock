@@ -24,15 +24,15 @@ export const Navbardashboard = () => {
                         <div className="col-4 d-flex align-items-start m-0 p-0">
                             <img className="nav mx-2" src={homeImageUrl} />
 
-                            <a className="navbar-brand text-dark" href="#">QuantumStock</a>
+                            <a className="navbar-brand text-dark">QuantumStock</a>
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className=""></span>
                             </button>
                         </div>
-                        <div className="col-3 mt-2">
+                        <div className="col-3 mt-2 justify-content-center">
                             <div className="text-dark">Bienvenido { }</div>
                         </div>
-                        <div className="col-5 m-0 p-0 d-flex justify-content-evenly ">
+                        <div className="col-5 m-0 p-0 d-flex justify-content-end ">
 
                             {/* <Search /> */}
                             <div className=" nav-icon fs-4 mx-2 p-0"><i className="fa-regular fa-user "></i><span className="m"></span></div>

@@ -76,13 +76,13 @@ const resetForm = () => {
           </div>
           <div className="card-body "  >
             <div className="d-flex justify-content-center">
-              <h5 className="card-title  m-1 fs-6">Algo</h5>
+              <h5 className="card-title  m-1 fs-6"><i className="fa-solid fa-address-book"></i> &ensp;Datos del Cliente</h5>
             </div>
-            <p className="card-text  m-1 fs-6 ">Nombre del cliente:Juan  </p>
-            <p className="card-text m-1 fs-6 ">Email del cliente: Juan@juan.com</p>
-            <p className="card-text  m-1 fs-6">Telefono del cliente: </p>
-            <p className="card-text  m-1 fs-6">Dirección del cliente: </p>
-            <p className="card-text  m-1 fs-6">Rif del cliente: </p>
+            <span className="card-text  m-2 fs-6 "><i className="fa-solid fa-user"></i>&ensp;Nombre:</span><br/>
+            <span className="card-text m-2 fs-6 "><i className="fa-solid fa-envelope"></i>&ensp;Correo Electronico:</span><br/>
+            <span className="card-text  m-2 fs-6"><i className="fa-solid fa-phone"></i>&ensp;Telefono:</span><br/>
+            <span className="card-text  m-2 fs-6"><i className="fa-solid fa-city"></i>&ensp;Direccion:</span><br/>
+            <span className="card-text  m-2 fs-6"><i className="fa-solid fa-file-lines"></i>&ensp; RIF:</span><br/>
             <div className="d-flex justify-content-between m-1 ">
               <button className="btn border border-primary"><i className="fa-regular fa-pen-to-square"></i> &ensp; Editar</button>
               <button className="btn border border-danger"><i className="fa-regular fa-trash-can"></i> &ensp; Eliminar</button>

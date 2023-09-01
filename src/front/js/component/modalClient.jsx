@@ -34,7 +34,11 @@ export const ModalClient = () => {
                                     <input type="text" className="form-control" id="recipient-name" />
                                 </div>
                                 <div className="mb-1">
-                                    <label for="message-text" className="col-form-label"><i className="fa-regular fa-file-lines"></i> &ensp; RIF:</label>
+                                    <label for="message-text" className="col-form-label"><i className="fa-solid fa-envelope"></i> &ensp; Correo Electronico:</label>
+                                    <input type="text" className="form-control" id="recipient-name" />
+                                </div>
+                                <div className="mb-1">
+                                    <label for="message-text" className="col-form-label"> <i className="fa-solid fa-phone"></i> &ensp; Telefono:</label>
                                     <input type="text" className="form-control" id="recipient-name" />
                                 </div>
                                 <div className="mb-1">
@@ -42,11 +46,7 @@ export const ModalClient = () => {
                                     <input type="text" className="form-control" id="recipient-name" />
                                 </div>
                                 <div className="mb-1">
-                                    <label for="message-text" className="col-form-label"><i className="fa-solid fa-envelope"></i> &ensp; Correo Electronico:</label>
-                                    <input type="text" className="form-control" id="recipient-name" />
-                                </div>
-                                <div className="mb-1">
-                                    <label for="message-text" className="col-form-label"> <i className="fa-solid fa-phone"></i> &ensp; Telefono:</label>
+                                    <label for="message-text" className="col-form-label"><i className="fa-regular fa-file-lines"></i> &ensp; RIF:</label>
                                     <input type="text" className="form-control" id="recipient-name" />
                                 </div>
                             </form>

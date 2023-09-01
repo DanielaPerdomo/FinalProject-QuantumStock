@@ -3,12 +3,9 @@ import { ModalClient } from "./modalClient.jsx";
 
 export const Clients = () => {
 
-
-
-
-
   return (
     <>
+      {/* Inicio de Card de clientes */}
       <div className=" ">
         <div >
           <h1 className=" text-dark "><i className="fa-solid fa-person-circle-check"></i><span className="m-3">Clientes</span></h1>
@@ -28,37 +25,18 @@ export const Clients = () => {
             <p className="card-text  m-1 fs-6">Dirección del cliente: </p>
             <p className="card-text  m-1 fs-6">Rif del cliente: </p>
             <div className="d-flex justify-content-between m-1 ">
-              <button className="btn border border-primary" >Editar</button>
-              <button className="btn border border-danger">Eliminar</button>
+              <button className="btn border border-primary"><i className="fa-regular fa-pen-to-square"></i> &ensp; Editar</button>
+              <button className="btn border border-danger"><i className="fa-regular fa-trash-can"></i> &ensp; Eliminar</button>
             </div>
           </div>
         </div>
+        {/* FIN DEL CARD DE CLIENTE */}
 
         {/* INICIO MODAL NUEVO CLIENTE */}
-        {/* <!-- Button trigger modal --> */}
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Launch demo modal
+        <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i className="fa-regular fa-square-plus"></i>
         </button>
-
-        {/* <!-- Modal --> */}
-        <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h1 className="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div className="modal-body">
-                ...
-              </div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" className="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* FIN DE MODAL NUEVO CLIENTE */}
+        <ModalClient />
       </div>
     </>
 

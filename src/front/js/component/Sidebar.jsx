@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 
 
-export const Sidebar = ({onAlmacenClick,onProduckClick,onHomeClick} ) => {
+export const Sidebar = ({onAlmacenClick,onProduckClick,onHomeClick,onClientClick} ) => {
     const { actions, store } = useContext(Context);
     const navigate = useNavigate();
 
@@ -36,7 +36,7 @@ export const Sidebar = ({onAlmacenClick,onProduckClick,onHomeClick} ) => {
                         <div className="Sidebar-options fs-6" onClick={onHomeClick}><button type="button" className="Sidebar-button" ><i className="fa-solid fa-house"></i><span className="m-3">Home</span></button></div>
                         <div className="Sidebar-options fs-6"onClick={onAlmacenClick} ><button type="button" className="Sidebar-button" ><i className="fa-solid fa-warehouse"></i><span className="m-3">Almacen</span></button></div>
                         <div className="Sidebar-options fs-6"onClick={onProduckClick} ><button type="button" className="Sidebar-button"  ><i className="fa-brands fa-product-hunt"></i><span className="m-3">Productos</span></button></div>
-                        <div className="Sidebar-options fs-6"><button type="button" className="Sidebar-button"><i className="fa-solid fa-person-circle-check"></i><span className="m-3">Clientes</span></button></div>
+                        <div className="Sidebar-options fs-6" onClick={onClientClick}><button type="button" className="Sidebar-button"><i className="fa-solid fa-person-circle-check"></i><span className="m-3">Clientes</span></button></div>
                         <div className="Sidebar-options fs-6"><button type="button" className="Sidebar-button"><i className="fa-solid fa-people-carry-box"></i><span className="m-3">Proveedores</span></button></div>
                         <div className="Sidebar-options fs-6"><button type="button" className="Sidebar-button"><i className="fa-regular fa-folder-open"></i><span className="m-3">Reportes</span></button></div>
                     </div>

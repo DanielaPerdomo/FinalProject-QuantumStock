@@ -112,7 +112,7 @@ class Client(db.Model):
     # user_id = db.Column(db.String(250), unique=False, nullable=False)    nose si estas van aqui verificar en las tablas
     # product_id = db.Column(db.String(250), unique=False, nullable=False)
     name_client = db.Column(db.String(250), unique=False, nullable=False)
-    email_client = db.Column(db.String(250), unique=False, nullable=False)
+    email_client = db.Column(db.String(250), unique=True, nullable=False)
     phone_client = db.Column(db.String(250), unique=False, nullable=False)
     address_client = db.Column(db.String(250), unique=False, nullable=False)
     rif_client = db.Column(db.String(250), unique=False, nullable=False)
@@ -133,7 +133,7 @@ class Client(db.Model):
 
 
     def __repr__(self):
-        return f'<Client {self.email}>'
+        return f'<Client {self.email_client}>'
 
     def serialize(self):
         return {

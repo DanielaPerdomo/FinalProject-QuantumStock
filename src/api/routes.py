@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Stock, Product
+from api.models import db, User, Stock, Product, Client
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token,jwt_required,get_jwt_identity
 from werkzeug.security import generate_password_hash,check_password_hash
@@ -162,7 +162,7 @@ def handle_get_store():
 
     user_id = get_jwt_identity()
     store = Stock.query.filter_by(user_id=user_id).one_or_none()
-    print(store)
+    
     if not store:
        return jsonify({
            "message": "you don't have storage"
@@ -355,7 +355,123 @@ def delete_product(product_id):
     return jsonify({"message": "removed product"}), 200
 
     
+#  GESTION PARA LOS CLIENTES
+
+# ENDPOINT para crear clientes
+
+@api.route("/client", methods=["POST"])
+@jwt_required()
+def create_client():
+    user_id = get_jwt_identity()
+    body = request.json
+
+    name_client = body.get("name_client")
+    email_client = body.get("email_client")
+    address_client = body.get("address_client")
+    phone_client = body.get("phone_client")
+    rif_client = body.get("rif_client")
+
+    if name_client is None or email_client is None or address_client is None or phone_client is None or rif_client is None:
+        return jsonify({
+            "message": "All data is required"
+        }), 400
     
+    client = Client(
+        user_id = user_id,
+        name_client = name_client,
+        email_client = email_client,
+        address_client = address_client,
+        phone_client = phone_client,
+        rif_client = rif_client
+    )
+
+    try:
+        db.session.add(client)
+        db.session.commit()
+    except Exception as error:
+        db.session.rollback()
+        return jsonify({
+            "message": "Could not create client",
+            "error": error.args
+        }), 400
+    
+    return jsonify({
+        "message": "Client created successfully"
+    }), 200
+
+ 
+# ENDPOINT para traer informacion de los clietnes
+
+@api.route("/clients", methods=["GET"])
+@jwt_required()
+def get_clients():
+
+    user_id = get_jwt_identity()
+    existing_customer = Client.query.filter_by(user_id=user_id).one_or_none()
+
+    if not existing_customer:
+        return jsonify({
+            "message": "It has no associated clients"
+        }), 400
+    
+    return jsonify(existing_customer.serialize()), 200
     
 
+# ENDPOINT para actualizar clientes
 
+@api.route("/update/client/<int:client_id>", methods=["PUT"])
+def update_cliente(client_id):
+
+    existing_customer = Client.query.get(client_id)
+
+    if not existing_customer:
+        return jsonify({
+            "message": "this client does not exist"
+        }), 400
+    
+    body = request.json
+
+    existing_customer.address_client = body["address_client"]
+    existing_customer.email_client = body["email_client"]
+    existing_customer.name_client = body["name_client"]
+    existing_customer.phone_client = body["phone_client"]
+
+    try:
+        db.session.commit()
+    except Exception as error:
+        db.session.rollback()
+        return jsonify({
+            "message": "could not update client",
+            "error": error.args
+        }), 400
+    
+    return jsonify({
+        "message": "updated client"
+    }), 200
+
+
+# ENDPOINT para eliminar clientes
+
+@api.route("/delete/client/<int:client_id>", methods=["DELETE"])
+def delete_client(client_id):
+
+    existing_customer = Client.query.get(client_id)
+
+    if not existing_customer:
+        return jsonify({
+            "message": "this client does not exist"
+        }), 400
+    
+    try:
+        db.session.delete(existing_customer)
+        db.session.commit()
+    except Exception as error:
+        db.session.rollback()
+        return jsonify({
+            "message": "Failed to delete customer",
+            "error": error.args
+        }), 400
+    
+    return jsonify({
+        "message": "The client has been deleted"
+    }), 200

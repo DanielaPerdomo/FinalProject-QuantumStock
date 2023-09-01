@@ -52,13 +52,13 @@ export const Products = () => {
             if (resp.ok) {
                 resetForm();
                 actions.getProduct()
-                toast.success('Registro de Producto Exitoso')
+                toast.success('El producto se creo exitosamente')
                 return await resp.json();
             } else {
-                return toast.error("Producto creado exitosamente")
+                return toast.error("El producto no pudo crearse")
             }
         } catch (error) {
-            
+
             console.error("There was an Error!!!", error);
         };
     };

@@ -18,7 +18,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			token: localStorage.getItem("token") ?? null,
 			info: "",
 			almacen: [],
-			product: []
+			product: [],
+			cliente:[],
+			orden:[],
+			reporte:[]
 
 		},
 		actions: {
@@ -211,26 +214,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.ok) {
 						const body = await response.json()
 						setStore({ almacen: [body] })
-						console.log("store en el flux:", store.almacen)
+						/* console.log("store en el flux:", store.almacen) */
 					}
 				} catch (error) {
 					console.log(error)
 				}
 			},
 
-			putStock: async ({ id, name_Stock,address,rif}) =>     {
+			putStock: async ({ id, name_Stock, address, rif }) => {
 
-				try {     
-					const response = await fetch(process.env.BACKEND_URL + `api/stock/${id}`, {    
+				try {
+					const response = await fetch(process.env.BACKEND_URL + `api/stock/${id}`, {
 						method: "PUT",
 						headers: {
-							"Content-Type": "application/json",      
+							"Content-Type": "application/json",
 						},
 						body: JSON.stringify({
 							"name_Stock": name_Stock,
 							"address": address,
-							"rif":rif
-							
+							"rif": rif
+
 						})
 					})
 					if (response.ok) {
@@ -265,7 +268,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.log(error)
 				}
-			}
+			},
+
+			 
+                 
+
+
+
+
 
 
 

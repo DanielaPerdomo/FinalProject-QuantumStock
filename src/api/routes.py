@@ -450,7 +450,7 @@ def update_cliente(client_id):
     }), 200
 
 
-#ENDPOINT para eliminar clientes
+# ENDPOINT para eliminar clientes
 
 @api.route("/delete/client/<int:client_id>", methods=["DELETE"])
 def delete_client(client_id):

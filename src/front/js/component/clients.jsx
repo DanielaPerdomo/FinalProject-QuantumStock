@@ -60,7 +60,10 @@ export const Clients = () => {
     };
   };
 
-
+  const handleDeleteClient = (client_id) => {
+    actions.deleteClient(client_id)
+    actions.getClient()
+}
 
   return (
     <>
@@ -89,8 +92,26 @@ export const Clients = () => {
                 <span className="card-text  m-2 fs-6"><i className="fa-solid fa-city"></i>&ensp;Direccion:{item.address_client}</span><br />
                 <span className="card-text  m-2 fs-6"><i className="fa-solid fa-file-lines"></i>&ensp; RIF:{item.rif_client}</span><br />
                 <div className="d-flex justify-content-between m-1 ">
-                  <button className="btn border border-primary"><i className="fa-regular fa-pen-to-square"></i> &ensp; Editar</button>
-                  <button className="btn border border-danger"><i className="fa-regular fa-trash-can"></i> &ensp; Eliminar</button>
+                  <button type="button"className="btn border border-primary"
+                   onClick={(event) => {
+                    setClient(prev => ({
+                      name_client: item.name_client,
+                      email_client: item.email_client,
+                      phone_client: item.phone_client,
+                      address_client: item.address_client,
+                      rif_client: item.rif_client,
+                        id: item.id
+                    }))
+                    console.log(event.target.getAttribute('data-modal-name'))
+                }} data-modal-name={item.id} data-bs-toggle="modal" data-bs-target={`#updateProduct`} data-bs-whatever="@mdo"
+                  ><i className="fa-regular fa-pen-to-square"></i> &ensp; Editar</button>
+                  <button type="button" className="btn border border-danger"
+                   onClick={() => {
+                    handleDeleteClient(item.id)
+                }}
+                  ><i className="fa-regular fa-trash-can">
+                    
+                  </i> &ensp; Eliminar</button>
                 </div>
               </div>
             </div>
@@ -114,6 +135,14 @@ export const Clients = () => {
 
 
         />
+
+        <ModalClient
+                id={"updateProduct"}
+                handleUpdate={actions.putClient}
+                handleInfo={handleInfo}
+                data={client}
+                resetForm={resetForm}
+            />
      
     </>
 

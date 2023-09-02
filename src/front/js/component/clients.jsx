@@ -65,7 +65,7 @@ export const Clients = () => {
   return (
     <>
       {/* Inicio de Card de clientes */}
-      <div className=" ">
+      
         <div >
           <h1 className=" text-dark "><i className="fa-solid fa-person-circle-check"></i><span className="m-3">Clientes</span></h1>
         </div>
@@ -102,7 +102,7 @@ export const Clients = () => {
         {/* FIN DEL CARD DE CLIENTE */}
 
         {/* INICIO MODAL NUEVO CLIENTE */}
-        <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#createClient">
+        <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#createClient" data-bs-whatever="@mdo">
           <i className="fa-regular fa-square-plus"></i>
         </button>
 
@@ -114,7 +114,7 @@ export const Clients = () => {
 
 
         />
-      </div>
+     
     </>
 
   )

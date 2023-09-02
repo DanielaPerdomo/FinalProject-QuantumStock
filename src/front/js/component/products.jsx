@@ -72,6 +72,7 @@ export const Products = () => {
 
         <>
             <div>
+                {/* alerta del producto */}
                 <Toaster position="top-right" richColors />
                 <h1 className=" text-dark "><i className="fa-brands fa-product-hunt" /><span className="m-3">Productos</span></h1>
             </div>

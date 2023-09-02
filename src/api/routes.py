@@ -161,14 +161,16 @@ def create_almacen():
 def handle_get_store():
 
     user_id = get_jwt_identity()
-    store = Stock.query.filter_by(user_id=user_id).one_or_none()
+    store = Stock.query.filter_by(user_id=user_id).all()
     
-    if not store:
-       return jsonify({
-           "message": "you don't have storage"
-       }), 404
+    # if not store:
+       
+    #    return jsonify(
+    #        []
+    #    ), 200
+    list_of_store = [almacen.serialize() for almacen in store]
     
-    return jsonify(store.serialize()), 200
+    return jsonify(list_of_store), 200
 
 
 # ENDPOINT para actualizar o editar almacen
@@ -407,14 +409,15 @@ def create_client():
 def get_clients():
 
     user_id = get_jwt_identity()
-    existing_customer = Client.query.filter_by(user_id=user_id).one_or_none()
+    existing_customer = Client.query.filter_by(user_id=user_id).all()
 
     if not existing_customer:
         return jsonify({
             "message": "It has no associated clients"
         }), 400
-    
-    return jsonify(existing_customer.serialize()), 200
+    list_of_client = [client.serialize() for client in existing_customer]
+
+    return jsonify( list_of_client), 200
     
 
 # ENDPOINT para actualizar clientes

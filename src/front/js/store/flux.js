@@ -16,12 +16,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 
 			token: localStorage.getItem("token") ?? null,
-			info: "",
+			info: {},
 			almacen: [],
 			product: [],
-			cliente:[],
-			orden:[],
-			reporte:[]
+			cliente: [],
+			orden: [],
+			reporte: []
 
 		},
 		actions: {
@@ -91,11 +91,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
-			get_app: async () => {
+			getUser: async () => {
 
 				const store = getStore();
 				try {
-					const response = await fetch(process.env.BACKEND_URL + "api/Dashboard", {
+					const response = await fetch(process.env.BACKEND_URL + "api/user", {
 						method: "GET",
 
 						headers: {
@@ -292,7 +292,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			putClient: async ({ id, name_client, address_client,email_client,phone_client }) => {
+			putClient: async ({ id, name_client, address_client, email_client, phone_client }) => {
 
 				try {
 					const response = await fetch(process.env.BACKEND_URL + `api/update/client/${id}`, {
@@ -303,9 +303,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						body: JSON.stringify({
 							"name_client": name_client,
 							"address_client": address_client,
-							"email_client":email_client,
-						 	"phone_client":phone_client
-							
+							"email_client": email_client,
+							"phone_client": phone_client
+
 						})
 					})
 					if (response.ok) {

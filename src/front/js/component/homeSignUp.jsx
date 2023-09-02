@@ -120,15 +120,15 @@ export const SignUp = ({ onCloseSignUpForm, onChageClicLoginForm }) => {
                     value={name}
                     onChange={e => setName(e.target.value)}
 
-                    />
-                    <div className="valid-tooltip" >
-                      Looks good!               
-                    </div>
+                  />
+                  <div className="valid-tooltip" >
+                    Looks good!
+                  </div>
                   {/* </div>                  */}
 
-              
+
                 </div>
-               </div> 
+              </div>
               <div className="row">
                 <div className="col position-relative">
                   <label htmlFor="validationTooltip04" className="form-label">Correo Electronico</label>

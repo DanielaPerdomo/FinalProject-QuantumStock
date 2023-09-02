@@ -16,7 +16,7 @@ export const Dashboard = () => {
 	const [showAlmacen, setShowAlmacen] = useState(false);
 	const [showProduct, setShowProduct] = useState(false);
 	const [showHome, setShowHome] = useState(true);
-	const [showClient, setShowClient ]= useState(false);
+	const [showClient, setShowClient] = useState(false);
 	/*almacen*/
 	const handlealmacenClick = () => {
 		actions.getStock()
@@ -56,7 +56,7 @@ export const Dashboard = () => {
 			setShowHome(false);
 			setShowAlmacen(false);
 			setShowProduct(false);
-			
+
 		}
 	}
 
@@ -65,6 +65,12 @@ export const Dashboard = () => {
 			navigate("/")
 
 		}
+	}, [])
+
+	useEffect(() => {
+		actions.getUser()
+		actions.getProduct()
+		actions.getStock()
 	}, [])
 
 	/* console.log("Esto es la info en el dashboard:", store.info); */
@@ -81,15 +87,14 @@ export const Dashboard = () => {
 					/>
 				</div>
 				<div className=" m-0 p-0 col-lg-9 col-8">
-					
+
 					<Navbardashboard />
 
 					{showAlmacen && <Almacen />}
 					{showProduct && <Products />}
 					{showHome && <  DashboardHome />}
-					
-					{showClient && < Clients/>}
-					
+					{showClient && < Clients />}
+
 
 				</div>
 			</div>

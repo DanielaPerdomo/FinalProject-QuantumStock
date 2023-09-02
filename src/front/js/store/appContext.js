@@ -28,7 +28,7 @@ const injectContext = PassedComponent => {
 
 			}
 
-			  state.actions.getStock() 
+			/* state.actions.getStock() */
 			/* state.actions.getProduct() */
 			/**
 			 * EDIT THIS!

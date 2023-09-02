@@ -1,17 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../../styles/dashboardPage.css";
+import { Context } from "../store/appContext";
+
 
 export const DashboardHome = () => {
+  const { actions, store } = useContext(Context);
+
   return (
-    <div className="d-flex justify-content-center m-5 ">
+    <div className="d-flex justify-content-center m-5 animate__animated animate__fadeInDown">
 
       <div className="card text-bg-primary  m-2" style={{ "minWidth": "15rem" }}>
         <div className="card-header"><i className="fa-solid fa-warehouse fa-fade"></i>&ensp;Almacen</div>
         <div className="card-body">
-          
-          <h6 className="card-text">Nombre:</h6><br/>
-          <h6 className="card-text">Direccion:</h6><br/>
-          <h6 className="card-text">RIF:</h6><br/>
+
+          <h6 className="card-text">Nombre:</h6><br />
+          <h6 className="card-text">Direccion:</h6><br />
+          <h6 className="card-text">RIF:</h6><br />
         </div>
       </div>
 

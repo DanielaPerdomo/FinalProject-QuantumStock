@@ -30,7 +30,7 @@ export const Login = ({ onCloseForm, onChangeClick }) => {
   return (
     <div className="form-logIn">
       <Toaster position="top-right" richColors />
-      <div className="container for-2">
+      <div className="container for-2 animate__animated animate__fadeInDown">
         <div className="row main-row-login">
           <div className="col SingUp-form">
             <form onSubmit={loginIn} action="#" className="formSignUp needs-validation">

@@ -79,7 +79,7 @@ export const Dashboard = () => {
 		<div className="container-fluid information">
 			<div className="row">
 
-				<div className=" p-0 col-lg-3 col-4">
+				<div className=" p-0 col-lg-3 col-4 animate__animated animate__slideInRight animate__fast 800ms">
 
 					<Sidebar onAlmacenClick={handlealmacenClick}
 						onProduckClick={handleproductClick}

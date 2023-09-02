@@ -37,7 +37,7 @@ export const Modal = ({ handleInfo, handleUpdate, data, id, resetForm = () => { 
                                 <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} required name="description" value={data.description} />
                             </div>
                             <div className="mb-1">
-                                <label htmlFor="recipient-name" className="col-form-label"><i class="fa-solid fa-arrow-up-wide-short"></i>&ensp;Cantidad:</label>
+                                <label htmlFor="recipient-name" className="col-form-label"><i className="fa-solid fa-arrow-up-wide-short"></i>&ensp;Cantidad:</label>
                                 <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} required name="item" value={data.item} />
                             </div>
                             <div className="mb-1">

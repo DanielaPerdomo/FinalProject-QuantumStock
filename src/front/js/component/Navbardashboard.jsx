@@ -17,7 +17,7 @@ export const Navbardashboard = () => {
 
     return (
 
-        <div className="navbarDashboard mt-3">
+        <div className="navbarDashboard mt-3 container">
             <nav className="navbar navbar-expand-lg navbar-dark" >
                 <div className="container-fluid m-0 p-0">
                     <div className="row d-flex flex-row m-0 p-0 ">
@@ -30,7 +30,7 @@ export const Navbardashboard = () => {
                             </button>
                         </div>
                         <div className="col-3 mt-2 justify-content-center">
-                            <div className="text-dark">Bienvenido { }</div>
+                            <div className="text-dark">Bienvenido, {store.info.name}</div>
                         </div>
                         <div className="col-5 m-0 p-0 d-flex justify-content-end ">
 

@@ -107,7 +107,7 @@ def login():
 
 # RUTA PROTEGIDA POR JWT
 
-@api.route("/Dashboard", methods=["GET"])
+@api.route("/user", methods=["GET"])
 @jwt_required()
 def get_user():
     user_id = get_jwt_identity()
@@ -476,12 +476,18 @@ def delete_client(client_id):
         "message": "The client has been deleted"
     }), 200
 
+    
+""" @api.route("/report/<int:client_id>", methods=["POST"] )
+def create_report(client_id): """
+
+
+
 
 # GESTION DE LAS ORDENES DE COMPRA
 
 # ENDPOINT para crear una orden de compra 
 
-""" @api.route("/purchase/order", methods=["POST"])
+@api.route("/purchase/order", methods=["POST"])
 @jwt_required()
 def create_purchase_order():
     user_id = get_jwt_identity()
@@ -494,10 +500,8 @@ def create_purchase_order():
 
     new_order = Buy_order.query.filter_by(client_id=existing_client)
     body = request.json
-    
-    y
-    
+        
     return jsonify({
         "message": "purchase order created"
-    }), 200 """
+    }), 200 
 

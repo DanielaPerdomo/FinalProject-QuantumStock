@@ -20,7 +20,7 @@ export const ModalClient = () => {
     return (
         <div>
             {/* INICIO DE MODAL DE PRUEBA */}
-            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -30,23 +30,23 @@ export const ModalClient = () => {
                         <div className="modal-body">
                             <form>
                                 <div className="mb-1">
-                                    <label for="recipient-name" className="col-form-label"><i className="fa-solid fa-user"></i> &ensp; Nombre:</label>
+                                    <label htmlFor="recipient-name" className="col-form-label"><i className="fa-solid fa-user"></i> &ensp; Nombre:</label>
                                     <input type="text" className="form-control" id="recipient-name" />
                                 </div>
                                 <div className="mb-1">
-                                    <label for="message-text" className="col-form-label"><i className="fa-solid fa-envelope"></i> &ensp; Correo Electronico:</label>
+                                    <label htmlFor="message-text" className="col-form-label"><i className="fa-solid fa-envelope"></i> &ensp; Correo Electronico:</label>
                                     <input type="text" className="form-control" id="recipient-name" />
                                 </div>
                                 <div className="mb-1">
-                                    <label for="message-text" className="col-form-label"> <i className="fa-solid fa-phone"></i> &ensp; Telefono:</label>
+                                    <label htmlFor="message-text" className="col-form-label"> <i className="fa-solid fa-phone"></i> &ensp; Telefono:</label>
                                     <input type="text" className="form-control" id="recipient-name" />
                                 </div>
                                 <div className="mb-1">
-                                    <label for="message-text" className="col-form-label"><i className="fa-solid fa-city"></i> &ensp; Direccion:</label>
+                                    <label htmlFor="message-text" className="col-form-label"><i className="fa-solid fa-city"></i> &ensp; Direccion:</label>
                                     <input type="text" className="form-control" id="recipient-name" />
                                 </div>
                                 <div className="mb-1">
-                                    <label for="message-text" className="col-form-label"><i className="fa-regular fa-file-lines"></i> &ensp; RIF:</label>
+                                    <label htmlFor="message-text" className="col-form-label"><i className="fa-regular fa-file-lines"></i> &ensp; RIF:</label>
                                     <input type="text" className="form-control" id="recipient-name" />
                                 </div>
                             </form>

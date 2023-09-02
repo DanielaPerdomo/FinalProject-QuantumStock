@@ -1,11 +1,19 @@
 .Sidebar{
-    width: 100%;
+    width: 75%;
     /* min-width:250px; */
     border-radius: 5px;
     margin-left: 3px;
-    background-color: #ffffffde;
-    color: rgb(0, 0, 0);
+    margin-top: 3px;
+    margin-bottom: 3px;
+    color: rgb(255, 255, 255);
+    backdrop-filter: blur(25px) saturate(73%);
+    -webkit-backdrop-filter: blur(25px) saturate(73%);
+    background-color: rgba(17, 25, 40, 1);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
 }
+
+
 .Sidebar-options{
     padding: 10px;
     border-radius: 5px;
@@ -14,14 +22,14 @@
 }
 .Sidebar-options:hover{
     background-color: #a7c8ff;
-    color: black;
+    color: rgb(255, 255, 255);
     cursor: pointer;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .Sidebar-button{
     border: none;
     background: none;
-    color: rgb(0, 0, 0);
+    color: rgba(255, 255, 255, 0.534);
 }
 
 .Sidebar-button:hover{

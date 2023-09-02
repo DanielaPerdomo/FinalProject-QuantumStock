@@ -67,7 +67,7 @@ export const SignUp = ({ onCloseSignUpForm, onChageClicLoginForm }) => {
   return (
     <div className="form-logIn">
       <Toaster position="top-right" richColors />
-      <div className="container">
+      <div className="container animate__animated animate__fadeInDown">
         <div className="row main-row">
           <div className="col SingUp-form">
             <form onSubmit={creat_user} action="#" className="formSignUp needs-validation">
@@ -106,7 +106,10 @@ export const SignUp = ({ onCloseSignUpForm, onChageClicLoginForm }) => {
                     <option value="Automovilismo">Automovilismo</option>
                     <option value="Farmacia">Farmacia</option>
                     <option value="Electrodomesticos">Electrodomesticos</option>
-                    <option value="Tecnoligia">Tecnologia</option>
+                    <option value="Aviacion">Aviacion</option>
+                    <option value="Economia">Economia</option>
+                    <option value="Gastronomia">Gastronomia</option>
+                    <option value="Armamento">Armamento</option>
                   </select>
                   <div className="invalid-tooltip">
                     Please select a valid state.
@@ -143,14 +146,14 @@ export const SignUp = ({ onCloseSignUpForm, onChageClicLoginForm }) => {
               </div>
               <div className="row mt-3">
                 <div className="col-6 position-relative">
-                  <label htmlFor="validationTooltip05" className="form-label">Cotraseña</label>
+                  <label htmlFor="validationTooltip05" className="form-label">Contraseña</label>
                   <input type="password" className="form-control" id="validationTooltip05" required
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                   />
                 </div>
                 <div className="col-6 position-relative">
-                  <label htmlFor="validationTooltip06" className="form-label">Confirmar Cotraseña</label>
+                  <label htmlFor="validationTooltip06" className="form-label">Confirmar Contraseña</label>
                   <input type="password" className="form-control" id="validationTooltip06" required
                     value={confirmpassword}
                     onChange={e => setConfirmpassword(e.target.value)}

@@ -76,7 +76,7 @@ export const Products = () => {
                 <h1 className=" text-dark "><i className="fa-brands fa-product-hunt" /><span className="m-3">Productos</span></h1>
             </div>
             {/* TABLA DE MOSTRAR PRODUCTOS CARGADOE EN EL INVENTARIO */}
-            <table className="tableProducts table table-responsive table-hover m-1 mt-5">
+            <table className="tableProducts table table-responsive table-hover m-1 mt-5 animate__animated animate__fadeInDown">
                 <thead>
                     <tr>
                         <th scope="col">Nombre</th>

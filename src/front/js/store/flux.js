@@ -213,7 +213,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					if (response.ok) {
 						const body = await response.json()
-						setStore({ almacen: [body] })
+						setStore({ almacen: body })
 						/* console.log("store en el flux:", store.almacen) */
 					}
 				} catch (error) {
@@ -284,7 +284,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					if (response.ok) {
 						const body = await response.json()
-						setStore({ cliente: [body] })
+						setStore({ cliente: body })
 						/* console.log("store en el flux:", store.almacen) */
 					}
 				} catch (error) {

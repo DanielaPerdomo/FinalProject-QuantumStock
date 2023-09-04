@@ -6,7 +6,7 @@ import { Navbardashboard } from "../component/Navbardashboard.jsx"
 import { Context } from "../store/appContext.js";
 import { Almacen } from "./Almacen.js";
 import { DashboardHome } from "../component/dashboardHome.jsx";
-import { Products } from "../component/productCards.jsx";
+import { Products } from "../component/productTable.jsx";
 
 export const Dashboard = () => {
 	const navigate = useNavigate();

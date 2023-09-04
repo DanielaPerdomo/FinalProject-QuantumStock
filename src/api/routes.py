@@ -411,14 +411,14 @@ def get_clients():
     user_id = get_jwt_identity()
     existing_customer = Client.query.filter_by(user_id=user_id).all()
 
-    if not existing_customer:
-        return jsonify({
-            "message": "It has no associated clients"
-        }), 400
+    # if not existing_customer:
+    #     return jsonify({
+    #         "message": "It has no associated clients"
+    #     }), 400
     list_of_client = [client.serialize() for client in existing_customer]
 
     return jsonify( list_of_client), 200
-    
+   
 
 # ENDPOINT para actualizar clientes
 

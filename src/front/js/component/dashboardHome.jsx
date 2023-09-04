@@ -7,38 +7,81 @@ export const DashboardHome = () => {
   const { actions, store } = useContext(Context);
 
   return (
-    <div className="d-flex justify-content-center m-5 animate__animated animate__fadeInDown">
 
-      <div className="card text-bg-primary  m-2" style={{ "minWidth": "15rem" }}>
-        <div className="card-header"><i className="fa-solid fa-warehouse fa-fade"></i>&ensp;Almacen</div>
+    <div className="row row-cols-1 row-cols p-0 mt-2 animate__animated animate__fadeInDown">
+
+      <div className="col col-md-4 mb-4 card border-primary m-1" style={{ "minWidth": "5rem" }}>
+        <div className="card-header text-white bg-primary"><i className="fa-solid fa-warehouse fa-fade"></i>&ensp;Almacen</div>
         <div className="card-body">
 
-          <h6 className="card-text">Nombre:</h6><br />
-          <h6 className="card-text">Direccion:</h6><br />
-          <h6 className="card-text">RIF:</h6><br />
+          <h5 className="card-title">Título de la tarjeta Info</h5>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">Un elemento</li>
+            <li className="list-group-item">Un segundo elemento</li>
+            <li className="list-group-item">Un tercer elemento</li>
+          </ul>
+
+          <div class="card-footer">
+            Pie de tarjeta
+          </div>
+
         </div>
       </div>
 
-      <div className="card text-bg-dark  m-2" style={{ "minWidth": "15rem" }}>
-        <div className="card-header"><i className="fa-brands fa-product-hunt fa-fade"></i>&ensp;Productos</div>
+      <div className="col col-md-4 mb-4 card border-secondary m-1" style={{ "minWidth": "5rem" }}>
+        <div className="card-header text-white bg-secondary "><i className="fa-brands fa-product-hunt fa-fade"></i>&ensp;Productos</div>
         <div className="card-body">
-          <h6 className="card-text">Total de Productos:</h6>
+
+          <h5 className="card-title">Título de la tarjeta Info</h5>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">Un elemento</li>
+            <li className="list-group-item">Un segundo elemento</li>
+            <li className="list-group-item">Un tercer elemento</li>
+          </ul>
+
+          <div class="card-footer">
+            Pie de tarjeta
+          </div>
+
         </div>
       </div>
 
-      <div className="card text-bg-secondary  m-2" style={{ "minWidth": "15rem" }}>
-        <div className="card-header"><i className="fa-solid fa-person-circle-check fa-fade"></i>&ensp;Clientes</div>
+      <div className="col col-md-4 mb-4 card border-info m-1" style={{ "minWidth": "5rem" }}>
+        <div className="card-header text-dark bg-info "><i className="fa-solid fa-person-circle-check fa-fade"></i>&ensp;Clientes</div>
         <div className="card-body">
-          <h6 className="card-text">Total de Clientes:</h6>
+
+          <h5 className="card-title">Título de la tarjeta Info</h5>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">Un elemento</li>
+            <li className="list-group-item">Un segundo elemento</li>
+            <li className="list-group-item">Un tercer elemento</li>
+          </ul>
+
+          <div class="card-footer">
+            Pie de tarjeta
+          </div>
+
         </div>
       </div>
 
-      <div className="card text-bg-info  m-2" style={{ "minWidth": "15rem" }}>
-        <div className="card-header"><i className="fa-solid fa-people-carry-box fa-fade"></i>&ensp;Proveedores</div>
+      <div className="col col-md-4 mb-4 card border-dark m-1" style={{ "minWidth": "5rem" }}>
+        <div className="card-header text-white bg-dark "><i className="fa-solid fa-people-carry-box fa-fade"></i>&ensp;Proveedores</div>
         <div className="card-body">
-          <h6 className="card-text">Total de Proveedores:</h6>
+
+          <h5 className="card-title">Título de la tarjeta Info</h5>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">Un elemento</li>
+            <li className="list-group-item">Un segundo elemento</li>
+            <li className="list-group-item">Un tercer elemento</li>
+          </ul>
+
+          <div class="card-footer">
+            Pie de tarjeta
+          </div>
+
         </div>
       </div>
+
     </div>
   )
 }

@@ -1,6 +1,6 @@
 .Sidebar{
-    width: 75%;
-    /* min-width:250px; */
+    /* width: 75%; */
+    min-width:250px;
     border-radius: 5px;
     margin-left: 3px;
     margin-top: 3px;
@@ -11,6 +11,12 @@
     background-color: rgba(17, 25, 40, 1);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);
+    /* ESTILOS DE DANIELA */
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 250px; 
+    height: 100%;
 }
 
 

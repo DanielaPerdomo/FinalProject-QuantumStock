@@ -8,9 +8,10 @@ export const ModalClient = ({ handleInfo, handleUpdate, data, id, resetForm = ()
     const sendForm = (event) => {
         event.preventDefault()
         console.log("ejecutado")
-        toast.success('Se actualizo exitosamente')
+        
         if (data.id != undefined) {
             handleUpdate(data)
+            toast.success('Se actualizo exitosamente')
             /* resetForm() */
             return
         }

@@ -1,7 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { ModalClient } from "./modalClient.jsx";
 import { Context } from "../store/appContext";
 import { Toaster, toast } from 'sonner'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Pagination } from 'swiper/modules';
+import "../../styles/clients.css"
 
 
 export const Clients = () => {
@@ -63,87 +66,114 @@ export const Clients = () => {
   const handleDeleteClient = (client_id) => {
     actions.deleteClient(client_id)
     actions.getClient()
-}
+  }
 
   return (
     <>
       {/* Inicio de Card de clientes */}
-      
-        <div >
-          <h1 className=" text-dark "><i className="fa-solid fa-person-circle-check"></i><span className="m-3">Clientes</span></h1>
-        </div>
 
+      <div >
+        <Toaster position="top-right" richColors />
+        <h1 className=" text-dark mb-5"><i className="fa-solid fa-person-circle-check"></i><span className="m-3">Clientes</span></h1>
+      </div>
+
+      <Swiper className="container MySwiper mt-5 mb-5"
+        effect={'coverflow'}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={'auto'}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
+        /* pagination={true} */
+        modules={[EffectCoverflow, Pagination]}
+      >
 
         {store.cliente.map((item, index) => {
 
           return (
 
-            <div key={index} className="card " style={{ maxWidth: "18rem" }}>
-              <div>
+            <SwiperSlide key={index} className="card myCard" style={{ maxWidth: "18rem" }}>
+              {/*  <div>
                 <img src="" className="card-img-top" alt="..."></img>
-              </div>
-              <div className="card-body "  >
-                <div className="d-flex justify-content-center">
-                  <h5 className="card-title  m-1 fs-6"><i className="fa-solid fa-address-book"></i> &ensp;Datos del Cliente</h5>
+              </div> */}
+              {/* <div className="card-body vh-100 bg-primary"> */}
+              {/*                 <div className="d-flex justify-content-center">
+                  <h5 className="card-title  m-1 fs-6"><i className="fa-solid fa-address-book"></i> Datos del Cliente</h5>
+                </div> */}
+              <div className="dataClient mb-auto p-2">
+                <div className="userIcon-name text-center">
+                  <i className="fa-solid fa-user fs-1 logo-user"></i>
+                  <h6 className="card-text  m-2 fs-4">{item.name_client}</h6>
                 </div>
-                <span className="card-text  m-2 fs-6 "><i className="fa-solid fa-user"></i>&ensp;Nombre: {item.name_client}</span><br />
-                <span className="card-text m-2 fs-6 "><i className="fa-solid fa-envelope"></i>&ensp;Correo Electronico:{item.email_client}</span><br />
-                <span className="card-text  m-2 fs-6"><i className="fa-solid fa-phone"></i>&ensp;Telefono:{item.phone_client}</span><br />
-                <span className="card-text  m-2 fs-6"><i className="fa-solid fa-city"></i>&ensp;Direccion:{item.address_client}</span><br />
-                <span className="card-text  m-2 fs-6"><i className="fa-solid fa-file-lines"></i>&ensp; RIF:{item.rif_client}</span><br />
-                <div className="d-flex justify-content-between m-1 ">
-                  <button type="button"className="btn border border-primary"
-                   onClick={(event) => {
+
+                <div className="user-info text-center mt-3 d-block align-items-start">
+                  <p className="card-text m-2 fs-6"><i className="fa-solid fa-envelope m-1"></i>{item.email_client}</p>
+                  <p className="card-text  m-2 fs-6"><i className="fa-solid fa-phone"></i>Telefono:{item.phone_client}</p>
+                  <p className="card-text  m-2 fs-6"><i className="fa-solid fa-city"></i>Direccion:{item.address_client}</p>
+                  <p className="card-text  m-2 fs-6"><i className="fa-solid fa-file-lines"></i> RIF:{item.rif_client}</p>
+                </div>
+
+              </div>
+
+              <div className="op p-3">
+                <button type="button" className="btn border border-primary"
+                  onClick={(event) => {
                     setClient(prev => ({
                       name_client: item.name_client,
                       email_client: item.email_client,
                       phone_client: item.phone_client,
                       address_client: item.address_client,
                       rif_client: item.rif_client,
-                        id: item.id
+                      id: item.id
                     }))
                     console.log(event.target.getAttribute('data-modal-name'))
-                }} data-modal-name={item.id} data-bs-toggle="modal" data-bs-target={`#updateProduct`} data-bs-whatever="@mdo"
-                  ><i className="fa-regular fa-pen-to-square"></i> &ensp; Editar</button>
-                  <button type="button" className="btn border border-danger"
-                   onClick={() => {
+                  }} data-modal-name={item.id} data-bs-toggle="modal" data-bs-target={`#updateProduct`} data-bs-whatever="@mdo"
+                ><i className="fa-regular fa-pen-to-square"></i>  Editar</button>
+                <button type="button" className="btn border border-danger"
+                  onClick={() => {
                     handleDeleteClient(item.id)
-                }}
-                  ><i className="fa-regular fa-trash-can">
-                    
-                  </i> &ensp; Eliminar</button>
-                </div>
+                  }}
+                ><i className="fa-regular fa-trash-can">
+
+                  </i>  Eliminar</button>
               </div>
-            </div>
+              {/* </div> */}
+            </SwiperSlide>
 
           )
 
         })
         }
-        {/* FIN DEL CARD DE CLIENTE */}
+      </Swiper>
 
-        {/* INICIO MODAL NUEVO CLIENTE */}
-        <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#createClient" data-bs-whatever="@mdo">
-          <i className="fa-regular fa-square-plus"></i>
-        </button>
+      {/* FIN DEL CARD DE CLIENTE */}
 
-        <ModalClient
-          id={"createClient"}
-          handleUpdate={createClient}
-          handleInfo={handleInfo}
-          data={client}
+      {/* INICIO MODAL NUEVO CLIENTE */}
+      <button type="button" className="btn btn-outline-primary AddButton m-2" data-bs-toggle="modal" data-bs-target="#createClient" data-bs-whatever="@mdo">
+        {/* <i className="fa-regular fa-square-plus"></i> */}
+        Crear nuevo cliente
+      </button>
 
+      <ModalClient
+        id={"createClient"}
+        handleUpdate={createClient}
+        handleInfo={handleInfo}
+        data={client}
+      />
 
-        />
+      <ModalClient
+        id={"updateProduct"}
+        handleUpdate={actions.putClient}
+        handleInfo={handleInfo}
+        data={client}
+        resetForm={resetForm}
+      />
 
-        <ModalClient
-                id={"updateProduct"}
-                handleUpdate={actions.putClient}
-                handleInfo={handleInfo}
-                data={client}
-                resetForm={resetForm}
-            />
-     
     </>
 
   )

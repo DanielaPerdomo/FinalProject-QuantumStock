@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Toaster, toast } from "sonner";
 
 
 
@@ -7,9 +8,10 @@ export const ModalClient = ({ handleInfo, handleUpdate, data, id, resetForm = ()
     const sendForm = (event) => {
         event.preventDefault()
         console.log("ejecutado")
+        toast.success('Se actualizo exitosamente')
         if (data.id != undefined) {
             handleUpdate(data)
-            resetForm()
+            /* resetForm() */
             return
         }
         handleUpdate(event)
@@ -21,6 +23,7 @@ export const ModalClient = ({ handleInfo, handleUpdate, data, id, resetForm = ()
     return (
         <div>
             {/* INICIO DE MODAL DE PRUEBA */}
+            <Toaster position="top-right" richColors />
             <div className="modal fade" id={id} tabIndex="-1" aria-labelledby={id + `Label`} aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">

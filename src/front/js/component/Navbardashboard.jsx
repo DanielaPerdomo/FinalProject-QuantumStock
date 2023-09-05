@@ -17,20 +17,19 @@ export const Navbardashboard = () => {
 
     return (
 
-        <div className="navbarDashboard  container">
+        <div className="navbarDashboard container  text-white">
             <nav className="navbar navbar-expand-lg navbar-dark" >
                 <div className="container-fluid m-0 p-0">
                     <div className="row d-flex flex-row m-0 p-0 ">
                         <div className="col-4 d-flex align-items-start m-0 p-0">
                             <img className="nav mx-2" src={homeImageUrl} />
-
-                            <a className="navbar-brand text-dark">QuantumStock</a>
+                            <a className="navbar-brand mt-2">QuantumStock</a>
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className=""></span>
                             </button>
                         </div>
-                        <div className="col-3 mt-2 justify-content-center">
-                            <div className="text-dark">Bienvenido, {store.info.name}</div>
+                        <div className="col-3 mt-2">
+                            <div className="m-0"> <h4 className="m-0">Bienvenido,</h4><span className="m-0">{store.info.name}</span></div>
                         </div>
                         <div className="col-5 m-0 p-0 d-flex justify-content-end ">
 

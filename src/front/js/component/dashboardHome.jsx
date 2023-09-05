@@ -7,8 +7,8 @@ export const DashboardHome = () => {
   const { actions, store } = useContext(Context);
 
   return (
-    <div className="container text-center">
-      <div className="row prueba2 p-0 mt-2 m-5  d-flex justify-content-center gap-4 animate__animated animate__fadeInDown">
+    <div className="container text-center gap-4 animate__animated animate__fadeInDown">
+      <div className="row prueba2 p-0 mt-2 m-5 d-flex justify-content-center ">
 
 
         {/*  CARD 1 */}

@@ -21,7 +21,7 @@ export const DashboardHome = () => {
             <li className="list-group-item">Un tercer elemento</li>
           </ul>
 
-          <div class="card-footer">
+          <div className="card-footer">
             Pie de tarjeta
           </div>
 
@@ -39,7 +39,7 @@ export const DashboardHome = () => {
             <li className="list-group-item">Un tercer elemento</li>
           </ul>
 
-          <div class="card-footer">
+          <div className="card-footer">
             Pie de tarjeta
           </div>
 
@@ -57,7 +57,7 @@ export const DashboardHome = () => {
             <li className="list-group-item">Un tercer elemento</li>
           </ul>
 
-          <div class="card-footer">
+          <div className="card-footer">
             Pie de tarjeta
           </div>
 
@@ -75,7 +75,7 @@ export const DashboardHome = () => {
             <li className="list-group-item">Un tercer elemento</li>
           </ul>
 
-          <div class="card-footer">
+          <div className="card-footer">
             Pie de tarjeta
           </div>
 

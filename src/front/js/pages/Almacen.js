@@ -80,7 +80,7 @@ export const Almacen = () => {
 
             <Toaster position="top-center" richColors />
             <div >
-                <h1 className=" text-dark "><i className="fa-solid fa-warehouse"></i><span className="m-3">Almacen</span></h1>
+                <h1 className=" text-light "><i className="fa-solid fa-warehouse"></i><span className="m-3">Almacen</span></h1>
             </div>
             {/* TABLA DE MOSTRAR PRODUCTOS CARGADOE EN EL INVENTARIO */}
             <table className="tableProducts table table-responsive table-hover m-1 mt-5 animate__animated animate__fadeInDown">

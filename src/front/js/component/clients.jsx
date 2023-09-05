@@ -79,7 +79,7 @@ export const Clients = () => {
 
       <div >
         <Toaster position="top-right" richColors />
-        <h1 className=" text-dark mb-2"><i className="fa-solid fa-person-circle-check"></i><span className="m-3">Clientes</span></h1>
+        <h1 className=" text-light mb-2"><i className="fa-solid fa-person-circle-check"></i><span className="m-3">Clientes</span></h1>
       </div>
 
       <Swiper className="container MySwiper mt-2 mb-1"

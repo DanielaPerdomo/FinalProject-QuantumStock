@@ -46,7 +46,14 @@ export const DashboardHome = () => {
             <p>2</p>
           </div>
 
-          <div className="card-footer text-white">
+          <h5 className="card-title">Título de la tarjeta Info</h5>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">Un elemento</li>
+            <li className="list-group-item">Un segundo elemento</li>
+            <li className="list-group-item">Un tercer elemento</li>
+          </ul>
+
+          <div class="card-footer">
             Pie de tarjeta
           </div>
         </div>
@@ -66,7 +73,14 @@ export const DashboardHome = () => {
             <p>3</p>
           </div>
 
-          <div className="card-footer text-white">
+          <h5 className="card-title">Título de la tarjeta Info</h5>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">Un elemento</li>
+            <li className="list-group-item">Un segundo elemento</li>
+            <li className="list-group-item">Un tercer elemento</li>
+          </ul>
+
+          <div class="card-footer">
             Pie de tarjeta
           </div>
         </div>
@@ -86,7 +100,14 @@ export const DashboardHome = () => {
             <p>4</p>
           </div>
 
-          <div className="card-footer text-white">
+          <h5 className="card-title">Título de la tarjeta Info</h5>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">Un elemento</li>
+            <li className="list-group-item">Un segundo elemento</li>
+            <li className="list-group-item">Un tercer elemento</li>
+          </ul>
+
+          <div class="card-footer">
             Pie de tarjeta
           </div>
         </div>

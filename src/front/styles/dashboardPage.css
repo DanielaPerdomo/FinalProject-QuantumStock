@@ -1,6 +1,8 @@
 .information{
     background-color: #ffffff;
-    background-image: 
-        radial-gradient(at 47% 33%, hsl(162.86, 0%, 100%) 0, transparent 59%), 
-        radial-gradient(at 82% 65%, hsl(255.86, 8%, 38%) 0, transparent 55%);
+}
+.infoCard:row>*{
+    flex-shrink: 0;
+    padding-right: 0;
+    padding-left: 0;
 }

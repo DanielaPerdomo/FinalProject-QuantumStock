@@ -3,13 +3,15 @@ import { ModalClient } from "./modalClient.jsx";
 import { Context } from "../store/appContext";
 import { Toaster, toast } from 'sonner'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Pagination } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
+
 import "../../styles/clients.css"
 import { Card } from "./prueba.jsx";
 
 
 export const Clients = () => {
   const { store, actions } = useContext(Context);
+  const [swiperRef, setSwiperRef] = useState(null);
 
   const [client, setClient] = useState({
     name_client: "",
@@ -69,30 +71,20 @@ export const Clients = () => {
     actions.getClient()
   }
 
+
   return (
     <>
-      <Card />
+
       {/* Inicio de Card de clientes */}
 
       <div >
         <Toaster position="top-right" richColors />
-        <h1 className=" text-dark mb-5"><i className="fa-solid fa-person-circle-check"></i><span className="m-3">Clientes</span></h1>
+        <h1 className=" text-dark mb-2"><i className="fa-solid fa-person-circle-check"></i><span className="m-3">Clientes</span></h1>
       </div>
 
-      <Swiper className="container MySwiper mt-5 mb-5"
-        effect={'coverflow'}
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView={'auto'}
-        coverflowEffect={{
-          rotate: 50,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: true,
-        }}
-        /* pagination={true} */
-        modules={[EffectCoverflow, Pagination]}
+      <Swiper className="container MySwiper mt-2 mb-1"
+        modules={[Navigation]} navigation={true}
+
       >
 
         {store.cliente.map((item, index) => {
@@ -100,13 +92,7 @@ export const Clients = () => {
           return (
 
             <SwiperSlide key={index} className="card myCard" style={{ maxWidth: "18rem" }}>
-              {/*  <div>
-                <img src="" className="card-img-top" alt="..."></img>
-              </div> */}
-              {/* <div className="card-body vh-100 bg-primary"> */}
-              {/*                 <div className="d-flex justify-content-center">
-                  <h5 className="card-title  m-1 fs-6"><i className="fa-solid fa-address-book"></i> Datos del Cliente</h5>
-                </div> */}
+
               <div className="dataClient mb-auto p-2">
                 <div className="userIcon-name text-center">
                   <i className="fa-solid fa-user fs-1 logo-user"></i>
@@ -155,10 +141,11 @@ export const Clients = () => {
       {/* FIN DEL CARD DE CLIENTE */}
 
       {/* INICIO MODAL NUEVO CLIENTE */}
-      <button type="button" className="btn btn-outline-primary AddButton m-2" data-bs-toggle="modal" data-bs-target="#createClient" data-bs-whatever="@mdo">
-        {/* <i className="fa-regular fa-square-plus"></i> */}
-        Crear nuevo cliente
-      </button>
+      <div className="container-fluid d-flex justify-content-center">
+        <button type="button" className="btn btn-outline-primary AddButton m-2" data-bs-toggle="modal" data-bs-target="#createClient" data-bs-whatever="@mdo">
+          Crear nuevo cliente
+        </button>
+        </div>
 
       <ModalClient
         id={"createClient"}

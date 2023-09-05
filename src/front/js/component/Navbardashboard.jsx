@@ -25,7 +25,7 @@ export const Navbardashboard = () => {
                         <h3>{store.info.name}</h3>
                     </div>
                     <div className="">
-                        <button className="btn btn-primary m-2" onClick={handleLogOut}>Cerrar Sesion&ensp;<i className="fa-solid fa-right-from-bracket  "></i></button>
+                        <button className="AddButton btn btn-primary m-2" onClick={handleLogOut}>Cerrar Sesion&ensp;<i className="fa-solid fa-right-from-bracket  "></i></button>
                     </div>
                 </div>
             </nav>

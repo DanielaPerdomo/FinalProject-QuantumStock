@@ -1,12 +1,12 @@
 .information{
-    position: fixed;
+    overflow: hidden;
     background-image: url('https://cdn.pixabay.com/photo/2023/01/10/10/47/space-7709489_1280.jpg');
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
     background-size: cover;
-}
+} 
 /* .prueba2>*{
     flex-shrink: 0;
     padding-right: 0;
@@ -19,4 +19,4 @@
     background-color: rgba(17, 25, 40, 0.75);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);
-}
+} 

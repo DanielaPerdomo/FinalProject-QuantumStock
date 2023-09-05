@@ -86,7 +86,7 @@ export const Dashboard = () => {
 						onClientClick={handleclientClick}
 					/>
 				</div>
-				<div className=" m-0 p-0  col-10">
+				<div className=" m-0 p-0  col-10 vh'100">
 
 					<Navbardashboard />
 

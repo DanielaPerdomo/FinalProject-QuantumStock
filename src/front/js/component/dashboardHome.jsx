@@ -15,8 +15,8 @@ export const DashboardHome = () => {
         <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "minWidth": "5rem" }}>
 
           <div className="card-header text-white">
-            <i className="fa-solid fa-people-carry-box fa-fade"></i>
-            &ensp;Proveedores
+          <i className="fa-solid fa-warehouse fa-fade"></i>
+            &ensp; Almacen
           </div>
 
           <div className="card-body text-white">
@@ -26,17 +26,17 @@ export const DashboardHome = () => {
             <p>1</p>
           </div>
 
-          <div className="card-footer text-white">
+          {/* <div className="card-footer text-white">
             Pie de tarjeta
-          </div>
+          </div> */}
         </div>
 
         {/*  CARD 2 */}
         <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "minWidth": "5rem" }}>
 
           <div className="card-header text-white">
-            <i className="fa-solid fa-people-carry-box fa-fade"></i>
-            &ensp;Proveedores
+          <i className="fa-brands fa-product-hunt fa-fade"></i>
+            &ensp;Productos
           </div>
 
           <div className="card-body text-white">
@@ -46,16 +46,10 @@ export const DashboardHome = () => {
             <p>2</p>
           </div>
 
-          <h5 className="card-title">Título de la tarjeta Info</h5>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">Un elemento</li>
-            <li className="list-group-item">Un segundo elemento</li>
-            <li className="list-group-item">Un tercer elemento</li>
-          </ul>
-
-          <div class="card-footer">
+    
+          {/* <div className="card-footer">
             Pie de tarjeta
-          </div>
+          </div> */}
         </div>
 
         {/*  CARD 3 */}
@@ -73,24 +67,17 @@ export const DashboardHome = () => {
             <p>3</p>
           </div>
 
-          <h5 className="card-title">Título de la tarjeta Info</h5>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">Un elemento</li>
-            <li className="list-group-item">Un segundo elemento</li>
-            <li className="list-group-item">Un tercer elemento</li>
-          </ul>
-
-          <div class="card-footer">
+          {/* <div className="card-footer">
             Pie de tarjeta
-          </div>
+          </div> */}
         </div>
 
         {/*  CARD 4 */}
         <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "minWidth": "5rem" }}>
 
           <div className="card-header text-white">
-            <i className="fa-solid fa-people-carry-box fa-fade"></i>
-            &ensp;Proveedores
+            <i className="fa-solid fa-person-circle-check"></i>
+            &ensp;Clientes
           </div>
 
           <div className="card-body text-white">
@@ -100,16 +87,9 @@ export const DashboardHome = () => {
             <p>4</p>
           </div>
 
-          <h5 className="card-title">Título de la tarjeta Info</h5>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">Un elemento</li>
-            <li className="list-group-item">Un segundo elemento</li>
-            <li className="list-group-item">Un tercer elemento</li>
-          </ul>
-
-          <div class="card-footer">
+          {/* <div className="card-footer">
             Pie de tarjeta
-          </div>
+          </div> */}
         </div>
 
       </div>

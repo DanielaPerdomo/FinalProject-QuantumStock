@@ -1,22 +1,14 @@
-.nav{
 
-    max-width: 15%;
-    height: auto;
-    border-radius: 20%; 
-    
+.Move{
+    margin-left: 2rem;
+    padding-right: 2rem;
 }
- .nav-icon{
-    
-    border-radius:5%;
-} 
-.nav-icon:hover{
+h3{
+
+    font-weight: lighter;
    
-    cursor: pointer;
 }
-
-.boton{
-    border-radius: 0%; 
-}
-.navbarDashboard{
-    color: black;
+.welcome{
+    opacity: 0.5;
+    text-align: left;
 }

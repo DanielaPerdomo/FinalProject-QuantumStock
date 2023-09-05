@@ -1,14 +1,6 @@
 .information{
     background-color: #ffffff;
-<<<<<<< HEAD
     background-image: 
         radial-gradient(at 47% 33%, hsl(162.86, 0%, 100%) 0, transparent 59%), 
         radial-gradient(at 82% 65%, hsl(255.86, 8%, 38%) 0, transparent 55%);
-=======
-}
-.row>* {
-    flex-shrink: 0;
-    padding-right: 0;
-    padding-left: 0;
->>>>>>> 78147869c1b52a3d563af100572363f3f6c7f94c
 }

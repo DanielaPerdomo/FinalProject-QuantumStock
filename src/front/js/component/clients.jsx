@@ -5,6 +5,7 @@ import { Toaster, toast } from 'sonner'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 import "../../styles/clients.css"
+import { Card } from "./prueba.jsx";
 
 
 export const Clients = () => {
@@ -70,6 +71,7 @@ export const Clients = () => {
 
   return (
     <>
+      <Card />
       {/* Inicio de Card de clientes */}
 
       <div >
@@ -150,7 +152,6 @@ export const Clients = () => {
         })
         }
       </Swiper>
-
       {/* FIN DEL CARD DE CLIENTE */}
 
       {/* INICIO MODAL NUEVO CLIENTE */}
@@ -173,6 +174,7 @@ export const Clients = () => {
         data={client}
         resetForm={resetForm}
       />
+
 
     </>
 

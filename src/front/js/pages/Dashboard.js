@@ -76,10 +76,9 @@ export const Dashboard = () => {
 
 	/* console.log("Esto es la info en el dashboard:", store.info); */
 	return (
-		<div className="container-fluid information">
+		<div className="container-fluid information vh-100">
 			<div className="row">
-
-				<div className=" p-0 col-lg-3 col-4 animate__animated animate__slideInRight animate__fast 800ms">
+				<div className="p-0 col-2 animate__animated animate__slideInRight animate__fast 800ms">
 
 					<Sidebar onAlmacenClick={handlealmacenClick}
 						onProduckClick={handleproductClick}
@@ -87,7 +86,7 @@ export const Dashboard = () => {
 						onClientClick={handleclientClick}
 					/>
 				</div>
-				<div className=" m-0 p-0 col-lg-9 col-8">
+				<div className=" m-0 p-0  col-10">
 
 					<Navbardashboard />
 

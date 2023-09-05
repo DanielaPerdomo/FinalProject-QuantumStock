@@ -17,7 +17,7 @@ export const Navbardashboard = () => {
 
     return (
 
-        <div className="navbarDashboard mt-3 container">
+        <div className="navbarDashboard  container">
             <nav className="navbar navbar-expand-lg navbar-dark" >
                 <div className="container-fluid m-0 p-0">
                     <div className="row d-flex flex-row m-0 p-0 ">

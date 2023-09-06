@@ -1,3 +1,5 @@
+import { toast } from "sonner";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -171,6 +173,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.ok) {
 						const actions = getActions()
 						actions.getProduct()
+						toast.success("Se actualizo correctamente")
 					}
 				} catch (error) {
 					console.log(error)
@@ -195,11 +198,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.ok) {
 						const actions = getActions()
 						actions.getProduct()
+						toast.success("Se elimino exitosamente")
 					}
 				} catch (error) {
 					console.log(error)
 				}
 			},
+
 			getStock: async () => {
 				const store = getStore()
 
@@ -239,6 +244,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.ok) {
 						const actions = getActions()
 						actions.getStock()
+						toast.success("Se actualizo correctamente")
 					}
 				} catch (error) {
 					console.log(error)
@@ -264,6 +270,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.ok) {
 						const actions = getActions()
 						actions.getStock()
+						toast.success("Su almacen a sido eliminado")
 					}
 				} catch (error) {
 					console.log(error)
@@ -311,6 +318,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.ok) {
 						const actions = getActions()
 						actions.getClient()
+						toast.success("Se actualizo correctamente")
 					}
 				} catch (error) {
 					console.log(error)
@@ -335,6 +343,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.ok) {
 						const actions = getActions()
 						actions.getClient()
+						toast.success("Se elimino correctamente")
 					}
 				} catch (error) {
 					console.log(error)

@@ -130,11 +130,18 @@ export const Products = () => {
             </table>
 
             {/* MODAL PARA AGREGAR PRODUCTOS */}
-            <div>
+
+            <div className="container-fluid d-flex justify-content-center">
+                <button type="button" className="btn btn-outline-primary AddButton m-2" data-bs-toggle="modal" data-bs-target="#createProduct" data-bs-whatever="@mdo">
+                <i className="fa-solid fa-square-plus"></i>&ensp;Crear nuevo producto
+                </button>
+            </div>
+
+            {/* <div>
                 <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#createProduct" data-bs-whatever="@mdo">
                     <i className="fa-regular fa-square-plus"></i>
                 </button>
-            </div>
+            </div> */}
 
             <Modal
                 id={"createProduct"}

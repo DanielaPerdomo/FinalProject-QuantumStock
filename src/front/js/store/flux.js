@@ -339,6 +339,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.log(error)
 				}
+			},
+
+			getReport: async () => {
+				const store = getStore()
+
+				try {
+					const response = await fetch(process.env.BACKEND_URL + "api/reports", {
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json",
+							Authorization: `Bearer ${store.token}`
+						},
+					})
+					if (response.ok) {
+						const body = await response.json()
+						setStore({ reporte: body })
+						
+						/* console.log("store en el flux:", store.almacen) */
+					}
+				} catch (error) {
+					console.log(error)
+				}
 			}
 		}
 	};

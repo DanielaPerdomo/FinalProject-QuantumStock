@@ -407,7 +407,15 @@ def create_client():
 @api.route("/clients", methods=["GET"])
 @jwt_required()
 def get_clients():
-
+    if request.args.get("search") is not None:
+        email=request.args.get("search")
+        print(email)
+        client=Client.query.filter_by(email_client=email).one_or_none()
+        if client is None:
+            return jsonify ({"message":"no se encontro el cliente"}),404
+        
+        return jsonify({"client":client.serialize()}),200
+    
     user_id = get_jwt_identity()
     existing_customer = Client.query.filter_by(user_id=user_id).all()
 
@@ -418,7 +426,9 @@ def get_clients():
     list_of_client = [client.serialize() for client in existing_customer]
 
     return jsonify( list_of_client), 200
-   
+
+
+
 
 # ENDPOINT para actualizar clientes
 

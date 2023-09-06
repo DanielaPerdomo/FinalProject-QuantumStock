@@ -7,6 +7,7 @@ import { Context } from "../store/appContext.js";
 import { Almacen } from "./Almacen.js";
 import { DashboardHome } from "../component/dashboardHome.jsx";
 import { Products } from "../component/productCards.jsx";
+import {BuyOrder}  from "../component/buyOrder.jsx";
 
 export const Dashboard = () => {
 	const navigate = useNavigate();
@@ -17,6 +18,7 @@ export const Dashboard = () => {
 	const [showProduct, setShowProduct] = useState(false);
 	const [showHome, setShowHome] = useState(true);
 	const [showClient, setShowClient] = useState(false);
+	const [showOrder,setShowOrder] = useState(false);
 	/*almacen*/
 	const handlealmacenClick = () => {
 		actions.getStock()
@@ -25,6 +27,7 @@ export const Dashboard = () => {
 			setShowProduct(false);
 			setShowHome(false);
 			setShowClient(false);
+			setShowOrder(false);
 		}
 
 	};
@@ -36,6 +39,7 @@ export const Dashboard = () => {
 			setShowAlmacen(false);
 			setShowHome(false);
 			setShowClient(false);
+			setShowOrder(false);
 		}
 	};
 
@@ -46,6 +50,7 @@ export const Dashboard = () => {
 			setShowAlmacen(false);
 			setShowProduct(false);
 			setShowClient(false);
+			setShowOrder(false);
 		}
 	}
 
@@ -56,9 +61,21 @@ export const Dashboard = () => {
 			setShowHome(false);
 			setShowAlmacen(false);
 			setShowProduct(false);
+			setShowOrder(false);
 
 		}
 	}
+	const handleOrderClick = () => {
+
+		if (showOrder == false) {
+			setShowOrder(true);
+			setShowHome(false);
+			setShowAlmacen(false);
+			setShowProduct(false);
+			setShowClient(false);
+		}
+	}
+
 
 	useEffect(() => {
 		if (store.token == undefined) {
@@ -84,6 +101,7 @@ export const Dashboard = () => {
 						onProduckClick={handleproductClick}
 						onHomeClick={handlehomeClick}
 						onClientClick={handleclientClick}
+						onOrderClick={handleOrderClick}
 					/>
 				</div>
 				<div className=" m-0 p-0  col-10 vh-100">
@@ -94,6 +112,7 @@ export const Dashboard = () => {
 					{showProduct && <Products />}
 					{showHome && <  DashboardHome />}
 					{showClient && < Clients />}
+					{showOrder && < BuyOrder/>}
 
 
 				</div>

@@ -45,8 +45,14 @@ return (
             &ensp;Productos
           </div>
           <div className="card-body text-white">
-          
-           <p>Total de Productos Cargados:{store.product.length-1} </p>
+         {
+          store.product.length == 0 ? (
+                           <p>Ningun producto añadido</p>
+
+          ):(
+           <p>Total de Productos Cargados:&ensp;{store.product.length} </p>
+           )
+          }
           </div>
 
 
@@ -66,10 +72,15 @@ return (
           </div>
 
           <div className="card-body text-white">
-            <p>Total de Clientes Cargados:{store.cliente.length-1}</p>
-            <p>{}</p>
-            {/* <p>4</p>
-            <p>4</p> */}
+
+          {
+          store.cliente.length == 0 ? (
+                           <p>Ningun cliente añadido</p>
+
+          ):(
+           <p>   Total de Cliente:&ensp;{store.cliente.length} </p>
+           )
+          }          
           </div>
 
           {/* <div className="card-footer">

@@ -12,7 +12,7 @@ from api.models import db
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
-
+from datetime import timedelta 
 #from models import Person
 
 ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"
@@ -40,6 +40,7 @@ setup_admin(app)
 # Flask JWT
 
 app.config["JWT_SECRET_KEY"] = os.getenv("FLASK_JWT_SECRET_KEY")
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=24)  # Aumenta el tiempo de expiración a 24 horas
 jwt = JWTManager(app)
 
 # add the admin

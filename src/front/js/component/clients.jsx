@@ -79,7 +79,7 @@ export const Clients = () => {
 
       <div >
         <Toaster position="top-right" richColors />
-        <h1 className=" text-dark mb-2"><i className="fa-solid fa-person-circle-check"></i><span className="m-3">Clientes</span></h1>
+        <h1 className="text-light mb-2"><i className="fa-solid fa-person-circle-check"></i><span className="m-3">Clientes</span></h1>
       </div>
 
       <Swiper className="container MySwiper mt-2 mb-1"
@@ -91,25 +91,25 @@ export const Clients = () => {
 
           return (
 
-            <SwiperSlide key={index} className="card myCard" style={{ maxWidth: "18rem" }}>
+            <SwiperSlide key={index} className="card myCard" style={{ maxWidth: "17rem" }}>
 
               <div className="dataClient mb-auto p-2">
                 <div className="userIcon-name text-center">
-                  <i className="fa-solid fa-user fs-1 logo-user"></i>
+                  <i className="fa-solid fa-user fs-1 logo-user"></i>&ensp;
                   <h6 className="card-text  m-2 fs-4">{item.name_client}</h6>
                 </div>
 
-                <div className="user-info text-center mt-3 d-block align-items-start">
-                  <p className="card-text m-2 fs-6"><i className="fa-solid fa-envelope m-1"></i>{item.email_client}</p>
-                  <p className="card-text  m-2 fs-6"><i className="fa-solid fa-phone"></i>Telefono:{item.phone_client}</p>
-                  <p className="card-text  m-2 fs-6"><i className="fa-solid fa-city"></i>Direccion:{item.address_client}</p>
-                  <p className="card-text  m-2 fs-6"><i className="fa-solid fa-file-lines"></i> RIF:{item.rif_client}</p>
+                <div className="user-info  mt-3 d-block align-items-start">
+                  <p className="card-text m-2 fs-6"><i className="fa-solid fa-envelope m-1"></i>&ensp;{item.email_client}</p>
+                  <p className="card-text  m-2 fs-6"><i className="fa-solid fa-phone"></i>&ensp;Telefono:&ensp;{item.phone_client}</p>
+                  <p className="card-text  m-2 fs-6"><i className="fa-solid fa-city"></i>&ensp;Direccion:&ensp;{item.address_client}</p>
+                  <p className="card-text  m-2 fs-6"><i className="fa-solid fa-file-lines"></i> &ensp;RIF:&ensp;{item.rif_client}</p>
                 </div>
 
               </div>
 
-              <div className="op p-3">
-                <button type="button" className="btn border border-primary"
+              <div className="d-flex justify-content-center p-1">
+                <button type="button" className="btn btn-primary m-2"
                   onClick={(event) => {
                     setClient(prev => ({
                       name_client: item.name_client,
@@ -122,13 +122,13 @@ export const Clients = () => {
                     console.log(event.target.getAttribute('data-modal-name'))
                   }} data-modal-name={item.id} data-bs-toggle="modal" data-bs-target={`#updateProduct`} data-bs-whatever="@mdo"
                 ><i className="fa-regular fa-pen-to-square"></i>  Editar</button>
-                <button type="button" className="btn border border-danger"
+                <button type="button" className="btn btn-danger m-2"
                   onClick={() => {
                     handleDeleteClient(item.id)
                   }}
                 ><i className="fa-regular fa-trash-can">
 
-                  </i>  Eliminar</button>
+                  </i>&ensp;Eliminar</button>
               </div>
               {/* </div> */}
             </SwiperSlide>
@@ -143,7 +143,7 @@ export const Clients = () => {
       {/* INICIO MODAL NUEVO CLIENTE */}
       <div className="container-fluid d-flex justify-content-center">
         <button type="button" className="btn btn-outline-primary AddButton m-2" data-bs-toggle="modal" data-bs-target="#createClient" data-bs-whatever="@mdo">
-          Crear nuevo cliente
+        <i className="fa-solid fa-square-plus"></i>&ensp;Crear nuevo cliente
         </button>
         </div>
 

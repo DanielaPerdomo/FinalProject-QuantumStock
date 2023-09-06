@@ -73,7 +73,7 @@ export const Products = () => {
         <>
             <div>
                 <Toaster position="top-right" richColors />
-                <h1 className=" text-dark "><i className="fa-brands fa-product-hunt" /><span className="m-3">Productos</span></h1>
+                <h1 className=" text-light "><i className="fa-brands fa-product-hunt" /><span className="m-3">Productos</span></h1>
             </div>
             {/* TABLA DE MOSTRAR PRODUCTOS CARGADOE EN EL INVENTARIO */}
             <table className="tableProducts table table-responsive table-hover m-1 mt-5 animate__animated animate__fadeInDown">
@@ -130,11 +130,18 @@ export const Products = () => {
             </table>
 
             {/* MODAL PARA AGREGAR PRODUCTOS */}
-            <div>
+
+            <div className="container-fluid d-flex justify-content-center">
+                <button type="button" className="btn btn-outline-primary AddButton m-2" data-bs-toggle="modal" data-bs-target="#createProduct" data-bs-whatever="@mdo">
+                <i className="fa-solid fa-square-plus"></i>&ensp;Crear nuevo producto
+                </button>
+            </div>
+
+            {/* <div>
                 <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#createProduct" data-bs-whatever="@mdo">
                     <i className="fa-regular fa-square-plus"></i>
                 </button>
-            </div>
+            </div> */}
 
             <Modal
                 id={"createProduct"}

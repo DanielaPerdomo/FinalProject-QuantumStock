@@ -65,3 +65,10 @@ p{
     border-radius: 220px;
     box-shadow: 0 0 50px rgba(255, 255, 255, 0.534);
 }
+.cristal {
+    backdrop-filter: blur(4px) saturate(100%);
+    -webkit-backdrop-filter: blur(4px) saturate(100%);
+    background-color: rgba(17, 25, 40, 0.5);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}

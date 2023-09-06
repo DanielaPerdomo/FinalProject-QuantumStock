@@ -6,6 +6,8 @@
     width: 100%;
     height: 10vh;
     position: fixed;
+    display: flex;
+    justify-content: center;
 
 }
 .icon{

@@ -4,8 +4,8 @@ import { Context } from "../store/appContext";
 
 
 export const DashboardHome = () => {
-  const { actions, store } = useContext(Context);
-
+  
+  const { store, actions } = useContext(Context);
   return (
     <div className="container text-center gap-4 animate__animated animate__fadeInDown">
       <div className="row prueba2 p-0 mt-2 m-5 d-flex justify-content-center ">
@@ -15,17 +15,23 @@ export const DashboardHome = () => {
         <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "minWidth": "5rem" }}>
 
           <div className="card-header text-white">
-          <i className="fa-solid fa-warehouse fa-fade"></i>
+            <i className="fa-solid fa-warehouse fa-fade"></i>
             &ensp; Almacen
           </div>
 
-          <div className="card-body text-white">
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
+{store.almacen.map((item,index) => {
+
+return (
+<div key={index} className="card-body text-white">
+          <p>Nombre: {item.name_Stock}</p>
+            <p>Direccion: {item.address}</p>
+            <p>RIF: {item.rif}</p>
           </div>
 
+)
+
+})}
+           
           {/* <div className="card-footer text-white">
             Pie de tarjeta
           </div> */}
@@ -35,18 +41,15 @@ export const DashboardHome = () => {
         <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "minWidth": "5rem" }}>
 
           <div className="card-header text-white">
-          <i className="fa-brands fa-product-hunt fa-fade"></i>
+            <i className="fa-brands fa-product-hunt fa-fade"></i>
             &ensp;Productos
           </div>
-
           <div className="card-body text-white">
-            <p>2</p>
-            <p>2</p>
-            <p>2</p>
-            <p>2</p>
+          
+           <p>Total de Productos Cargados:{store.product.length-1} </p>
           </div>
 
-    
+
           {/* <div className="card-footer">
             Pie de tarjeta
           </div> */}
@@ -76,15 +79,15 @@ export const DashboardHome = () => {
         <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "minWidth": "5rem" }}>
 
           <div className="card-header text-white">
-            <i className="fa-solid fa-person-circle-check"></i>
+            <i className="fa-solid fa-person-circle-check fa-fade"></i>
             &ensp;Clientes
           </div>
 
           <div className="card-body text-white">
-            <p>4</p>
-            <p>4</p>
-            <p>4</p>
-            <p>4</p>
+            <p>Total de Clientes Cargados:{store.cliente.length-1}</p>
+            <p>{}</p>
+            {/* <p>4</p>
+            <p>4</p> */}
           </div>
 
           {/* <div className="card-footer">

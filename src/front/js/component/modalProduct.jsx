@@ -49,7 +49,7 @@ export const Modal = ({ handleInfo, handleUpdate, data, id, resetForm = () => { 
                                 <input type="text" className="form-control" id="recipient-name" onChange={handleInfo} required name="admission_date" value={data.admission_date} />
                             </div>
                             <div className="modal-footer">
-                                <button type="button" onClick={resetForm} className=" btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" onClick={resetForm} className=" btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                 <button type="submit" className=" btn btn-primary">Guardar</button>
                             </div>
                         </form>

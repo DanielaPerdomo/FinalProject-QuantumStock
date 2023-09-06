@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Toaster, toast } from 'sonner'
 import { Context } from "../store/appContext.js";
 import { ModalStock } from "../component/modalStock.jsx";
+import "../../styles/dashboardPage.css";
 
 export const Almacen = () => {
     const { store, actions } = useContext(Context);
@@ -80,10 +81,56 @@ export const Almacen = () => {
 
             <Toaster position="top-center" richColors />
             <div >
-                <h1 className=" text-dark "><i className="fa-solid fa-warehouse"></i><span className="m-3">Almacen</span></h1>
+                <h1 className=" text-light "><i className="fa-solid fa-warehouse"></i><span className="m-3">Almacen</span></h1>
             </div>
+            {/* INICIO DEL FORMULARIO DE LA INFORMACION DEL ALMACEN */}
+            <form className="tableStock text-light">
+                <div className="mb-3">
+                    <label htmlFor="exampleInputEmail1" className="form-label"><i className="fa-solid fa-user"></i>&ensp;Nombre</label>
+                    <input className="stockInput form-control" type="text" aria-label="Disabled input" disabled />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="exampleInputPassword1" className="form-label"><i className="fa-solid fa-city"></i>&ensp;Direccion:</label>
+                    <input className="stockInput form-control" type="text" aria-label="Disabled input" disabled />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="exampleInputEmail1" className="form-label"><i className="fa-solid fa-file-lines"></i>&ensp; RIF:</label>
+                    <input className="stockInput form-control" type="text" aria-label="Disabled input" disabled />
+                </div>
+                <div className="d-flex justify-content-center">
+                    <button type="button" className="btn btn-primary m-2" data-bs-whatever="@mdo" >
+                        <i className="fa-regular fa-pen-to-square"></i> &ensp; Editar
+                    </button>
+                    <button type="button" className="btn btn-danger m-2" data-bs-whatever="@mdo" >
+                        <i className="fa-regular fa-trash-can"></i> &ensp; Eliminar
+                    </button>
+                </div>
+            </form>
+            {/* FIN DEL FORMULARIO DE LA INFORMACION DEL ALMACEN */}
+
+            {/* MODAL PARA AGREGAR ALMACEN*/}
+            <div className="container-fluid d-flex justify-content-center">
+                <button type="button" className="btn btn-outline-primary AddButton m-2" data-bs-toggle="modal" data-bs-target="#creat_stock" data-bs-whatever="@mdo">
+                <i className="fa-solid fa-square-plus"></i>&ensp;Crear nuevo almacen
+                </button>
+            </div>
+
+            <ModalStock
+                id={"creat_stock"}
+                handleUpdate={creat_stock}
+                handleInfo={handleInfo}
+                data={Stock}
+            />
+            <ModalStock
+                id={"updateStock"}
+                handleUpdate={actions.putStock}
+                handleInfo={handleInfo}
+                data={Stock}
+                resetForm={resetForm}
+            />
+
             {/* TABLA DE MOSTRAR PRODUCTOS CARGADOE EN EL INVENTARIO */}
-            <table className="tableProducts table table-responsive table-hover m-1 mt-5 animate__animated animate__fadeInDown">
+            <table className="tableStock table table-responsive table-hover animate__animated animate__fadeInDown">
                 <thead className="">
 
                     <tr >
@@ -152,25 +199,7 @@ export const Almacen = () => {
 
             </table>
 
-            {/* MODAL PARA AGREGAR ALMACEN*/}
-            <div>
-                <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#creat_stock" data-bs-whatever="@mdo">
-                    <i className="fa-regular fa-square-plus"></i>
-                </button>
-            </div>
-            <ModalStock
-                id={"creat_stock"}
-                handleUpdate={creat_stock}
-                handleInfo={handleInfo}
-                data={Stock}
-            />
-            <ModalStock
-                id={"updateStock"}
-                handleUpdate={actions.putStock}
-                handleInfo={handleInfo}
-                data={Stock}
-                resetForm={resetForm}
-            />
+            
         </>
 
 

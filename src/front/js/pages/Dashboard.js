@@ -6,7 +6,7 @@ import { Navbardashboard } from "../component/Navbardashboard.jsx"
 import { Context } from "../store/appContext.js";
 import { Almacen } from "./Almacen.js";
 import { DashboardHome } from "../component/dashboardHome.jsx";
-import { Products } from "../component/productTable.jsx";
+import { Products } from "../component/productCards.jsx";
 
 export const Dashboard = () => {
 	const navigate = useNavigate();
@@ -86,7 +86,7 @@ export const Dashboard = () => {
 						onClientClick={handleclientClick}
 					/>
 				</div>
-				<div className=" m-0 p-0  col-10 vh'100">
+				<div className=" m-0 p-0  col-10 vh-100">
 
 					<Navbardashboard />
 

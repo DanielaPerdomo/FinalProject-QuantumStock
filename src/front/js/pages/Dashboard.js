@@ -8,17 +8,18 @@ import { Almacen } from "./Almacen.js";
 import { DashboardHome } from "../component/dashboardHome.jsx";
 import { Products } from "../component/productCards.jsx";
 import {BuyOrder}  from "../component/buyOrder.jsx";
-
+import {Report} from "../component/report.jsx";
 export const Dashboard = () => {
 	const navigate = useNavigate();
 	const { store, actions } = useContext(Context);
-
 
 	const [showAlmacen, setShowAlmacen] = useState(false);
 	const [showProduct, setShowProduct] = useState(false);
 	const [showHome, setShowHome] = useState(true);
 	const [showClient, setShowClient] = useState(false);
 	const [showOrder,setShowOrder] = useState(false);
+	const [showReport,setShowReport]= useState(false);
+
 	/*almacen*/
 	const handlealmacenClick = () => {
 		actions.getStock()
@@ -28,6 +29,7 @@ export const Dashboard = () => {
 			setShowHome(false);
 			setShowClient(false);
 			setShowOrder(false);
+			setShowReport(false);
 		}
 
 	};
@@ -40,6 +42,7 @@ export const Dashboard = () => {
 			setShowHome(false);
 			setShowClient(false);
 			setShowOrder(false);
+			setShowReport(false);
 		}
 	};
 
@@ -51,6 +54,7 @@ export const Dashboard = () => {
 			setShowProduct(false);
 			setShowClient(false);
 			setShowOrder(false);
+			setShowReport(false);
 		}
 	}
 
@@ -62,6 +66,7 @@ export const Dashboard = () => {
 			setShowAlmacen(false);
 			setShowProduct(false);
 			setShowOrder(false);
+			setShowReport(false);
 
 		}
 	}
@@ -73,6 +78,20 @@ export const Dashboard = () => {
 			setShowAlmacen(false);
 			setShowProduct(false);
 			setShowClient(false);
+			setShowReport(false);
+		}
+	}
+
+	const handleReportClick = () => {
+
+		if (showReport == false) {
+			setShowReport(true);
+			setShowHome(false);
+			setShowAlmacen(false);
+			setShowProduct(false);
+			setShowClient(false);
+			setShowOrder(false);
+			
 		}
 	}
 
@@ -89,6 +108,7 @@ export const Dashboard = () => {
 		actions.getProduct()
 		actions.getStock()
 		actions.getClient()
+		actions.getReport()
 	}, [])
 
 	/* console.log("Esto es la info en el dashboard:", store.info); */
@@ -102,6 +122,7 @@ export const Dashboard = () => {
 						onHomeClick={handlehomeClick}
 						onClientClick={handleclientClick}
 						onOrderClick={handleOrderClick}
+						onReportClick={handleReportClick}
 					/>
 				</div>
 				<div className=" m-0 p-0  col-10 vh-100">
@@ -113,6 +134,7 @@ export const Dashboard = () => {
 					{showHome && <  DashboardHome />}
 					{showClient && < Clients />}
 					{showOrder && < BuyOrder/>}
+					{showReport && <Report />}
 
 
 				</div>

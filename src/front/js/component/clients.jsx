@@ -91,7 +91,7 @@ export const Clients = () => {
 
           return (
 
-            <SwiperSlide key={index} className="card myCard" style={{ maxWidth: "17rem" }}>
+            <SwiperSlide key={index} className="card myCard" style={{ "maxWidth": "17rem" }}>
 
               <div className="dataClient mb-auto p-2">
                 <div className="userIcon-name text-center">

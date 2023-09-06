@@ -77,41 +77,81 @@ export const Almacen = () => {
         actions.getStock()
     }
     return (
-        <>
-
+        <div className="">
             <Toaster position="top-center" richColors />
             <div >
                 <h1 className=" text-light "><i className="fa-solid fa-warehouse"></i><span className="m-3">Almacen</span></h1>
             </div>
-            {/* INICIO DEL FORMULARIO DE LA INFORMACION DEL ALMACEN */}
-            <form className="tableStock text-light">
-                <div className="mb-3">
-                    <label htmlFor="exampleInputEmail1" className="form-label"><i className="fa-solid fa-user"></i>&ensp;Nombre</label>
-                    <input className="stockInput form-control" type="text" aria-label="Disabled input" disabled />
+
+            {/* INICIO DEL CARD DE LA INFORMACION DEL ALMACEN */}
+
+            <div className="container text-center gap-4 animate__animated animate__fadeInDown cardStock">
+                <div className="row p-0 mt-2 m-5 d-flex justify-content-center ">
+
+                    {
+                        Object.keys(store.almacen).map((itemId, index) => {
+                            const item = store.almacen[itemId];
+                            return (
+                                <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "maxWidth": "18rem" }}>
+                                    <div key={index}>
+                                        <div className="card-header text-white">
+                                            <i className="fa-solid fa-warehouse fa-fade"></i>
+                                            &ensp; Almacen
+                                        </div>
+
+                                        <div className="card-body text-white">
+                                            <span><i className="fa-solid fa-user"></i>&ensp;Nombre:&ensp;{item.name_Stock}<br /></span>
+                                            <span><i className="fa-solid fa-city"></i>&ensp;Direccion:&ensp;{item.address}<br /></span>
+                                            <span><i className="fa-solid fa-file-lines"></i>&ensp; RIF:&ensp;{item.rif}<br /></span>
+                                            <div className="card-footer text-white">
+                                                <button
+                                                    type="button"
+                                                    className="btn btn-outline-primary m-2"
+
+
+                                                    onClick={(event) => {
+                                                        setStock(prev => ({
+                                                            name_Stock: item.name_Stock,
+                                                            address: item.address,
+                                                            rif: item.rif,
+
+                                                            id: item.id
+                                                        }))
+                                                        console.log(event.target.getAttribute('data-modal-name'))
+                                                    }}
+                                                    data-modal-name={item.id}
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target={`#updateStock`}
+                                                    data-bs-whatever="@mdo"
+                                                >
+                                                    <i className="fa-regular fa-pen-to-square"></i>&ensp;Editar
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    className="btn btn-outline-danger m-2"
+                                                    data-bs-whatever="@mdo"
+                                                    onClick={() => {
+                                                        handleDeleteStock()
+                                                    }}
+
+                                                >
+                                                    <i className="fa-regular fa-trash-can"></i>&ensp;Eliminar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })
+
+                    }
                 </div>
-                <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label"><i className="fa-solid fa-city"></i>&ensp;Direccion:</label>
-                    <input className="stockInput form-control" type="text" aria-label="Disabled input" disabled />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="exampleInputEmail1" className="form-label"><i className="fa-solid fa-file-lines"></i>&ensp; RIF:</label>
-                    <input className="stockInput form-control" type="text" aria-label="Disabled input" disabled />
-                </div>
-                <div className="d-flex justify-content-center">
-                    <button type="button" className="btn btn-primary m-2" data-bs-whatever="@mdo" >
-                        <i className="fa-regular fa-pen-to-square"></i> &ensp; Editar
-                    </button>
-                    <button type="button" className="btn btn-danger m-2" data-bs-whatever="@mdo" >
-                        <i className="fa-regular fa-trash-can"></i> &ensp; Eliminar
-                    </button>
-                </div>
-            </form>
-            {/* FIN DEL FORMULARIO DE LA INFORMACION DEL ALMACEN */}
+            </div>
 
             {/* MODAL PARA AGREGAR ALMACEN*/}
             <div className="container-fluid d-flex justify-content-center">
                 <button type="button" className="btn btn-outline-primary AddButton m-2" data-bs-toggle="modal" data-bs-target="#creat_stock" data-bs-whatever="@mdo">
-                <i className="fa-solid fa-square-plus"></i>&ensp;Crear nuevo almacen
+                    <i className="fa-solid fa-square-plus"></i>&ensp;Crear nuevo almacen
                 </button>
             </div>
 
@@ -128,82 +168,6 @@ export const Almacen = () => {
                 data={Stock}
                 resetForm={resetForm}
             />
-
-            {/* TABLA DE MOSTRAR PRODUCTOS CARGADOE EN EL INVENTARIO */}
-            <table className="tableStock table table-responsive table-hover animate__animated animate__fadeInDown">
-                <thead className="">
-
-                    <tr >
-                        <th scope="col">Nombre del almacen</th>
-                        <th scope="col">Direccion</th>
-                        <th scope="col">Rif</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                <tbody className="table-group-divider">
-                    {
-                        Object.keys(store.almacen).length > 0 ? (
-                            Object.keys(store.almacen).map((itemId, index) => {
-                                const item = store.almacen[itemId];
-                                return (
-                                    <tr key={index}>
-                                        <td>{item.name_Stock}</td>
-                                        <td>{item.address}</td>
-                                        <td>{item.rif}</td>
-                                        <td>
-                                            <button
-                                                type="button"
-                                                className="btn btn-outline-primary m-2"
-
-
-                                                onClick={(event) => {
-                                                    setStock(prev => ({
-                                                        name_Stock: item.name_Stock,
-                                                        address: item.address,
-                                                        rif: item.rif,
-
-                                                        id: item.id
-                                                    }))
-                                                    console.log(event.target.getAttribute('data-modal-name'))
-                                                }}
-                                                data-modal-name={item.id}
-                                                data-bs-toggle="modal"
-                                                data-bs-target={`#updateStock`}
-                                                data-bs-whatever="@mdo"
-                                            >
-                                                <i className="fa-regular fa-pen-to-square"></i>
-                                            </button>
-                                            <button
-                                                type="button"
-                                                className="btn btn-outline-danger m-2"
-                                                data-bs-whatever="@mdo"
-                                                onClick={() => {
-                                                    handleDeleteStock()
-                                                }}
-
-                                            >
-                                                <i className="fa-regular fa-trash-can"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                );
-                            })
-                        ) : (
-                            <tr>
-                                <td colSpan="4">Añadir Almacen</td>
-                            </tr>
-                        )
-                    }
-                </tbody>
-
-
-            </table>
-
-            
-        </>
-
-
-
+        </div>
     )
-
 }

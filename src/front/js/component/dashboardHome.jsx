@@ -15,7 +15,7 @@ export const DashboardHome = () => {
         <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "minWidth": "5rem" }}>
 
           <div className="card-header text-white">
-          <i className="fa-solid fa-warehouse fa-fade"></i>
+            <i className="fa-solid fa-warehouse fa-fade"></i>
             &ensp; Almacen
           </div>
 
@@ -35,18 +35,18 @@ export const DashboardHome = () => {
         <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "minWidth": "5rem" }}>
 
           <div className="card-header text-white">
-          <i className="fa-brands fa-product-hunt fa-fade"></i>
+            <i className="fa-brands fa-product-hunt fa-fade"></i>
             &ensp;Productos
           </div>
 
           <div className="card-body text-white">
-            <p>2</p>
-            <p>2</p>
-            <p>2</p>
-            <p>2</p>
+            <p>Nombre: {}</p>
+            <p>Direccion: {}</p>
+            <p>RIF: {}</p>
+            
           </div>
 
-    
+
           {/* <div className="card-footer">
             Pie de tarjeta
           </div> */}
@@ -76,15 +76,15 @@ export const DashboardHome = () => {
         <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "minWidth": "5rem" }}>
 
           <div className="card-header text-white">
-            <i className="fa-solid fa-person-circle-check"></i>
+            <i className="fa-solid fa-person-circle-check fa-fade"></i>
             &ensp;Clientes
           </div>
 
           <div className="card-body text-white">
-            <p>4</p>
-            <p>4</p>
-            <p>4</p>
-            <p>4</p>
+            <p>Total de Clientes Cargados:</p>
+            <p>{}</p>
+            {/* <p>4</p>
+            <p>4</p> */}
           </div>
 
           {/* <div className="card-footer">

@@ -500,7 +500,7 @@ def create_purchase_order():
 
     if not existing_client :
         return jsonify({
-            "message": "Engage with an existing customer"
+            "message": "customer not connected"
         }), 400
 
     report = Report(
@@ -513,7 +513,7 @@ def create_purchase_order():
     except Exception as error:
         db.session.rollback()
         return jsonify({
-            "message": "no se creo el reporte",
+            "message": "I don't believe the report",
             "error": error.args
         }), 500
 

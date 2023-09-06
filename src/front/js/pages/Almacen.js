@@ -105,7 +105,7 @@ export const Almacen = () => {
                                             
                                             <span className="d-flex"><i className="fa-solid fa-file-lines"></i>&ensp; RIF:&ensp;<span className="text-secondary">{item.rif}</span></span><br />
 
-                                            <span className="d-flex"><i className="fa-solid fa-file-lines"></i>&ensp; Total de Productos:&ensp;<span className="text-secondary">{store.product.length - 1}</span></span><br />
+                                            <span className="d-flex"><i className="fa-solid fa-file-lines"></i>&ensp; Total de Productos:&ensp;<span className="text-secondary">{store.product.length}</span></span><br />
 
                                             <div className="actionButton card-footer text-white">
                                                 <button

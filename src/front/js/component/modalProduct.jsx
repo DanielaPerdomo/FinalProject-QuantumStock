@@ -23,7 +23,7 @@ export const Modal = ({ handleInfo, handleUpdate, data, id, resetForm = () => { 
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h1 className="modal-title fs-5 text-dark" id={id + `Label`}><i className="fa-brands fa-product-hunt"></i>&ensp;Datos de Producto {data.id}</h1>
+                        <h1 className="modal-title fs-5 text-dark" id={id + `Label`}><i className="fa-brands fa-product-hunt"></i>&ensp;Datos de Producto</h1>
                         <button type="button" onClick={resetForm} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">

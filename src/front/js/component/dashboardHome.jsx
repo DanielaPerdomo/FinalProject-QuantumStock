@@ -46,7 +46,7 @@ return (
           </div>
           <div className="card-body text-white">
           
-           <p> {store.product.length-1} </p>
+           <p>Total de Productos Cargados:{store.product.length-1} </p>
           </div>
 
 
@@ -84,7 +84,7 @@ return (
           </div>
 
           <div className="card-body text-white">
-            <p>Total de Clientes Cargados:</p>
+            <p>Total de Clientes Cargados:{store.cliente.length-1}</p>
             <p>{}</p>
             {/* <p>4</p>
             <p>4</p> */}

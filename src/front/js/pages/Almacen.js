@@ -82,8 +82,24 @@ export const Almacen = () => {
             <div >
                 <h1 className=" text-light "><i className="fa-solid fa-warehouse"></i><span className="m-3">Almacen</span></h1>
             </div>
+
+            <form className="tableStock text-light">
+                <div className="mb-3">
+                    <label for="exampleInputEmail1" className="form-label"><i className="fa-solid fa-user"></i>&ensp;Nombre</label>
+                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                </div>
+                <div className="mb-3">
+                    <label for="exampleInputPassword1" className="form-label"><i className="fa-solid fa-city"></i>&ensp;Direccion:</label>
+                    <input type="password" className="form-control" id="exampleInputPassword1" />
+                </div>
+                <div className="mb-3">
+                    <label for="exampleInputEmail1" className="form-label"><i className="fa-solid fa-file-lines"></i>&ensp; RIF:</label>
+                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                </div>
+            </form>
+
             {/* TABLA DE MOSTRAR PRODUCTOS CARGADOE EN EL INVENTARIO */}
-            <table className="tableProducts table table-responsive table-hover m-1 mt-5 animate__animated animate__fadeInDown">
+            <table className="tableStock table table-responsive table-hover animate__animated animate__fadeInDown">
                 <thead className="">
 
                     <tr >
@@ -99,7 +115,7 @@ export const Almacen = () => {
                             Object.keys(store.almacen).map((itemId, index) => {
                                 const item = store.almacen[itemId];
                                 return (
-                                    <tr key={index}>
+                                        <tr key={index}>
                                         <td>{item.name_Stock}</td>
                                         <td>{item.address}</td>
                                         <td>{item.rif}</td>
@@ -153,11 +169,12 @@ export const Almacen = () => {
             </table>
 
             {/* MODAL PARA AGREGAR ALMACEN*/}
-            <div>
-                <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#creat_stock" data-bs-whatever="@mdo">
-                    <i className="fa-regular fa-square-plus"></i>
+            <div className="container-fluid d-flex justify-content-center">
+                <button type="button" className="btn btn-outline-primary AddButton m-2" data-bs-toggle="modal" data-bs-target="#creat_stock" data-bs-whatever="@mdo">
+                    Crear nuevo Almacen
                 </button>
             </div>
+
             <ModalStock
                 id={"creat_stock"}
                 handleUpdate={creat_stock}

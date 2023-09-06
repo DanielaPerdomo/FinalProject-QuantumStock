@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from 'sonner'
 import { Modal } from "./modalProduct.jsx";
 
+
 export const Products = () => {
     const { store, actions } = useContext(Context);
 
@@ -70,11 +71,12 @@ export const Products = () => {
 
     return (
         <>
-       
-                <div>
-                    <Toaster position="top-right" richColors />
-                    <h1 className=" text-light "><i className="fa-brands fa-product-hunt" /><span className="m-3">Productos</span></h1>
-                </div>
+
+            <div>
+                <Toaster position="top-right" richColors />
+                <h1 className=" text-light "><i className="fa-brands fa-product-hunt" /><span className="m-3">Productos</span></h1>
+            </div>
+
 
             <div>
                 {/* CARD PARA MOSTRAR PRODUCTOS CARGADOS EN EL INVENTARIO */}
@@ -82,11 +84,10 @@ export const Products = () => {
                 <div className="container text-center gap-4 animate__animated animate__fadeInDown">
                     <div className="row prueba2 p-0 mt-2 m-5 d-flex justify-content-center ">
 
-
                         {/*  CARD 1 */}
 
                         {store.product.map((item, index) => {
-                            return(
+                            return (
                                 <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "minWidth": "5rem" }} key={index}>
 
                                     <div className="card-header text-white">
@@ -117,10 +118,10 @@ export const Products = () => {
                                             <i className="fa-regular fa-pen-to-square"></i>&ensp;Editar
                                         </button>
 
-                                        <button type="button" className="btn btn-outline-danger m-2" data-bs-whatever="@mdo" 
-                                        onClick={() => {
-                                            handleDeleteProduct(item.id)
-                                        }}>
+                                        <button type="button" className="btn btn-outline-danger m-2" data-bs-whatever="@mdo"
+                                            onClick={() => {
+                                                handleDeleteProduct(item.id)
+                                            }}>
                                             <i className="fa-regular fa-trash-can"></i>&ensp;Eliminar
                                         </button>
                                     </div>
@@ -128,11 +129,9 @@ export const Products = () => {
 
                             )
                         })}
-
-
-
                     </div>
                 </div>
+
                 {/* MODAL PARA AGREGAR PRODUCTOS */}
                 <div>
                     <div className="container-fluid d-flex justify-content-center">

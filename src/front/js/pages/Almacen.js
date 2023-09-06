@@ -8,7 +8,6 @@ export const Almacen = () => {
     const { store, actions } = useContext(Context);
     //cambios 
     const [Stock, setStock] = useState({
-
         name_Stock: "",
         address: "",
         rif: "",
@@ -78,7 +77,7 @@ export const Almacen = () => {
     }
     return (
         <div className="">
-            <Toaster position="top-center" richColors />
+            <Toaster position="top-right" richColors />
             <div >
                 <h1 className=" text-light "><i className="fa-solid fa-warehouse"></i><span className="m-3">Almacen</span></h1>
             </div>
@@ -100,9 +99,9 @@ export const Almacen = () => {
                                         </div>
 
                                         <div className="card-body text-white">
-                                            
+
                                             <span className="d-flex"><i className="fa-solid fa-city"></i>&ensp;Direccion:&ensp;<span className="text-secondary">{item.address}</span></span><br />
-                                            
+
                                             <span className="d-flex"><i className="fa-solid fa-file-lines"></i>&ensp; RIF:&ensp;<span className="text-secondary">{item.rif}</span></span><br />
 
                                             <span className="d-flex"><i className="fa-solid fa-file-lines"></i>&ensp; Total de Productos:&ensp;<span className="text-secondary">{store.product.length}</span></span><br />
@@ -118,7 +117,6 @@ export const Almacen = () => {
                                                             name_Stock: item.name_Stock,
                                                             address: item.address,
                                                             rif: item.rif,
-
                                                             id: item.id
                                                         }))
                                                         console.log(event.target.getAttribute('data-modal-name'))

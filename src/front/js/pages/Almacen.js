@@ -85,25 +85,29 @@ export const Almacen = () => {
 
             {/* INICIO DEL CARD DE LA INFORMACION DEL ALMACEN */}
 
-            <div className="container text-center gap-4 animate__animated animate__fadeInDown cardStock">
-                <div className="row p-0 mt-2 m-5 d-flex justify-content-center ">
+            <div className="elementsLayout container text-center gap-4 animate__animated animate__fadeInDown cardStock">
+                <div className="elementsLayout row ">
 
                     {
                         Object.keys(store.almacen).map((itemId, index) => {
                             const item = store.almacen[itemId];
                             return (
-                                <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "maxWidth": "18rem" }}>
+                                <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "maxWidth": "30rem" }}>
                                     <div key={index}>
                                         <div className="card-header text-white">
                                             <i className="fa-solid fa-warehouse fa-fade"></i>
-                                            &ensp; Almacen
+                                            &ensp; {item.name_Stock}
                                         </div>
 
                                         <div className="card-body text-white">
-                                            <span><i className="fa-solid fa-user"></i>&ensp;Nombre:&ensp;{item.name_Stock}<br /></span>
-                                            <span><i className="fa-solid fa-city"></i>&ensp;Direccion:&ensp;{item.address}<br /></span>
-                                            <span><i className="fa-solid fa-file-lines"></i>&ensp; RIF:&ensp;{item.rif}<br /></span>
-                                            <div className="card-footer text-white">
+                                            
+                                            <span className="d-flex"><i className="fa-solid fa-city"></i>&ensp;Direccion:&ensp;<span className="text-secondary">{item.address}</span></span><br />
+                                            
+                                            <span className="d-flex"><i className="fa-solid fa-file-lines"></i>&ensp; RIF:&ensp;<span className="text-secondary">{item.rif}</span></span><br />
+
+                                            <span className="d-flex"><i className="fa-solid fa-file-lines"></i>&ensp; Total de Productos:&ensp;<span className="text-secondary">{store.product.length - 1}</span></span><br />
+
+                                            <div className="actionButton card-footer text-white">
                                                 <button
                                                     type="button"
                                                     className="btn btn-outline-primary m-2"
@@ -146,8 +150,8 @@ export const Almacen = () => {
 
                     }
                 </div>
-            </div>
 
+            </div>
             {/* MODAL PARA AGREGAR ALMACEN*/}
             <div className="container-fluid d-flex justify-content-center">
                 <button type="button" className="btn btn-outline-primary AddButton m-2" data-bs-toggle="modal" data-bs-target="#creat_stock" data-bs-whatever="@mdo">

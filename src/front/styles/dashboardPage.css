@@ -24,9 +24,15 @@
     margin-left: 4rem;
     margin-right: 2rem;
     padding: 2rem;
-    backdrop-filter: blur(0) saturate(180%);
-    -webkit-backdrop-filter: blur(0) saturate(180%);
-    background-color: rgba(17, 25, 40, 0.75);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+.actionButton{
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+.elementsLayout{
+    justify-content: center;
+    margin: 0;
+    margin-top: 2.5rem;
+    padding: 0;
 }

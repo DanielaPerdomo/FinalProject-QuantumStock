@@ -20,10 +20,7 @@ export const DashboardHome = () => {
           </div>
 
           <div className="card-body text-white">
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
+          
           </div>
 
           {/* <div className="card-footer text-white">
@@ -39,11 +36,41 @@ export const DashboardHome = () => {
             &ensp;Productos
           </div>
 
-          <div className="card-body text-white">
-            <p>2</p>
-            <p>2</p>
-            <p>2</p>
-            <p>2</p>
+          <div className="card-body  text-white bg-transparent">
+          <table className="bg-transparent">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Fecha de Ingreso</th>
+                        
+                    </tr>
+                </thead>
+
+                <tbody className="table-group-divider">
+
+                    {store.product.map((item, index) => {
+                        return (
+
+                            <tr key={index}>
+                                <td>{item.product_name}</td>
+                                <td>{item.description}</td>
+                                <td>{item.item}</td>
+                                <td>{item.price}</td>
+                                <td>{item.admission_date}</td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+
+                        )
+                    })
+                    }
+                </tbody>
+            </table>
+
           </div>
 
     

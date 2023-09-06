@@ -40,6 +40,7 @@ setup_admin(app)
 # Flask JWT
 
 app.config["JWT_SECRET_KEY"] = os.getenv("FLASK_JWT_SECRET_KEY")
+# app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=24)  # Aumenta el tiempo de expiración a 24 horas
 jwt = JWTManager(app)
 
 # add the admin

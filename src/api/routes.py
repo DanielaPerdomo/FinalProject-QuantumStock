@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Stock, Product, Client, Buy_order
+from api.models import db, User, Stock, Product, Client, Buy_order, Report
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token,jwt_required,get_jwt_identity
 from werkzeug.security import generate_password_hash,check_password_hash
@@ -490,21 +490,62 @@ def create_report(client_id): """
 
 # ENDPOINT para crear una orden de compra 
 
-@api.route("/purchase/order", methods=["POST"])
+@api.route("/report", methods=["POST"])
 @jwt_required()
 def create_purchase_order():
     user_id = get_jwt_identity()
-    existing_client = Client.query.filter_by(user_id=user_id).one_or_none()
+    body = request.json
+    existing_email_client = body["email_client"]
+    existing_client = Client.query.filter_by(user_id=user_id, email_client=existing_email_client).one_or_none()
 
     if not existing_client :
         return jsonify({
             "message": "Engage with an existing customer"
         }), 400
 
-    new_order = Buy_order.query.filter_by(client_id=existing_client)
-    body = request.json
+    report = Report(
+        client_id = existing_client.id
+    )
+
+    try:
+        db.session.add(report)
+        db.session.commit()
+    except Exception as error:
+        db.session.rollback()
+        return jsonify({
+            "message": "no se creo el reporte",
+            "error": error.args
+        }), 500
+
         
     return jsonify({
-        "message": "purchase order created"
-    }), 200 
+        "message": "purchase order created",
+        "reporte": report.serialize()
+    }), 201 
 
+@api.route("/buy-order", methods=["POST"])
+@jwt_required()
+def create_buy_order():
+    
+    body = request.json
+
+    buy_order = Buy_order(
+        product_id = body.get("product_id"),
+        amount = body.get("amount"),
+        report_id = body.get("report_id")
+    )
+
+    try:
+        db.session.add(buy_order)
+        db.session.commit()
+    except Exception as error:
+        db.session.rollback()
+        return jsonify({
+            "message": "no se creo la orden de compra",
+            "error": error.args 
+        }), 500
+    
+    return jsonify({
+        "message": "Se creo su orden de compra"
+    }), 201
+    

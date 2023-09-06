@@ -84,9 +84,9 @@ class Product(db.Model):
 
     stock_id = db.Column(db.Integer , db.ForeignKey("stock.id"))
     stock = db.relationship("Stock", back_populates="product")
+
     # Relacion con orden de compra
 
-    buy_order_id = db.Column(db.Integer , db.ForeignKey("buy_order.id"))
     buy_order = db.relationship("Buy_order", back_populates="product")
 
     def __repr__(self):
@@ -155,10 +155,12 @@ class Buy_order (db.Model):
     client = db.relationship("Client", back_populates="buy_order")
 
     # Relacion con orden de compra
-
+    product_id = db.Column(db.Integer, db.ForeignKey("product.id"))
     product = db.relationship("Product", back_populates="buy_order")
+    amount = db.Column(db.Integer, nullable=False)
     
     # Relacion con reporte
+    report_id = db.Column(db.Integer, db.ForeignKey("report.id"))
     report = db.relationship("Report", back_populates="buy_order")
    
 
@@ -184,7 +186,6 @@ class Report (db.Model):
   
     # Relación con client
 
-    buy_order_id = db.Column(db.Integer, db.ForeignKey("buy_order.id"))
     buy_order = db.relationship("Buy_order", back_populates="report")
 
     def __repr__(self):
@@ -194,7 +195,6 @@ class Report (db.Model):
         return {
             "id": self.id,
             "client_id":self.client_id,
-            "buy_order_id":self.buy_order_id
             
             # do not serialize the password, its a security breach
         }

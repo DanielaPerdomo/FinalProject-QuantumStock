@@ -170,6 +170,8 @@ class Buy_order (db.Model):
     def serialize(self):
         return {
             "id": self.id,
+            "product_id": self.product_id,
+            "amount": self.amount,
             "client_id":self.client_id,
             "report_id": self.report_id
         }
@@ -196,6 +198,4 @@ class Report (db.Model):
             "id": self.id,
             "client_id":self.client_id,
             "by_order": [order.serialize() for order in self.buy_order]
-            
-            #
         }

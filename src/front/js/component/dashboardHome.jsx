@@ -4,8 +4,8 @@ import { Context } from "../store/appContext";
 
 
 export const DashboardHome = () => {
-  const { actions, store } = useContext(Context);
-
+  
+  const { store, actions } = useContext(Context);
   return (
     <div className="container text-center gap-4 animate__animated animate__fadeInDown">
       <div className="row prueba2 p-0 mt-2 m-5 d-flex justify-content-center ">
@@ -19,10 +19,19 @@ export const DashboardHome = () => {
             &ensp; Almacen
           </div>
 
-          <div className="card-body text-white">
-          
+{store.almacen.map((item,index) => {
+
+return (
+<div key={index} className="card-body text-white">
+          <p>Nombre: {item.name_Stock}</p>
+            <p>Direccion: {item.address}</p>
+            <p>RIF: {item.rif}</p>
           </div>
 
+)
+
+})}
+           
           {/* <div className="card-footer text-white">
             Pie de tarjeta
           </div> */}
@@ -36,10 +45,8 @@ export const DashboardHome = () => {
             &ensp;Productos
           </div>
           <div className="card-body text-white">
-            <p>Nombre: {}</p>
-            <p>Direccion: {}</p>
-            <p>RIF: {}</p>
           
+           <p> {store.product.length-1} </p>
           </div>
 
 

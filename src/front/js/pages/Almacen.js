@@ -82,22 +82,30 @@ export const Almacen = () => {
             <div >
                 <h1 className=" text-light "><i className="fa-solid fa-warehouse"></i><span className="m-3">Almacen</span></h1>
             </div>
-
+{/* INICIO DEL FORMULARIO DE LA INFORMACION DEL ALMACEN */}
             <form className="tableStock text-light">
                 <div className="mb-3">
                     <label for="exampleInputEmail1" className="form-label"><i className="fa-solid fa-user"></i>&ensp;Nombre</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <input class="stockInput form-control" type="text" aria-label="Disabled input" disabled />
                 </div>
                 <div className="mb-3">
                     <label for="exampleInputPassword1" className="form-label"><i className="fa-solid fa-city"></i>&ensp;Direccion:</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" />
+                    <input class="stockInput form-control" type="text" aria-label="Disabled input" disabled />
                 </div>
                 <div className="mb-3">
                     <label for="exampleInputEmail1" className="form-label"><i className="fa-solid fa-file-lines"></i>&ensp; RIF:</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <input class="stockInput form-control" type="text" aria-label="Disabled input" disabled />
+                </div>
+                <div className="d-flex justify-content-center">
+                    <button type="button" className="btn btn-primary m-2" data-bs-whatever="@mdo" >
+                    <i className="fa-regular fa-pen-to-square"></i> &ensp; Editar
+                    </button>
+                    <button type="button" className="btn btn-danger m-2" data-bs-whatever="@mdo" >
+                        <i className="fa-regular fa-trash-can"></i> &ensp; Eliminar
+                    </button>
                 </div>
             </form>
-
+{/* FIN DEL FORMULARIO DE LA INFORMACION DEL ALMACEN */}
             {/* TABLA DE MOSTRAR PRODUCTOS CARGADOE EN EL INVENTARIO */}
             <table className="tableStock table table-responsive table-hover animate__animated animate__fadeInDown">
                 <thead className="">
@@ -115,7 +123,7 @@ export const Almacen = () => {
                             Object.keys(store.almacen).map((itemId, index) => {
                                 const item = store.almacen[itemId];
                                 return (
-                                        <tr key={index}>
+                                    <tr key={index}>
                                         <td>{item.name_Stock}</td>
                                         <td>{item.address}</td>
                                         <td>{item.rif}</td>

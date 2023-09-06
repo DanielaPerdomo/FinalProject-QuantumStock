@@ -1,14 +1,8 @@
 """empty message
 
-<<<<<<<< HEAD:migrations/versions/c92a3e99a002_.py
-Revision ID: c92a3e99a002
+Revision ID: b7342750757a
 Revises: 
-Create Date: 2023-09-05 23:27:23.009842
-========
-Revision ID: fda76a9f3729
-Revises: 
-Create Date: 2023-09-06 01:34:02.911416
->>>>>>>> 81ac80dd41ea5cdf98b6d593ce3e01c06afaeb52:migrations/versions/fda76a9f3729_.py
+Create Date: 2023-09-06 17:26:32.157417
 
 """
 from alembic import op
@@ -16,11 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-<<<<<<<< HEAD:migrations/versions/c92a3e99a002_.py
-revision = 'c92a3e99a002'
-========
-revision = 'fda76a9f3729'
->>>>>>>> 81ac80dd41ea5cdf98b6d593ce3e01c06afaeb52:migrations/versions/fda76a9f3729_.py
+revision = 'b7342750757a'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -83,6 +73,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('client_id', sa.Integer(), nullable=True),
     sa.Column('product_id', sa.Integer(), nullable=True),
+    sa.Column('amount', sa.Integer(), nullable=False),
     sa.Column('report_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['client_id'], ['client.id'], ),
     sa.ForeignKeyConstraint(['product_id'], ['product.id'], ),

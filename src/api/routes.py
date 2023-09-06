@@ -523,6 +523,7 @@ def create_purchase_order():
         "reporte": report.serialize()
     }), 201 
 
+
 @api.route("/buy-order", methods=["POST"])
 @jwt_required()
 def create_buy_order():
@@ -548,4 +549,22 @@ def create_buy_order():
     return jsonify({
         "message": "Se creo su orden de compra"
     }), 201
+
+
+""" @api.route("/reports", methods=["GET"])
+@jwt_required()
+def get_report():
+
+    body = request.json 
+    existing_email_client = body["email_client"]
+    existing_client = Client.query.filter_by(email_client=existing_email_client).one_or_none()
+
+    if not existing_client:
+        return jsonify({
+            "message": ""
+        })
+ """
+
+
+
     

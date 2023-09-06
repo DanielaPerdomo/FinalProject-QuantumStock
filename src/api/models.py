@@ -170,8 +170,8 @@ class Buy_order (db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "client_id":self.client_id
-            # do not serialize the password, its a security breach
+            "client_id":self.client_id,
+            "report_id": self.report_id
         }
 
 
@@ -195,6 +195,7 @@ class Report (db.Model):
         return {
             "id": self.id,
             "client_id":self.client_id,
+            "by_order": [order.serialize() for order in self.buy_order]
             
-            # do not serialize the password, its a security breach
+            #
         }

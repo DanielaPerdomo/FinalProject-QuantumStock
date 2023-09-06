@@ -3,7 +3,7 @@ import "../../styles/homeForm.css";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from 'sonner'
-import { Modal } from "./modal.jsx";
+import { Modal } from "./modalProduct.jsx";
 
 export const Products = () => {
     const { store, actions } = useContext(Context);

@@ -4,11 +4,11 @@
 
 .AddButton{
     border: none;
-    background:  blue;
+    background-color: #003ea8;
     cursor: pointer;
     color: rgb(255, 255, 255);
     padding: 10px;
-    box-shadow:rgb(117, 116, 114) 0px 13.36px 8.896px, rgb(182, 182, 182) 0px 0px 1px;
+    box-shadow:rgb(15, 15, 15) 0px 13.36px 8.896px, rgb(39, 39, 39) 0px 0px 1px;
     border-radius: 5px;
     -webkit-transition-duration: 0.2s; 
     transition-duration: 0.2s;

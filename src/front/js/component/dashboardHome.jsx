@@ -55,27 +55,9 @@ export const DashboardHome = () => {
           </div> */}
         </div>
 
+    
+        
         {/*  CARD 3 */}
-        <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "minWidth": "5rem" }}>
-
-          <div className="card-header text-white">
-            <i className="fa-solid fa-people-carry-box fa-fade"></i>
-            &ensp;Proveedores
-          </div>
-
-          <div className="card-body text-white">
-            <p>3</p>
-            <p>3</p>
-            <p>3</p>
-            <p>3</p>
-          </div>
-
-          {/* <div className="card-footer">
-            Pie de tarjeta
-          </div> */}
-        </div>
-
-        {/*  CARD 4 */}
         <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "minWidth": "5rem" }}>
 
           <div className="card-header text-white">

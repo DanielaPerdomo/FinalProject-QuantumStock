@@ -47,7 +47,7 @@ export const ModalStock = ({ handleInfo, handleUpdate, data, id, resetForm = () 
                                 onChange={handleInfo} />
                         </div>
                         <div className="modal-footer">
-                            <button type="button" onClick={resetForm} className=" btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" onClick={resetForm} className=" btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                             <button type="submit" className=" btn btn-primary">Guardar</button>
                         </div>
 

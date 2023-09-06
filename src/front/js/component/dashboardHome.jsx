@@ -15,7 +15,7 @@ export const DashboardHome = () => {
         <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "minWidth": "5rem" }}>
 
           <div className="card-header text-white">
-          <i className="fa-solid fa-warehouse fa-fade"></i>
+            <i className="fa-solid fa-warehouse fa-fade"></i>
             &ensp; Almacen
           </div>
 
@@ -32,48 +32,17 @@ export const DashboardHome = () => {
         <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "minWidth": "5rem" }}>
 
           <div className="card-header text-white">
-          <i className="fa-brands fa-product-hunt fa-fade"></i>
+            <i className="fa-brands fa-product-hunt fa-fade"></i>
             &ensp;Productos
           </div>
-
-          <div className="card-body  text-white bg-transparent">
-          <table className="bg-transparent">
-                <thead>
-                    <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Descripción</th>
-                        <th scope="col">Stock</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Fecha de Ingreso</th>
-                        
-                    </tr>
-                </thead>
-
-                <tbody className="table-group-divider">
-
-                    {store.product.map((item, index) => {
-                        return (
-
-                            <tr key={index}>
-                                <td>{item.product_name}</td>
-                                <td>{item.description}</td>
-                                <td>{item.item}</td>
-                                <td>{item.price}</td>
-                                <td>{item.admission_date}</td>
-                                <td>
-                                    
-                                </td>
-                            </tr>
-
-                        )
-                    })
-                    }
-                </tbody>
-            </table>
-
+          <div className="card-body text-white">
+            <p>Nombre: {}</p>
+            <p>Direccion: {}</p>
+            <p>RIF: {}</p>
+          
           </div>
 
-    
+
           {/* <div className="card-footer">
             Pie de tarjeta
           </div> */}
@@ -103,15 +72,15 @@ export const DashboardHome = () => {
         <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "minWidth": "5rem" }}>
 
           <div className="card-header text-white">
-            <i className="fa-solid fa-person-circle-check"></i>
+            <i className="fa-solid fa-person-circle-check fa-fade"></i>
             &ensp;Clientes
           </div>
 
           <div className="card-body text-white">
-            <p>4</p>
-            <p>4</p>
-            <p>4</p>
-            <p>4</p>
+            <p>Total de Clientes Cargados:</p>
+            <p>{}</p>
+            {/* <p>4</p>
+            <p>4</p> */}
           </div>
 
           {/* <div className="card-footer">

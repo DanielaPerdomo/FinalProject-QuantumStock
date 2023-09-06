@@ -7,7 +7,7 @@ import { Modal } from "./modal.jsx";
 
 export const Products = () => {
     const { store, actions } = useContext(Context);
-    
+
     const [products, setProducts] = useState({
         product_name: "",
         description: "",
@@ -93,11 +93,12 @@ export const Products = () => {
                                 <li className="list-group-item">{item.admission_date}</li>
                             </ul>
                         )
-                    }) 
-                    }    
+                    })
+                    }
                 </div>
                 <div className="card-footer bg-transparent border-success">
-                    <button type="button" className="btn btn-outline-primary m-2" onClick={(event) => {setProducts(prev => ({
+                    <button type="button" className="btn btn-outline-primary m-2" onClick={(event) => {
+                        setProducts(prev => ({
                             product_name: item.product_name,
                             description: item.description,
                             item: item.item,
@@ -121,9 +122,12 @@ export const Products = () => {
 
             {/* MODAL PARA AGREGAR PRODUCTOS */}
             <div>
-                <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#createProduct" data-bs-whatever="@mdo">
-                    <i className="fa-regular fa-square-plus"></i>
-                </button>
+                <div className="container-fluid d-flex justify-content-center">
+                    <button type="button" className="btn btn-outline-primary AddButton m-2" data-bs-toggle="modal" data-bs-target="#createProduct" data-bs-whatever="@mdo">
+                        <i className="fa-solid fa-square-plus"></i>&ensp;Crear nuevo producto
+                    </button>
+                </div>
+
             </div>
 
             <Modal

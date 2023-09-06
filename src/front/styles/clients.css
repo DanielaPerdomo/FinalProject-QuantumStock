@@ -18,9 +18,8 @@
 
 .MySwiper{
   background-color: none;
-  
   margin-left: 2rem;
-  margin-right: 5rem;
+  margin-right: 15rem;
 
 }
 
@@ -35,13 +34,14 @@
 
 
 .myCard{
-  color: #000000;
+  color: #ffffff;
   max-width: 18rem;
-  backdrop-filter: blur(16px) saturate(124%);
-  -webkit-backdrop-filter: blur(16px) saturate(124%);
+  backdrop-filter: blur(0) saturate(124%);
+  -webkit-backdrop-filter: blur(0) saturate(124%);
   background-color: rgba(0, 0, 0, 0.73);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.125);
+  margin: 0.10rem;
 }
 
 .logo-user{

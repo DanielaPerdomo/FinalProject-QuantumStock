@@ -111,7 +111,7 @@ export const Almacen = () => {
             {/* MODAL PARA AGREGAR ALMACEN*/}
             <div className="container-fluid d-flex justify-content-center">
                 <button type="button" className="btn btn-outline-primary AddButton m-2" data-bs-toggle="modal" data-bs-target="#creat_stock" data-bs-whatever="@mdo">
-                    Crear nuevo Almacen
+                <i className="fa-solid fa-square-plus"></i>&ensp;Crear nuevo almacen
                 </button>
             </div>
 

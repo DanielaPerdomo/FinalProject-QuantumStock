@@ -531,6 +531,7 @@ def create_buy_order():
     body = request.json
 
     buy_order = Buy_order(
+        client_id = body.get("client_id"),
         product_id = body.get("product_id"),
         amount = body.get("amount"),
         report_id = body.get("report_id")
@@ -551,20 +552,34 @@ def create_buy_order():
     }), 201
 
 
-""" @api.route("/reports", methods=["GET"])
+@api.route("/reports", methods=["GET"])
 @jwt_required()
 def get_report():
 
-    body = request.json 
-    existing_email_client = body["email_client"]
-    existing_client = Client.query.filter_by(email_client=existing_email_client).one_or_none()
+    reports = Report.query.all()
 
-    if not existing_client:
+    if not reports:
         return jsonify({
-            "message": ""
-        })
- """
+            "message": "no report"
+        }), 400
+    
+    list_of_report = [report.serialize() for report in reports]
 
+    return jsonify(list_of_report), 200
 
+@api.route("/buy_orders", methods=["GET"])
+@jwt_required()
+def get_buy_orders():
+
+    buy_orders = Buy_order.query.all()
+
+    if not buy_orders:
+        return jsonify({
+            "message": "no purchase orders"
+        }), 400
+    
+    list_buy_orders = [buy_orders.serialize() for buy_orders in buy_orders]
+
+    return jsonify(list_buy_orders), 201
 
     

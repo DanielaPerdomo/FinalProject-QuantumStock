@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import "../../styles/homeForm.css";
+import "../../styles/dashboardPage.css";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from 'sonner'

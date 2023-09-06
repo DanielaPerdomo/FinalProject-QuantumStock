@@ -7,12 +7,6 @@
     height: 100%;
     background-size: cover;
 } 
-/* .prueba2>*{
-    flex-shrink: 0;
-    padding-right: 0;
-    padding-left: 0;
-} */
-
 .fondo{
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);

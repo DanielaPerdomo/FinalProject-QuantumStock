@@ -143,9 +143,9 @@ export const Clients = () => {
       {/* INICIO MODAL NUEVO CLIENTE */}
       <div className="container-fluid d-flex justify-content-center">
         <button type="button" className="btn btn-outline-primary AddButton m-2" data-bs-toggle="modal" data-bs-target="#createClient" data-bs-whatever="@mdo">
-        <i className="fa-solid fa-square-plus"></i>&ensp;Crear nuevo cliente
+          <i className="fa-solid fa-square-plus"></i>&ensp;Crear nuevo cliente
         </button>
-        </div>
+      </div>
 
       <ModalClient
         id={"createClient"}

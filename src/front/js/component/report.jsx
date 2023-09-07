@@ -1,17 +1,60 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
-
+import { toast, Toaster } from "sonner";
 
 
 
 export const Report = ({ dataReport }) => {
     const { store, actions } = useContext(Context)
     const [buyOrder, setBuyOrder] = useState({ product_id: "", amount: "" })
+
+    async function createBuyOrder(event) {
+        event.preventDefault();
+
+        try {
+            const opts = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    authorization: `Bearer ${store.token}`
+                },
+                body: JSON.stringify({
+                    ...buyOrder,
+                    client_id: dataReport.id,
+                    report_id: dataReport.report.id
+                })
+
+            };
+
+            const resp = await fetch(process.env.BACKEND_URL + "api/buy-order", opts);
+            if (resp.ok) {
+                /* resetForm(); */
+                // actions.getReport()
+                /* console.log("soy exitiso creando la orden") */
+                toast.success('Orden de compra creada exitosamente')
+                const body = await resp.json()
+                /* setShowReport((prev) => {
+                    return {
+                        ...prev,
+                        report: body.reporte
+                    }
+                }); */
+
+            } else {
+                return toast.error("La orden de compra no pudo crearse")
+            }
+        } catch (error) {
+
+            console.error("There was an Error!!!", error);
+        };
+    };
+
+
     return (
-        <form >
+        <form onSubmit={createBuyOrder}>
             <select
                 value={buyOrder.product_id}
-                class="form-select"
+                className="form-select"
                 aria-label="Default select example"
                 onChange={(event) => {
                     setBuyOrder((prev) => {
@@ -32,13 +75,27 @@ export const Report = ({ dataReport }) => {
 
                 })}
             </select>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <div className="mb-3">
+                <label htmlFor="amout" className="form-label text-white">Cantidad de productos</label>
+                <input
+                    value={buyOrder.amount}
+                    onChange={(event) => {
+                        setBuyOrder((prev) => {
+                            return {
+                                ...prev,
+                                amount: event.target.value
+                            }
+                        }
+                        )
+                    }}
+                    type="number"
+                    className="form-control"
+                    id="amout"
+                    aria-describedby="emailHelp"
+                />
             </div>
 
-            <button type="submit" class="btn btn-primary">Agregar al reporte</button>
+            <button type="submit" className="btn btn-primary">Agregar al reporte</button>
         </form>
     )
 

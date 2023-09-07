@@ -198,8 +198,9 @@ class Report (db.Model):
         return f'<Report {self.id}>'
 
     def serialize(self):
+        print(self.buy_order)
         return {
             "id": self.id,
             "client_id":self.client_id,
-            "by_order": [order.serialize() for order in self.buy_order]
+            "buy_order": [order.serialize() for order in self.buy_order]
         }

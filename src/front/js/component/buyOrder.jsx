@@ -152,7 +152,9 @@ export const BuyOrder = () => {
                                             </button>
                                         </div>
                                     ) : (
-                                        <Report dataReport={showReport} />
+                                        <div className="col-10">
+                                            <Report dataReport={showReport} />
+                                        </div>
                                     )
                             }
                         </div>

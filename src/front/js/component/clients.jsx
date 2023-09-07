@@ -3,7 +3,7 @@ import { ModalClient } from "./modalClient.jsx";
 import { Context } from "../store/appContext";
 import { Toaster, toast } from 'sonner'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 
 import "../../styles/clients.css"
 import { Card } from "./prueba.jsx";
@@ -83,7 +83,8 @@ export const Clients = () => {
       </div>
 
       <Swiper className="container MySwiper mt-2 mb-1"
-        modules={[Navigation]} navigation={true}
+        slidesPerView={3}
+        spaceBetween={30}
 
       >
 

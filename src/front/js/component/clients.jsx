@@ -3,16 +3,13 @@ import { ModalClient } from "./modalClient.jsx";
 import { Context } from "../store/appContext";
 import { Toaster, toast } from 'sonner'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-
+import { EffectCoverflow, Pagination } from 'swiper/modules';
 import "../../styles/clients.css"
 import { Card } from "./prueba.jsx";
 
 
 export const Clients = () => {
   const { store, actions } = useContext(Context);
-  const [swiperRef, setSwiperRef] = useState(null);
-
   const [client, setClient] = useState({
     name_client: "",
     email_client: "",
@@ -83,9 +80,19 @@ export const Clients = () => {
       </div>
 
       <Swiper className="container MySwiper mt-2 mb-1"
-        slidesPerView={3}
-        spaceBetween={30}
+        effect={'coverflow'}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={'auto'}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
 
+        modules={[EffectCoverflow]}
       >
 
         {store.cliente.map((item, index) => {
@@ -143,7 +150,7 @@ export const Clients = () => {
 
       {/* INICIO MODAL NUEVO CLIENTE */}
       <div className="container-fluid d-flex justify-content-center">
-        <button type="button" className="btn btn-outline-primary AddButton m-2" data-bs-toggle="modal" data-bs-target="#createClient" data-bs-whatever="@mdo">
+        <button type="button" className="btn btn-outline-primary AddButton m-2 mt-4" data-bs-toggle="modal" data-bs-target="#createClient" data-bs-whatever="@mdo">
           <i className="fa-solid fa-square-plus"></i>&ensp;Crear nuevo cliente
         </button>
       </div>

@@ -8,10 +8,9 @@ export const ModalClient = ({ handleInfo, handleUpdate, data, id, resetForm = ()
     const sendForm = (event) => {
         event.preventDefault()
         console.log("ejecutado")
-        
+
         if (data.id != undefined) {
             handleUpdate(data)
-            toast.success('Se actualizo exitosamente')
             /* resetForm() */
             return
         }
@@ -29,7 +28,7 @@ export const ModalClient = ({ handleInfo, handleUpdate, data, id, resetForm = ()
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h1 className="modal-title text-dark fs-5" id={id + `Label`}><i className="fa-solid fa-person-circle-check fa-fade"></i> &ensp; Datos del Cliente {data.id}</h1>
+                            <h1 className="modal-title text-dark fs-5" id={id + `Label`}><i className="fa-solid fa-person-circle-check fa-fade"></i> &ensp; Datos del Cliente</h1>
                             <button type="button" onClick={resetForm} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">

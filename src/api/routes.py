@@ -514,6 +514,7 @@ def create_purchase_order():
         }), 400
 
     report = Report(
+        user_id = user_id,
         client_id = existing_client.id
     )
 
@@ -565,8 +566,8 @@ def create_buy_order():
 @api.route("/reports", methods=["GET"])
 @jwt_required()
 def get_report():
-
-    reports = Report.query.all()
+    user_id = get_jwt_identity()
+    reports = Report.query.filter_by(user_id=user_id).all()
 
     if not reports:
         return jsonify({

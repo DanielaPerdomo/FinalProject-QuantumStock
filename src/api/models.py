@@ -22,6 +22,8 @@ class User(db.Model):
 
     client = db.relationship("Client", back_populates="user")
 
+    report = db.relationship("Report", back_populates="user")
+
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -177,10 +179,12 @@ class Buy_order (db.Model):
         }
 
 
-
 class Report (db.Model):
     __tablename__ = 'report'
     id = db.Column(db.Integer, primary_key=True)
+
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    user = db.relationship("User", back_populates="report")
 
     # Relación con orden de compra
     client_id = db.Column(db.Integer, db.ForeignKey("client.id"))

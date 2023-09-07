@@ -569,10 +569,10 @@ def get_report():
     user_id = get_jwt_identity()
     reports = Report.query.filter_by(user_id=user_id).all()
 
-    if not reports:
+    """     if not reports:
         return jsonify({
             "message": "no report"
-        }), 400
+        }), 400 """
     
     list_of_report = [report.serialize() for report in reports]
 
@@ -594,3 +594,26 @@ def get_buy_orders():
     return jsonify(list_buy_orders), 201
 
     
+@api.route("/delete/report/<int:report_id>", methods=["DELETE"])
+def delete_report(report_id):
+
+    existing_report = Report.query.get(report_id)
+
+    if not existing_report:
+        return jsonify({
+            "message": "this report does not exist"
+        }), 400
+    
+    try:
+        db.session.delete(existing_report)
+        db.session.commit()
+    except Exception as error:
+        db.session.rollback()
+        return jsonify({
+            "message": "Failed to delete report",
+            "error": error.args
+        }), 400
+    
+    return jsonify({
+        "message": "The report has been deleted"
+    }), 200

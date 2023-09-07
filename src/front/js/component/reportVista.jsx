@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
+import { toast, Toaster } from "sonner";
 
 export const ReportVista = () => {
     const [report, setReport] = useState([])
@@ -27,6 +28,25 @@ export const ReportVista = () => {
         }
     }
 
+    const deleteReport = async (report_id) => {
+        try {
+            const response = await fetch(process.env.BACKEND_URL + `api/delete/report/${report_id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify()
+            })
+
+            if (response.ok) {
+                getReport()
+                toast.success("Se elimino el reporte")
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
         getReport()
     }, [])
@@ -34,7 +54,7 @@ export const ReportVista = () => {
     return (
         <>
             <div >
-
+                <Toaster position="top-right" richColors />
                 <h1 className="text-light mb-2"><i className="fa-regular fa-folder-open"></i><span className="m-3">Reportes</span></h1>
             </div>
 
@@ -65,14 +85,22 @@ export const ReportVista = () => {
                                 </div>
 
                                 <div className="user-info  mt-3 d-block align-items-start">
-                                <span className="d-flex">Email : &ensp;<span className="text-secondary">{item.client_email}</span></span><br />
+                                    <span className="d-flex">Email : &ensp;<span className="text-secondary">{item.client_email}</span></span><br />
                                     <span className="d-flex">&ensp;Descripcion: &ensp; <span className="text-secondary">{item.buy_order[0].product.description}</span></span><br />
-                                    
+
                                     <span className="d-flex">&ensp;Cantidad: &ensp;<span className="text-secondary">{item.buy_order[0].amount}</span></span><br />
                                     <span className="d-flex">&ensp;Nombre : &ensp;<span className="text-secondary">{item.buy_order[0].product.product_name}</span></span><br />
                                     <span className="d-flex">&ensp;Precio : &ensp;<span className="text-secondary">{item.buy_order[0].product.price}</span></span><br />
                                 </div>
+                            </div>
+                            <div className="d-flex justify-content-center p-1">
+                                <button type="button" className="btn btn-danger m-2"
+                                    onClick={() => {
+                                        deleteReport(item.id)
+                                    }}
+                                ><i className="fa-regular fa-trash-can">
 
+                                    </i>&ensp;Eliminar</button>
                             </div>
 
                         </SwiperSlide>
@@ -80,34 +108,7 @@ export const ReportVista = () => {
                 })
                 }
 
-            </Swiper>
-
-            {/* <div className="card container-fluid d-flex justify-content-center" style={{ "maxWidth": "18rem" }} >
-                <ul className="list-group list-group-flush">
-                    {report.map((item, index) => {
-                        console.log(item)
-                        return (
-                            <>
-
-                                <li key={index} className="list-group-item"> Email del cliente: {item.client_email}</li>
-                                <li key={index} className="list-group-item">cantidad: {item.buy_order[0].amount}</li>
-                                <li key={index} className="list-group-item">Nombre del producto: {item.buy_order[0].product.product_name}</li>
-                                <li key={index} className="list-group-item">Precio del producto: {item.buy_order[0].product.price}</li>
-                                <li key={index} className="list-group-item">Descripción del producto: {item.buy_order[0].product.description}</li>
-                                <li key={index} className="list-group-item">Nombre del cliente: {item.name_client}</li>
-
-                            </>
-
-                        )
-
-                    })
-
-
-                    }
-
-                </ul>
-            </div > */}
-
+            </Swiper >
 
         </>
 

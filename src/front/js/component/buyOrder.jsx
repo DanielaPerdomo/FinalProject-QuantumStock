@@ -116,7 +116,7 @@ export const BuyOrder = () => {
         <>
             <div >
                 <Toaster position="top-right" richColors />
-                <h1 className="text-light mb-2"><i className="fa-solid fa-person-circle-check"></i><span className="m-3">Crear reportes</span></h1>
+                <h1 className="text-light mb-2"><i className="fa-solid fa-folder"></i><span className="m-3">Crear reportes</span></h1>
             </div>
             {showReport === undefined
                 ? (
@@ -127,7 +127,7 @@ export const BuyOrder = () => {
                             <form onSubmit={createBusqueda}>
                                 <div className="input-group mb-3">
 
-                                    <input type="text" className="form-control" placeholder="email" aria-label="Recipient's username" aria-describedby="button-addon2"
+                                    <input type="text" className="form-control" placeholder="cliente@dominio.com" aria-label="Recipient's username" aria-describedby="button-addon2"
                                         required value={report.email_client} name="email_client"
                                         onChange={handleInfo}
                                     />

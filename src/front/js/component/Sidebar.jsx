@@ -36,8 +36,9 @@ export const Sidebar = ({ onAlmacenClick, onProduckClick, onHomeClick, onClientC
                         <div className="Sidebar-options fs-6" onClick={onProduckClick} ><button type="button" className="Sidebar-button"  ><i className="fa-brands fa-product-hunt"></i><span className="m-3">Productos</span></button></div>
                         <div className="Sidebar-options fs-6" onClick={onClientClick}><button type="button" className="Sidebar-button"><i className="fa-solid fa-person-circle-check"></i><span className="m-3">Clientes</span></button></div>
                         {/* <div className="Sidebar-options fs-6"><button type="button" className="Sidebar-button"><i className="fa-solid fa-people-carry-box"></i><span className="m-3">Proveedores</span></button></div> */}
-                        <div className="Sidebar-options fs-6" onClick={onReportClick}><button type="button" className="Sidebar-button"><i className="fa-regular fa-folder-open"></i><span className="m-3">Reportes</span></button></div>
                         <div className="Sidebar-options fs-6" onClick={onOrderClick}><button type="button" className="Sidebar-button"><i className="fa-solid fa-file-circle-plus"></i><span className="m-3">Crear Reporte</span></button></div>
+                        <div className="Sidebar-options fs-6" onClick={onReportClick}><button type="button" className="Sidebar-button"><i className="fa-regular fa-folder-open"></i><span className="m-3">Reportes</span></button></div>
+                        
                     </div>
 
                     <div className="Sidebar-footer  p-2">

@@ -2,17 +2,28 @@ import React from "react";
 import "../../styles/aboutUs.css";
 import { Link } from "react-router-dom";
 import homeImageUrl from "../../img/HomeTechnology.jpg";
+import Logo from "../../img/LogoQuantumStock.png";
+import Samuel from "../../img/Samuel_Herrera.png";
+import Daniela from "../../img/Daniela_Perdomo.png";
+import Miguel from "../../img/Miguel_Ojeda.png";
+import HTML from "../../img/LogoHTML.png";
+import CSS from "../../img/LogoCSS.png";
+import JAVASCRIPT from "../../img/LogoJS.png";
+import REACT from "../../img/LogoReact.png";
+import PYTHON from "../../img/LogoPYTHON.png";
+import FLASK from "../../img/Logoflask.png";
+import NODE from "../../img/LogoNodejs.png";
 
 export const AboutUs = () => {
 
 	return (
 		<div className="bodyWelcome vh-100 m-0 p-0 w-100">
 			<div>
+				{/* INICIO DEL NAVBAR */}
 				<div className="navbarDashboard">
-
 					<nav className="navbar navbar-expand-lg ">
 						<div className="container-fluid">
-
+							<img src={Logo} alt="Logo" width="50" height="50" className="d-inline-block align-text-top" />
 							<span className="navbar-brand mb-0 h1 text-light">
 								<strong> QuantumStock</strong>
 							</span>
@@ -32,58 +43,137 @@ export const AboutUs = () => {
 									</li>
 								</ul>
 							</div>
+
+							<div>
+								<span><i className="redIcon fa-brands fa-instagram" width="50" height="50"></i></span>
+								<span><i className="redIcon fa-brands fa-x-twitter" width="50" height="50"></i></span>
+								<span><i className="redIcon fa-brands fa-twitter" width="50" height="50"></i></span>
+								<span><i className="redIcon fa-brands fa-facebook" width="50" height="50"></i></span>
+								<span><i className="redIcon fa-brands fa-linkedin-in" width="50" height="50"></i></span>
+								<span><i className="redIcon fa-brands fa-tiktok" width="50" height="50"></i></span>
+							</div>
+
 						</div>
 					</nav>
 				</div>
+				{/* FIN DEL NAVBAR */}
 
-				<div className="sectionOne bodycontainer container-fluid">
-					<div className="textSide">
-						<h3>Bienvenidos a QuantumStock!</h3>
-						<p>Somos líderes en innovación tecnológica y desarrollo web. Fundada con la pasión por crear soluciones digitales de vanguardia, nuestra empresa se destaca por la creación de plataformas web modernas, intuitivas y altamente funcionales.</p>
-					</div>
-					<div className="imageSide">
-						<img className="homeImage" src={homeImageUrl} />
-					</div>
-				</div>
-				<div className="sectionTwo bodycontainer container-fluid">
-					<div className="imageSide">
-						<img className="homeImage" src={homeImageUrl} />
-					</div>
-					<div className="textSide">
-						<h3>Nuestra Misión</h3>
-						<p>Nuestra misión en QuantumStock es simplificar la gestión de inventarios y permitir que las empresas optimicen sus operaciones. Creemos que cada empresa, independientemente de su tamaño, merece tener acceso a herramientas poderosas y fáciles de usar que les ayuden a maximizar su eficiencia y rentabilidad.</p>
+				{/* INICIO DEL SIDEBAR */}
+
+				<div className="miniSidebar container"  data-bs-backdrop="static">
+					<div className="row">
+						<div className="col d-flex align-items-start flex-column">
+
+							<div className="miniSidebarBody">
+								<div className="miniSidebarOptions fs-6"><button type="button" className="miniSidebarButton"><i className="miniIcon fa-solid fa-house"></i></button></div>
+								<div className="miniSidebarOptions fs-6"><button type="button" className="miniSidebarButton"><i className="miniIcon fa-solid fa-handshake"></i></button></div>
+								<div className="miniSidebarOptions fs-6"><button type="button" className="miniSidebarButton"><i className="miniIcon fa-solid fa-chart-line"></i></button></div>
+								<div className="miniSidebarOptions fs-6"><button type="button" className="miniSidebarButton"><i className="miniIcon fa-solid fa-laptop-code"></i></button></div>
+								<div className="miniSidebarOptions fs-6"><button type="button" className="miniSidebarButton"><i className="miniIcon fa-solid fa-users"></i></button></div>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div className="sectionThree bodycontainer container-fluid">
-					<div className="textSide">
-						<h3>Nuestra Tecnología</h3>
-						<h3>Frontend: React y JavaScript</h3>
-						<p>Nuestro equipo de desarrollo frontend utiliza React, una de las bibliotecas más populares y poderosas para construir interfaces de usuario interactivas y dinámicas. React nos permite crear componentes reutilizables que agilizan el proceso de desarrollo y aseguran la coherencia en toda la aplicación. Además, el uso de JavaScript como lenguaje principal nos permite brindar experiencias de usuario fluidas y atractivas.</p>
-					</div>
-					<div className="imageSide">
+
+				{/* FIN DEL SIDEBAR */}
+
+				{/* INICIO DEL SECCION-1 BIENVENIDO */}
+				<section className="section1">
+
+					<div className="sectionImage1">
 						<img className="homeImage" src={homeImageUrl} />
 					</div>
-				</div>
-				<div className="sectionFour bodycontainer container-fluid">
-					<div className="imageSide">
-						<img className="homeImage" src={homeImageUrl} />
+					<div className="sectionText1">
+						<span className="tittleSection1">
+							Bienvenidos a QuantumStock!</span>
+						<br />
+						<span className="tittleParagraph">Somos líderes en innovación tecnológica y desarrollo web.</span>
 					</div>
-					<div className="textSide">
-						<h3>Backend</h3>
-						<h3>Python y SQLAlchemy</h3>
-						<p>En la capa de backend, confiamos en Python, un lenguaje versátil y eficiente, para desarrollar la lógica empresarial que impulsa nuestras aplicaciones. Para la gestión de bases de datos, hemos adoptado SQLAlchemy, una herramienta poderosa que facilita la interacción con diversas bases de datos relacionales de manera eficiente y segura. Esta combinación nos permite crear sistemas robustos y escalables.</p>
+
+				</section>
+				{/* FIN DEL SECCION-1 BIENVENIDO */}
+
+				{/* INICIO DEL SECCION-2 SOLUCION */}
+				<section className="section2">
+
+					<div className="sectionText2">
+						<span className="tittleSection2">¿Por qué QuantumStock?</span>
+						<p className="tittleParagraph2">- Seguimiento en tiempo real</p>
+						<p className="tittleParagraph2">- Gestión de existencias</p>
+						<p className="tittleParagraph2">- Optimización de espacio</p>
+						<p className="tittleParagraph2">- Integración con proveedores y clientes</p>
+						<p className="tittleParagraph2">- Seguridad y control de acceso</p>
 					</div>
-				</div>
-				<div className="sectionFive bodycontainer container-fluid">
-					<div className="textSide">
-						<h3>Autenticación</h3>
-						<h3>JWT (JSON Web Tokens)</h3>
-						<p>La seguridad es una prioridad en cada proyecto que emprendemos. Para garantizar la autenticación y autorización seguras de los usuarios, implementamos JSON Web Tokens (JWT). Esta tecnología nos permite generar tokens cifrados que se utilizan para autenticar a los usuarios y garantizar que solo aquellos con los permisos adecuados accedan a las áreas restringidas de la plataforma.</p>
+					<div className="sectionText1">
+						<span className="tittleSection1">Objetivo Principal</span>
+						<p className="tittleParagraph1">Nuestro objetivo principal es gestionar eficientemente los niveles de existencias de una empresa, garantizando que se disponga de la cantidad adecuada de productos en el momento adecuado y evitando tanto el sobrestock como el subestock. Adicionalmente, buscamos proporcionar una visibilidad en tiempo real de los activos de inventario, optimizando el uso del espacio de almacenamiento y permitiendo la toma de decisiones informadas sobre compras, producción y distribución.</p>
+
 					</div>
-					<div className="imageSide">
-						<img className="homeImage" src={homeImageUrl} />
+					<div className="sectionImage2">
+						<img className="imageSection2" src="https://sinovencargo.com/wp-content/uploads/2022/03/foto-5.jpg" />
 					</div>
-				</div>
+				</section>
+				{/* FIN DEL SECCION-2 SOLUCION */}
+
+
+				{/* INICIO DEL SECCION-4  TECNOLOGIA */}
+				<section className="section4">
+					<h1>Nuestra Tecnologia</h1>
+					<div className="techSection">
+						<div className="sectionText4">
+							
+							<img className="imageHtml" src={HTML} />
+							<img className="imageCss" src={CSS} />
+							<img className="imageJs" src={JAVASCRIPT} />
+							<img className="imageReact" src={REACT} />
+							<img className="imageNode" src={NODE} />
+						</div>
+						<div className="sectionText4">
+							
+							<img className="imagePython" src={PYTHON} />
+							<img className="imageFlask" src={FLASK} />
+							<img className="imageJWT" src="https://jwt.io/img/logo-asset.svg" />
+						</div>
+					</div>
+				</section>
+				{/* FIN DEL SECCION-4 TECNOLOGIA */}
+
+				{/* INICIO DEL SECCION-5 NOSOTROS */}
+				<section className="section5">
+					<div className="tittleSection5">
+						<h1>Equipo de Trabajo</h1>
+					</div>
+					<div className="workTeam">
+						<div className="workCard" style={{ "width": "18rem" }}>
+							<img src={Samuel} className="card-img-top" alt="Samuel Herrera" />
+							<div className="workbody">
+								<span className="workName">Samuel Herrera</span><br />
+								<span className="card-text-5">Full-Stack Developer</span><br />
+								<span className="card-text-5">Analista de Sistema</span>
+							</div>
+						</div>
+						<div className="workCard" style={{ "width": "18rem" }}>
+							<img src={Daniela} className="card-img-top" alt="Daniela Perdomo" />
+							<div className="workbody">
+								<span className="workName">Daniela Perdomo</span><br />
+								<span className="card-text-5">Full-Stack Developer</span><br />
+								<span className="card-text-5">Ing. Administracion de Obras</span>
+							</div>
+						</div>
+						<div className="workCard" style={{ "width": "18rem" }}>
+							<img src={Miguel} className="card-img-top" alt="Miguel Ojeda" />
+							<div className="workbody">
+								<span className="workName">Miguel Ojeda</span><br />
+								<span className="card-text-5">Full-Stack Developer</span><br />
+								<span className="card-text-5">
+									Téc. Lab. de electrónica y de linea de prototipado LPKF</span>
+							</div>
+						</div>
+					</div>
+				</section>
+				{/* FIN DEL SECCION-5 NOSOTROS */}
+
+
 			</div>
 		</div>
 	);

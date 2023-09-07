@@ -1,45 +1,48 @@
 .bodyWelcome{
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-image: url(https://cdn.pixabay.com/photo/2018/04/21/00/42/hexagon-3337447_1280.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    background-color: rgba(0, 0, 0, 0.85);
+    background: rgb(221,28,207);
+    background: linear-gradient(90deg, rgba(221,28,207,1) 0%, rgba(67,11,196,1) 50%, rgba(0,212,255,1) 100%);
+    
 }
-.bodycontainer{
+.section1{
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     font-family: 'Figtree', sans-serif;
     margin-top: 30px;
     width: 100%;
+    margin-right: 0;
+    height: 100%;
 }
-.textSide{
-    max-width: 100%;
-    color: rgb(10, 10, 10);
-    /* width: 50%; */
+.sectionText1{
+    max-width: 50%;
+    color: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin: 0px;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.418);
-    border-radius: 1rem;
+    padding: 3rem;
+    backdrop-filter: blur(4px) saturate(180%);
+    -webkit-backdrop-filter: blur(4px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
 }
-.imageSide{
-    max-width: 100%;
+.tittleSection1{
+    font-size: 30px;
+}
+.sectionImage1{
+    max-width: 50%;
     color: white;
-    /* width: 50%; */
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0px;
+    margin-right: 0;
 }
 .homeImage{
     max-width:40%;
@@ -51,7 +54,148 @@
 .headerHome{
     height: 10vh;
 }
-
 .buttonNav{
     border-radius: 28px;
+}
+.redIcon{
+    margin: 10px;
+    font-size: 3vh;
+    color: white;
+}  
+
+.redIcon:hover{
+    text-shadow: 0 0 20px white, 0 0 20px white;
+}
+.miniSidebar{
+    padding: 0px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25%; 
+}
+.miniIcon:hover{
+    color: blue;
+}
+
+.miniSidebarOptions{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #a7c8ff;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+.miniSidebarButton{
+    border: none;
+    background: none;
+    color: rgb(0, 0, 0);
+}
+
+.workTeam{
+    display: flex;
+    justify-content: center;
+}
+
+.section5{
+    font-family: 'Figtree', sans-serif;
+    margin-top: 30px;
+    width: 100%;
+    margin-right: 0;
+    height: 100%;
+}
+.sectionText5{
+    max-width: 50%;
+    color: rgb(10, 10, 10);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.219);
+    border-radius: 1rem;
+    padding: 3rem;
+}
+.tittleSection5{
+    font-size: 30px;
+}
+.workCard{
+    margin: 2rem;
+    padding: 2rem;
+}
+.workbody{
+    color: white;
+    text-align: center;
+}
+.card-text-5{
+    font-size: 1rem;
+}
+.workName{
+    font-size: 1.5rem;
+}
+.sectionImage5{
+    max-width: 50%;
+    color: white;
+    /* width: 50%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    margin-right: 0;
+}
+
+.techSection{
+    display: flex;
+    justify-content: center;
+}
+.imageHtml{
+    max-width: 7rem;
+    height: auto;
+    
+}
+.imageCss{
+    max-width: 7rem;
+    height: auto;
+}
+.imageJs{
+    max-width: 7rem;
+    height: auto;
+}
+.imageReact{
+    max-width: 7rem;
+    height: auto;
+}
+.imageNode{
+    max-width: 7rem;
+    height: auto;
+}
+.imagePython{
+    max-width: 7rem;
+    height: auto;
+}
+.imageFlask{
+    max-width: 7rem;
+    height: auto;
+}
+.imageJWT{
+    max-width: 7rem;
+    height: auto;
+}
+.sectionText4{
+    max-width: 50%;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem;
+    text-align: center;
+    padding: 3rem;
+    backdrop-filter: blur(4px) saturate(180%);
+    -webkit-backdrop-filter: blur(4px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
 }

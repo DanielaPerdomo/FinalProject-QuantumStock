@@ -108,7 +108,7 @@ export const Dashboard = () => {
 		actions.getProduct()
 		actions.getStock()
 		actions.getClient()
-		actions.getReport()
+		
 	}, [])
 
 	/* console.log("Esto es la info en el dashboard:", store.info); */

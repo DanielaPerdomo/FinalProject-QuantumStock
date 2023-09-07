@@ -65,11 +65,12 @@ export const ReportVista = () => {
                                 </div>
 
                                 <div className="user-info  mt-3 d-block align-items-start">
-                                    <span className="d-flex">&ensp;Descripcion del producto: &ensp; <span className="text-secondary">{item.buy_order[0].product.description}</span></span><br />
-                                    <span className="d-flex">Email del Cliente: &ensp;<span className="text-secondary">{item.client_email}</span></span><br />
+                                <span className="d-flex">Email : &ensp;<span className="text-secondary">{item.client_email}</span></span><br />
+                                    <span className="d-flex">&ensp;Descripcion: &ensp; <span className="text-secondary">{item.buy_order[0].product.description}</span></span><br />
+                                    
                                     <span className="d-flex">&ensp;Cantidad: &ensp;<span className="text-secondary">{item.buy_order[0].amount}</span></span><br />
-                                    <span className="d-flex">&ensp;Nombre del Producto: &ensp;<span className="text-secondary">{item.buy_order[0].product.product_name}</span></span><br />
-                                    <span className="d-flex">&ensp;Precio del Producto: &ensp;<span className="text-secondary">{item.buy_order[0].product.price}</span></span><br />
+                                    <span className="d-flex">&ensp;Nombre : &ensp;<span className="text-secondary">{item.buy_order[0].product.product_name}</span></span><br />
+                                    <span className="d-flex">&ensp;Precio : &ensp;<span className="text-secondary">{item.buy_order[0].product.price}</span></span><br />
                                 </div>
 
                             </div>

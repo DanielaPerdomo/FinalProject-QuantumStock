@@ -19,18 +19,34 @@ export const DashboardHome = () => {
             &ensp; Almacen
           </div>
 
-          {store.almacen.map((item, index) => {
 
-            return (
-              <div key={index} className="card-body text-white">
-                <p>Nombre: {item.name_Stock}</p>
-                <p>Direccion: {item.address}</p>
-                <p>RIF: {item.rif}</p>
-              </div>
+          <div className="card-body text-white">
+            {
+              store.almacen.length == 0 ? (
+                <p>Ningun almacen añadido</p>
 
-            )
+              ) : (
+                <p>
+                  {store.almacen.map((item, index) => {
 
-          })}
+                    return (
+                      <div key={index} className="card-body text-white">
+                        <p>Nombre: {item.name_Stock}</p>
+                        <p>Direccion: {item.address}</p>
+                        <p>RIF: {item.rif}</p>
+                      </div>
+
+                    )
+
+                  })}
+                </p>
+              )
+
+
+
+            }
+          </div>
+
 
           {/* <div className="card-footer text-white">
             Pie de tarjeta
@@ -45,14 +61,14 @@ export const DashboardHome = () => {
             &ensp;Productos
           </div>
           <div className="card-body text-white">
-         {
-          store.product.length == 0 ? (
-                           <p>Ningun producto añadido</p>
+            {
+              store.product.length == 0 ? (
+                <p>Ningun producto añadido</p>
 
-          ):(
-           <p>Total de Productos Cargados:&ensp;{store.product.length} </p>
-           )
-          }
+              ) : (
+                <p>Total de Productos Cargados:&ensp;{store.product.length} </p>
+              )
+            }
           </div>
 
 
@@ -61,8 +77,8 @@ export const DashboardHome = () => {
           </div> */}
         </div>
 
-    
-        
+
+
         {/*  CARD 3 */}
         <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "minWidth": "5rem" }}>
 
@@ -73,14 +89,14 @@ export const DashboardHome = () => {
 
           <div className="card-body text-white">
 
-          {
-          store.cliente.length == 0 ? (
-                           <p>Ningun cliente añadido</p>
+            {
+              store.cliente.length == 0 ? (
+                <p>Ningun cliente añadido</p>
 
-          ):(
-           <p>   Total de Cliente:&ensp;{store.cliente.length} </p>
-           )
-          }          
+              ) : (
+                <p>   Total de Cliente:&ensp;{store.cliente.length} </p>
+              )
+            }
           </div>
 
           {/* <div className="card-footer">

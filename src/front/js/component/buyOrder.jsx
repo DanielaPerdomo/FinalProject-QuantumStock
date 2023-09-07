@@ -88,7 +88,7 @@ export const BuyOrder = () => {
                 resetForm();
                 // actions.getReport()
                 console.log("soy exitiso creando la orden")
-                toast.success('El reporte se creo exitosamente')
+                /* toast.success('El reporte se creo exitosamente') */
                 const body = await resp.json()
                 setShowReport((prev) => {
                     return {
@@ -107,15 +107,17 @@ export const BuyOrder = () => {
     };
 
 
-    const clinetInformation = () => {
-        return console.log(showReport)
+    const handleChange = () => {
+        setShowReport(undefined)
+        toast.success("A finalizado el reporte anterior")
     }
 
     return (
         <>
-
-
-            <Toaster position="top-right" richColors />
+            <div >
+                <Toaster position="top-right" richColors />
+                <h1 className="text-light mb-2"><i className="fa-solid fa-person-circle-check"></i><span className="m-3">Crear reportes</span></h1>
+            </div>
             {showReport === undefined
                 ? (
                     <div className="row d-flex justify-content-center">
@@ -147,13 +149,13 @@ export const BuyOrder = () => {
                                 showReport.report == undefined ?
                                     (
                                         <div className="col-10">
-                                            <button type="button" className="btn btn-primary m-2" onClick={createReport}>
+                                            <button type="button" className="btn btn-primary m-2 AddButton" onClick={createReport}>
                                                 <i className="fa-solid fa-square-plus"></i>&ensp;Iniciar Reporte
                                             </button>
                                         </div>
                                     ) : (
                                         <div className="col-10">
-                                            <Report dataReport={showReport} />
+                                            <Report dataReport={showReport} handleChange={handleChange} />
                                         </div>
                                     )
                             }

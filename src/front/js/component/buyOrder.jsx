@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import { Toaster, toast } from "sonner";
 import { Almacen } from "../pages/Almacen";
+import { BuyOrderModal } from "./buyOrderModal.jsx";
 
 
 
@@ -12,9 +13,17 @@ import { Almacen } from "../pages/Almacen";
 export const BuyOrder = () => {
     const { store, actions } = useContext(Context);
 
+    let reportes = ''
+
+    const [showReport, setShowReport] = useState({
+
+        reportes
+
+    })
+
     const [report, setReport] = useState({
 
-        email_client:""
+        email_client: ""
 
     })
 
@@ -35,9 +44,7 @@ export const BuyOrder = () => {
 
     async function createBusqueda(event) {
         event.preventDefault();
-        
-       
-         const reporte = {}
+
         try {
             const opts = {
                 method: "GET",
@@ -53,16 +60,17 @@ export const BuyOrder = () => {
             const resp = await fetch(process.env.BACKEND_URL + `api/clients?search=${report.email_client}`, opts);
             if (resp.ok) {
                 //resetForm();
-
                 // actions.getReport()
                 console.log("soy exitoso")
                 toast.success('Busqueda exitosa')
                 const body = await resp.json()
-                  {reporte:body}
-               console.log(reporte)
-                return 
+                reportes = body.client
+                return
             } else {
-                return toast.error("Nose encontro el cliente")
+                return (
+                    toast.error("No se encontro el cliente"),
+                    resetForm()
+                )
             }
         } catch (error) {
 
@@ -88,9 +96,9 @@ export const BuyOrder = () => {
             if (resp.ok) {
                 resetForm();
                 // actions.getReport()
-                console.log("soy exitiso")
+                console.log("soy exitiso creando la orden")
                 toast.success('El reporte se creo exitosamente')
-                
+
                 return await resp.json();
             } else {
                 return toast.error("El reporte no pudo crearse")
@@ -101,10 +109,11 @@ export const BuyOrder = () => {
         };
     };
 
+
     return (
         <>
 
-<Toaster position="top-right" richColors />
+            <Toaster position="top-right" richColors />
             <div className="row d-flex justify-content-center">
                 <div className="col-10">
 

@@ -8,7 +8,7 @@ import { Almacen } from "./Almacen.js";
 import { DashboardHome } from "../component/dashboardHome.jsx";
 import { Products } from "../component/productCards.jsx";
 import {BuyOrder}  from "../component/buyOrder.jsx";
-import {Report} from "../component/report.jsx";
+import {ReportVista} from "../component/reportVista.jsx";
 export const Dashboard = () => {
 	const navigate = useNavigate();
 	const { store, actions } = useContext(Context);
@@ -108,7 +108,7 @@ export const Dashboard = () => {
 		actions.getProduct()
 		actions.getStock()
 		actions.getClient()
-		actions.getReport()
+		
 	}, [])
 
 	/* console.log("Esto es la info en el dashboard:", store.info); */
@@ -134,7 +134,7 @@ export const Dashboard = () => {
 					{showHome && <  DashboardHome />}
 					{showClient && < Clients />}
 					{showOrder && < BuyOrder/>}
-					{showReport && <Report />}
+					{showReport && <ReportVista />}
 
 
 				</div>

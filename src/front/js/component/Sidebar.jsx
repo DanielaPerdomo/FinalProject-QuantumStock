@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 
 
-export const Sidebar = ({ onAlmacenClick, onProduckClick, onHomeClick, onClientClick,onOrderClick,onReportClick }) => {
+export const Sidebar = ({ onAlmacenClick, onProduckClick, onHomeClick, onClientClick, onOrderClick, onReportClick }) => {
     const { actions, store } = useContext(Context);
     const navigate = useNavigate();
 
@@ -36,13 +36,14 @@ export const Sidebar = ({ onAlmacenClick, onProduckClick, onHomeClick, onClientC
                         <div className="Sidebar-options fs-6" onClick={onProduckClick} ><button type="button" className="Sidebar-button"  ><i className="fa-brands fa-product-hunt"></i><span className="m-3">Productos</span></button></div>
                         <div className="Sidebar-options fs-6" onClick={onClientClick}><button type="button" className="Sidebar-button"><i className="fa-solid fa-person-circle-check"></i><span className="m-3">Clientes</span></button></div>
                         {/* <div className="Sidebar-options fs-6"><button type="button" className="Sidebar-button"><i className="fa-solid fa-people-carry-box"></i><span className="m-3">Proveedores</span></button></div> */}
-                        <div className="Sidebar-options fs-6" onClick={onReportClick}><button type="button" className="Sidebar-button"><i className="fa-regular fa-folder-open"></i><span className="m-3">Reportes</span></button></div>
                         <div className="Sidebar-options fs-6" onClick={onOrderClick}><button type="button" className="Sidebar-button"><i className="fa-solid fa-file-circle-plus"></i><span className="m-3">Crear Reporte</span></button></div>
+                        <div className="Sidebar-options fs-6" onClick={onReportClick}><button type="button" className="Sidebar-button"><i className="fa-regular fa-folder-open"></i><span className="m-3">Reportes</span></button></div>
+                        
                     </div>
 
                     <div className="Sidebar-footer  p-2">
                         {/* <div className="Sidebar-options fs-6"><button type="button" className="Sidebar-button"><i className="fa-solid fa-gears"></i><span className="m-3">Configuraciones</span></button></div> */}
-                        <div className="Sidebar-options fs-6 alo"><button type="button" className="Sidebar-button" onClick={handleLogOut}><i className="fa-solid fa-right-from-bracket"></i><span className="m-3">Cerrar session</span></button></div>
+                        <div className="Sidebar-options fs-6 alo"><button type="button" className="Sidebar-button" onClick={handleLogOut}><i className="fa-solid fa-right-from-bracket"></i><span className="m-3">Cerrar sesion</span></button></div>
                     </div>
                 </div>
             </div>

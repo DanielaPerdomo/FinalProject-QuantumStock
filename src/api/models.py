@@ -22,6 +22,8 @@ class User(db.Model):
 
     client = db.relationship("Client", back_populates="user")
 
+    report = db.relationship("Report", back_populates="user")
+
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -170,17 +172,20 @@ class Buy_order (db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "product_id": self.product_id,
+            
+            "product":self.product.serialize(),
             "amount": self.amount,
-            "client_id":self.client_id,
-            "report_id": self.report_id
+            
+            
         }
-
 
 
 class Report (db.Model):
     __tablename__ = 'report'
     id = db.Column(db.Integer, primary_key=True)
+
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    user = db.relationship("User", back_populates="report")
 
     # Relación con orden de compra
     client_id = db.Column(db.Integer, db.ForeignKey("client.id"))
@@ -194,8 +199,12 @@ class Report (db.Model):
         return f'<Report {self.id}>'
 
     def serialize(self):
+        print(self.buy_order)
         return {
             "id": self.id,
             "client_id":self.client_id,
-            "by_order": [order.serialize() for order in self.buy_order]
+            "client_email":self.client.email_client ,
+            "name_client":self.client.name_client,
+            
+            "buy_order": [order.serialize() for order in self.buy_order]
         }

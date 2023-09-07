@@ -1,35 +1,14 @@
+import React, { useContext, useState } from "react";
+import { Context } from "../store/appContext";
+import { toast, Toaster } from "sonner";
 
-import React from "react";
-import { ModalReport } from "./modalReport.jsx";
 
 
+export const Report = ({ dataReport, handleChange }) => {
+    const { store, actions } = useContext(Context)
+    const [buyOrder, setBuyOrder] = useState({ product_id: "", amount: "" })
 
-export const Report = () => {
-
-    const { store, actions } = useContext(Context);
-
-    const [report, setReport] = useState({
-
-        email_client: " "
-
-    })
-
-    const handleInfo = (event) => {
-        setReport({
-            ...report,
-            [event.target.name]: event.target.value //Fin de codigo de Jose
-        })
-    }
-    const resetForm = () => {
-        setReport({
-
-            email_client: ""
-
-        });
-
-    };
-
-    async function createReport(event) {
+    async function createBuyOrder(event) {
         event.preventDefault();
 
         try {
@@ -39,18 +18,30 @@ export const Report = () => {
                     "Content-Type": "application/json",
                     authorization: `Bearer ${store.token}`
                 },
-                body: JSON.stringify(report)
+                body: JSON.stringify({
+                    ...buyOrder,
+                    client_id: dataReport.id,
+                    report_id: dataReport.report.id
+                })
 
             };
 
-            const resp = await fetch(process.env.BACKEND_URL + "api/report", opts);
+            const resp = await fetch(process.env.BACKEND_URL + "api/buy-order", opts);
             if (resp.ok) {
-                resetForm();
-                actions.getReport()
-                toast.success('El reporte se creo exitosamente')
-                return await resp.json();
+                /* resetForm(); */
+                // actions.getReport()
+                /* console.log("soy exitiso creando la orden") */
+                toast.success('Reporte creado exitosamente')
+                const body = await resp.json()
+                /* setShowReport((prev) => {
+                    return {
+                        ...prev,
+                        report: body.reporte
+                    }
+                }); */
+
             } else {
-                return toast.error("El reporte no pudo crearse")
+                return toast.error("La orden de compra no pudo crearse")
             }
         } catch (error) {
 
@@ -60,63 +51,69 @@ export const Report = () => {
 
 
     return (
+
         <>
+            <form onSubmit={createBuyOrder}>
+                <select
+                    value={buyOrder.product_id}
+                    className="form-select"
+                    aria-label="Default select example"
+                    onChange={(event) => {
+                        setBuyOrder((prev) => {
+                            return {
+                                ...prev,
+                                product_id: event.target.value
+                            }
+
+                        }
+                        )
+                    }}
+                >
+                    <option selected>Selecciona un producto</option>
+                    {store.product.map((item, index) => {
+                        return (
+                            <option value={item.id} key={index}>{item.product_name}</option>
+                        )
+
+                    })}
+                </select>
+                <div className="mb-3">
+                    <label htmlFor="amout" className="form-label text-white">Cantidad de productos</label>
+                    <input
+                        value={buyOrder.amount}
+                        onChange={(event) => {
+                            setBuyOrder((prev) => {
+                                return {
+                                    ...prev,
+                                    amount: event.target.value
+                                }
+                            }
+                            )
+                        }}
+                        type="number"
+                        className="form-control"
+                        id="amout"
+                        aria-describedby="emailHelp"
+                    />
+                </div>
+                <div className="container">
+                    <button type="submit" className="btn btn-primary AddButton">Agregar al reporte</button>
+                    <button
+                        type="button"
+                        className="btn btn-primary m-3 AddButton"
+                        onClick={handleChange}
+                    >
+                        finalizar reporte
+                    </button>
+                </div>
+
+            </form>
 
 
-            {store.reporte.map((item, index) => {
-
-                return (
-                    <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "minWidth": "5rem" }} key={index}>
-
-                        <div className="card-header text-white">
-                            <i className="fa-brands fa-product-hunt fa-fade"></i>
-                            &ensp;{item.product_name}
-                        </div>
-
-                        <div className="card-body text-white">
-                            <span className="d-flex"><i className="fa-solid fa-circle-info"></i>&ensp;Descripcion: &ensp; <span className="text-secondary">{item.description}</span></span><br />
-                            <span className="d-flex"><i className="fa-solid fa-arrow-up-wide-short"></i>Cantidad: &ensp;<span className="text-secondary">{item.item}</span></span><br />
-                            <span className="d-flex"><i className="fa-solid fa-money-bill-wave"></i>&ensp;Precio:&ensp;<span className="text-secondary">{item.price}</span></span><br />
-                            <span className="d-flex"><i className="fa-solid fa-calendar-days"></i>&ensp;Fecha de Ingreso:&ensp;<span className="text-secondary">{item.admission_date}</span></span><br />
-                        </div>
-
-                        <div className="card-footer text-white">
-
-                            <button type="button" className="btn btn-outline-danger m-2" data-bs-whatever="@mdo"
-                            // onClick={() => {
-                            //     handleDeleteProduct(item.id)
-                            // }}
-                            >
-                                <i className="fa-regular fa-trash-can"></i>&ensp;Eliminar
-                            </button>
-                        </div>
-                    </div>
-
-                )
-            })
-            }
-
-
-
-
-
-
-            <div className="container-fluid d-flex justify-content-center">
-                <button type="button" className="btn btn-outline-primary m-2" data-bs-toggle="modal" data-bs-target="#createReport" data-bs-whatever="@mdo">
-                    <i className="fa-solid fa-square-plus"></i>&ensp;Crear Reporte
-                </button>
-            </div>
-
-
-            <ModalReport
-                id={"createReport"}
-                handleUpdate={createReport}
-                handleInfo={handleInfo}
-                data={report}
-            />
-
-            
         </>
+
     )
+
+
 
 }

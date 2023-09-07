@@ -91,8 +91,8 @@ export const Almacen = () => {
                         Object.keys(store.almacen).map((itemId, index) => {
                             const item = store.almacen[itemId];
                             return (
-                                <div className="col col-md-4 mb-4 card m-1 fondo" style={{ "maxWidth": "30rem" }}>
-                                    <div key={index}>
+                                <div className="col col-md-4 mb-4 card m-1 fondo" key={index} style={{ "maxWidth": "30rem" }}>
+                                    <div>
                                         <div className="card-header text-white">
                                             <i className="fa-solid fa-warehouse fa-fade"></i>
                                             &ensp; {item.name_Stock}

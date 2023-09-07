@@ -350,27 +350,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			getReport: async () => {
-				const store = getStore()
+			/* 			getReport: async () => {
+							const store = getStore()
+			
+							try {
+								const response = await fetch(process.env.BACKEND_URL + "api/reports", {
+									method: "GET",
+									headers: {
+										"Content-Type": "application/json",
+										Authorization: `Bearer ${store.token}`
+									},
+								})
+								if (response.ok) {
+									const body = await response.json()
+									setStore({ reporte: body })
+									
+								}
+							} catch (error) {
+								console.log(error)
+							}
+						}, */
 
-				try {
-					const response = await fetch(process.env.BACKEND_URL + "api/reports", {
-						method: "GET",
-						headers: {
-							"Content-Type": "application/json",
-							Authorization: `Bearer ${store.token}`
-						},
-					})
-					if (response.ok) {
-						const body = await response.json()
-						setStore({ reporte: body })
-						
-						/* console.log("store en el flux:", store.almacen) */
-					}
-				} catch (error) {
-					console.log(error)
-				}
-			}
 		}
 	};
 };
